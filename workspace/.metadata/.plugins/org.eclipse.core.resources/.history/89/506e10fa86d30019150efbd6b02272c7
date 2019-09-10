@@ -1,5 +1,4 @@
 scchart pacemaker {
 	input bool AS, AR, VS;
-	output bool AVI, PVARP, VRP, AEI, LRI, URI;
     initial state init;
 }
