@@ -1,4 +1,0 @@
-scchart pacemaker {
-	input bool AS, AR, VS;
-    initial state init;
-}

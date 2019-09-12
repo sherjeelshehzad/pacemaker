@@ -1,0 +1,17 @@
+scchart pacemaker {
+  input signal ASense, VSense;
+  output signal APace, VPace;
+
+  initial state main {
+
+    region AVI:
+
+    initial state idle;
+
+    region PVARP:
+
+    initial state idle;
+    
+    region 
+  };
+}

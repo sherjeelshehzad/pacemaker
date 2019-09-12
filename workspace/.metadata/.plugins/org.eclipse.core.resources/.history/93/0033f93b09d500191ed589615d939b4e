@@ -1,0 +1,8 @@
+scchart pacemaker { 
+  input signal ASense, VSense;
+  output signal APace, VPace;
+
+  state main {
+    initial state VRO_timer:
+  }
+}

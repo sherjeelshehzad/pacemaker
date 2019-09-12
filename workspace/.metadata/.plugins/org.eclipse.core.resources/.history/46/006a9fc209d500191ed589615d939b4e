@@ -1,0 +1,11 @@
+scchart DDDPacemaker {
+	input signal ASense, VSense, AVITO, PVARPTO, VRPTO, AEITO, LRITO, URITO;
+	output signal APace, VPace;
+	output signal AVI_start, PVARP_start, VRP_start, AEI_start, LRI_start, URI_start;
+	output signal AVI_stop, AEI_stop, LRI_stop;
+	
+	initial state top{
+	  	
+	};
+}
+

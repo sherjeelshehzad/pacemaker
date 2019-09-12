@@ -1,0 +1,17 @@
+scchart pacemaker {
+  input signal ASense, VSense;
+  output signal APace, VPace;
+
+  initial state main {
+
+    region triggered: // Triggered Mode when an event is detected
+
+
+    initial state idle;
+
+    region inhibited: // Inhibited Mode when an event is not detected
+
+
+    initial state idle;
+  };
+}

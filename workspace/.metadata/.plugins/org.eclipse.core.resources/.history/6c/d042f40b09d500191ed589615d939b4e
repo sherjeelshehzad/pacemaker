@@ -1,0 +1,6 @@
+scchart pacemaker { // This pacemaker is a DDD mode pacemaker
+  input signal ASense, VSense;
+  output signal APace, VPace;
+
+  initial state init;
+}
