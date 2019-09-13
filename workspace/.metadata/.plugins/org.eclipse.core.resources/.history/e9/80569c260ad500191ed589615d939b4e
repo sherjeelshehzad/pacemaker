@@ -1,9 +1,0 @@
-scchart pacemaker {
-  input signal ASense, VSense;
-  output signal APace, VPace;
-
-  initial state main {
-    // Triggered Mode when an event is detected
-    
-  };
-}

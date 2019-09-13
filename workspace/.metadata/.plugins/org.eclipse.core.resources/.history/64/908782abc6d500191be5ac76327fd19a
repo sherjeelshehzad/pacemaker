@@ -9,9 +9,8 @@ scchart pacemaker {
     region AVI:
 	
     initial state idle
-		--> AVI_on with ASense;
-	final state AVI_on --> idle with VSense;
-	//final state AVI_on;
+		--> idle with ASense;
+	final state ADone;
 	
 	/* PVARP – Post-Ventricular Atrial Refractory Period
 	The time after a ventricular event where any atrial events are ignored as Atrial
