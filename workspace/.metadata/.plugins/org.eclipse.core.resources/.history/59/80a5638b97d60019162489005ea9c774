@@ -8,17 +8,19 @@ scchart pacemaker {
 	The maximum time between an atrial event and its subsequent ventricular event */
     region AVI:
 	
-    initial state idle;
-		//--> idle with ASense;
-		--> Apace with AVI;
-	final state ADone;
+    initial state idle
+		--> AVI_on with ASense;
+	state AVI_on --> idle with VSense;
+	//final state AVI_on;
 	
 	/* PVARP – Post-Ventricular Atrial Refractory Period
 	The time after a ventricular event where any atrial events are ignored as Atrial
 	Refractory (AR) signals */
     region PVARP:
 
-    initial state idle;
+    initial state idle
+    	--> Temp with VSense;
+    state Temp;
 
 	/* VRP – Ventricular Refractory Period
 	The time after a ventricular event where any other ventricular events are ignored as
