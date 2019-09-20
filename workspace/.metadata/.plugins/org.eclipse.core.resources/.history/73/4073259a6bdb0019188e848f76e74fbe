@@ -1,12 +1,9 @@
 scchart pacemaker {
   input signal ASense, VSense, AEIEnd, AVIEnd;
   output signal APace, VPace;
-  //IDK if this is needed
-  output signal AR,VR;
   output bool AEIStart, AVIStart, PVARPStart, VRPStart;
 
   initial state main { 
-    
   	/* AVI – Atrioventricular Interval
 	The maximum time between an atrial event and its subsequent ventricular event */
     region AVI:
@@ -18,6 +15,7 @@ scchart pacemaker {
 		--> AVI_on immediate with AVIEnd / AVIStart = false
 		--> idle immediate with (VSense || VPace) / AVIStart = false;
 	state AVI_on
+		--> idle with / VSense; AVIStart = false // Added
 		--> idle with / VPace; AVIStart = false;
 	
 	/* PVARP – Post-Ventricular Atrial Refractory Period
@@ -26,12 +24,9 @@ scchart pacemaker {
     region PVARP:
 
    initial state idle
-    	--> AR_wait with ASense / PVARPStart = true
-		--> AR_wait with APace / PVARPStart = true; 
-	connector state AR_wait
-		--> AR_on with AR;
-	state AR_on
-		--> idle with !AR;
+    	--> V_wait with ASense / PVARPStart = true
+		--> V_wait with APace / PVARPStart = true; 
+	connector state V_wait;
 
 	/* VRP – Ventricular Refractory Period
 	The time after a ventricular event where any other ventricular events are ignored as

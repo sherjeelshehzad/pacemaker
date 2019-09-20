@@ -1,12 +1,9 @@
 scchart pacemaker {
   input signal ASense, VSense, AEIEnd, AVIEnd;
   output signal APace, VPace;
-  //IDK if this is needed
-  output signal AR,VR;
-  output bool AEIStart, AVIStart, PVARPStart, VRPStart;
+  output bool AEIStart, AVIStart;
 
   initial state main { 
-    
   	/* AVI – Atrioventricular Interval
 	The maximum time between an atrial event and its subsequent ventricular event */
     region AVI:
@@ -18,6 +15,7 @@ scchart pacemaker {
 		--> AVI_on immediate with AVIEnd / AVIStart = false
 		--> idle immediate with (VSense || VPace) / AVIStart = false;
 	state AVI_on
+		--> idle with / VSense; AVIStart = false // Added
 		--> idle with / VPace; AVIStart = false;
 	
 	/* PVARP – Post-Ventricular Atrial Refractory Period
@@ -25,23 +23,14 @@ scchart pacemaker {
 	Refractory (AR) signals */
     region PVARP:
 
-   initial state idle
-    	--> AR_wait with ASense / PVARPStart = true
-		--> AR_wait with APace / PVARPStart = true; 
-	connector state AR_wait
-		--> AR_on with AR;
-	state AR_on
-		--> idle with !AR;
+    initial state idle;
 
 	/* VRP – Ventricular Refractory Period
 	The time after a ventricular event where any other ventricular events are ignored as
 	Ventricular Refractory (VR) signals */
     region VRP:
 
-    initial state idle
-    	--> V_wait with ASense / VRPStart = true
-		--> V_wait with APace / VRPStart = true; 
-	connector state V_wait;
+    initial state idle;
     
 	/* AEI – Atrial Escape Interval
 	The maximum time between a ventricular event and its subsequent atrial event */
@@ -67,7 +56,12 @@ scchart pacemaker {
 	between ventricular events */
     region LRI:
     
-    initial state idle;
+    initial state idle
+    	--> LRItimerStart with VSense
+    	--> LRItimerStart with VPace;
+    state LRItimerStart
+    	--> idle with VSense
+    	--> idle with VPace;
     
     /* URI_timer 
 	A timer for the URI */

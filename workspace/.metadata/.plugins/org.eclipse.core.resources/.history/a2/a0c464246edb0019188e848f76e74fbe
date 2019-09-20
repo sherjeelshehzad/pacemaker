@@ -18,6 +18,7 @@ scchart pacemaker {
 		--> AVI_on immediate with AVIEnd / AVIStart = false
 		--> idle immediate with (VSense || VPace) / AVIStart = false;
 	state AVI_on
+		--> idle with / VSense; AVIStart = false // Added
 		--> idle with / VPace; AVIStart = false;
 	
 	/* PVARP – Post-Ventricular Atrial Refractory Period
@@ -30,8 +31,7 @@ scchart pacemaker {
 		--> AR_wait with APace / PVARPStart = true; 
 	connector state AR_wait
 		--> AR_on with AR;
-	state AR_on
-		--> idle with !AR;
+	state AR_on;
 
 	/* VRP – Ventricular Refractory Period
 	The time after a ventricular event where any other ventricular events are ignored as

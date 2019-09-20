@@ -18,6 +18,7 @@ scchart pacemaker {
 		--> AVI_on immediate with AVIEnd / AVIStart = false
 		--> idle immediate with (VSense || VPace) / AVIStart = false;
 	state AVI_on
+		--> idle with / VSense; AVIStart = false // Added
 		--> idle with / VPace; AVIStart = false;
 	
 	/* PVARP – Post-Ventricular Atrial Refractory Period
