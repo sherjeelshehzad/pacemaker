@@ -142,7 +142,7 @@ ACDS_VERSION := 16.0
 ELF := pacemaker.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS := hello_world.c
+C_SRCS := pacemaker.c
 CXX_SRCS :=
 ASM_SRCS :=
 

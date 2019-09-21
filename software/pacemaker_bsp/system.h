@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'nios2_system'
  * SOPC Builder design path: ../../nios2_system.sopcinfo
  *
- * Generated: Tue Sep 10 17:15:18 NZST 2019
+ * Generated: Sat Aug 24 10:39:22 NZST 2019
  */
 
 /*
@@ -258,6 +258,32 @@
 #define JTAG_UART_TYPE "altera_avalon_jtag_uart"
 #define JTAG_UART_WRITE_DEPTH 64
 #define JTAG_UART_WRITE_THRESHOLD 8
+
+/*
+ * keys configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_keys altera_avalon_pio
+#define KEYS_BASE 0x10110a0
+#define KEYS_BIT_CLEARING_EDGE_REGISTER 0
+#define KEYS_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define KEYS_CAPTURE 1
+#define KEYS_DATA_WIDTH 3
+#define KEYS_DO_TEST_BENCH_WIRING 0
+#define KEYS_DRIVEN_SIM_VALUE 0
+#define KEYS_EDGE_TYPE "FALLING"
+#define KEYS_FREQ 50000000
+#define KEYS_HAS_IN 1
+#define KEYS_HAS_OUT 0
+#define KEYS_HAS_TRI 0
+#define KEYS_IRQ 4
+#define KEYS_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define KEYS_IRQ_TYPE "EDGE"
+#define KEYS_NAME "/dev/keys"
+#define KEYS_RESET_VALUE 0
+#define KEYS_SPAN 16
+#define KEYS_TYPE "altera_avalon_pio"
 
 
 /*
