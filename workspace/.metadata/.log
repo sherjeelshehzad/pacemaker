@@ -7367,3 +7367,595 @@ java.lang.NullPointerException
 
 !ENTRY de.cau.cs.kieler.klighd.incremental 2 0 2019-09-21 17:22:35.519
 !MESSAGE Fallback to simple update. Reason: Duplicate UID in base model.
+!SESSION 2019-09-21 23:04:22.079 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_221
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_NZ
+Framework arguments:  --launcher.XXPermSize 128m
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 --launcher.XXPermSize 128m
+
+!ENTRY org.eclipse.emf.ecore 2 0 2019-09-21 23:04:30.064
+!MESSAGE Both 'de.cau.cs.kieler.kexpressions' and 'de.cau.cs.kieler.kexpressions' register a package for 'http://kieler.cs.cau.de/kext/0.1.0'
+
+!ENTRY org.eclipse.emf.ecore 2 0 2019-09-21 23:04:30.068
+!MESSAGE Both 'de.cau.cs.kieler.esterel.kexpressions.ui' and 'de.cau.cs.kieler.kexpressions.ui' register an extension parser for 'expr'
+
+!ENTRY org.eclipse.ui 2 0 2019-09-21 23:04:30.281
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-09-21 23:04:30.281
+!MESSAGE Commands should really have a category: plug-in='de.cau.cs.kieler.sccharts.s', id='de.cau.cs.kieler.sccharts.commands.STransformation', categoryId='de.cau.cs.kieler.sccharts.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-09-21 23:04:30.281
+!MESSAGE Commands should really have a category: plug-in='de.cau.cs.kieler.sccharts.scg', id='de.cau.cs.kieler.sccharts.commands.SCGTransformation', categoryId='de.cau.cs.kieler.sccharts.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-09-21 23:04:30.281
+!MESSAGE Commands should really have a category: plug-in='de.cau.cs.kieler.scl.ui', id='de.cau.cs.kieler.scl.ui.commands.SCGToSCLTransformation', categoryId='de.cau.cs.kieler.scl.ui.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-09-21 23:04:30.281
+!MESSAGE Commands should really have a category: plug-in='de.cau.cs.kieler.scl.ui', id='de.cau.cs.kieler.scl.commands.ui.SCLToSCGTransformation', categoryId='de.cau.cs.kieler.scl.ui.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-09-21 23:04:30.281
+!MESSAGE Commands should really have a category: plug-in='de.cau.cs.kieler.synccharts', id='de.cau.cs.kieler.sccharts.commands.SyncChartsTransformation', categoryId='de.cau.cs.kieler.sccharts.commands.category'
+
+!ENTRY org.eclipse.ui 2 0 2019-09-21 23:04:30.303
+!MESSAGE Warnings while parsing the key bindings from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.bindings' extension point
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-09-21 23:04:30.303
+!MESSAGE Cannot bind to an undefined command: plug-in='de.cau.cs.kieler.core.model', id='de.cau.cs.kieler.core.model.zoom'
+
+!ENTRY org.eclipse.ui 2 0 2019-09-21 23:04:30.477
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-09-21 23:04:30.477
+!MESSAGE Commands should really have a category: plug-in='de.cau.cs.kieler.sccharts.s', id='de.cau.cs.kieler.sccharts.commands.STransformation', categoryId='de.cau.cs.kieler.sccharts.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-09-21 23:04:30.477
+!MESSAGE Commands should really have a category: plug-in='de.cau.cs.kieler.sccharts.scg', id='de.cau.cs.kieler.sccharts.commands.SCGTransformation', categoryId='de.cau.cs.kieler.sccharts.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-09-21 23:04:30.477
+!MESSAGE Commands should really have a category: plug-in='de.cau.cs.kieler.scl.ui', id='de.cau.cs.kieler.scl.ui.commands.SCGToSCLTransformation', categoryId='de.cau.cs.kieler.scl.ui.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-09-21 23:04:30.477
+!MESSAGE Commands should really have a category: plug-in='de.cau.cs.kieler.scl.ui', id='de.cau.cs.kieler.scl.commands.ui.SCLToSCGTransformation', categoryId='de.cau.cs.kieler.scl.ui.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-09-21 23:04:30.477
+!MESSAGE Commands should really have a category: plug-in='de.cau.cs.kieler.synccharts', id='de.cau.cs.kieler.sccharts.commands.SyncChartsTransformation', categoryId='de.cau.cs.kieler.sccharts.commands.category'
+
+!ENTRY org.eclipse.jface 2 0 2019-09-21 23:04:34.016
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-09-21 23:04:34.016
+!MESSAGE A conflict occurred for ALT+CTRL+H:
+Binding(ALT+CTRL+H,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.open.call.hierarchy,Open Call Hierarchy,
+		Open a call hierarchy on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1ef6977b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+H,
+	ParameterizedCommand(Command(org.eclipse.xtext.xbase.ui.hierarchy.OpenCallHierarchy,Open Call Hierarchy,
+		Open a call hierarchy on the selected element,
+		Category(org.eclipse.core.commands.categories.autogenerated,Uncategorized,Commands that were either auto-generated or have no category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@674cd2da,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.XtextEditorScope,,,system)
+Binding(ALT+CTRL+H,
+	ParameterizedCommand(Command(org.eclipse.xtext.ui.editor.OpenCallHierarchy,Open Call Hierarchy,
+		Open call hierarchy for the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@686279e0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.XtextEditorScope,,,system)
+
+!ENTRY de.cau.cs.kieler.klighd.incremental 1 0 2019-09-21 23:04:34.559
+!MESSAGE Fallback to simple update. Reason: Empty base model.
+
+!ENTRY de.cau.cs.kieler.klighd 4 0 2019-09-21 23:05:29.712
+!MESSAGE KLighD: Execution of diagram synthesis de.cau.cs.kieler.klighd.syntheses.ReinitializingDiagramSynthesisProxy failed for input model de.cau.cs.kieler.sccharts.impl.StateImpl@44656571 (id: pacemaker, label: pacemaker) (type: NORMAL, initial: false, final: false).
+!STACK 0
+java.lang.NullPointerException
+	at de.cau.cs.kieler.sccharts.klighd.synthesis.StateSynthesis$5.apply(StateSynthesis.java:288)
+	at de.cau.cs.kieler.sccharts.klighd.synthesis.StateSynthesis$5.apply(StateSynthesis.java:1)
+	at org.eclipse.xtext.xbase.lib.ObjectExtensions.operator_doubleArrow(ObjectExtensions.java:139)
+	at de.cau.cs.kieler.sccharts.klighd.synthesis.StateSynthesis.performTranformation(StateSynthesis.java:309)
+	at de.cau.cs.kieler.sccharts.klighd.synthesis.StateSynthesis.performTranformation(StateSynthesis.java:1)
+	at de.cau.cs.kieler.sccharts.klighd.synthesis.SubSynthesis.transform(SubSynthesis.java:67)
+	at de.cau.cs.kieler.sccharts.klighd.synthesis.ControlflowRegionSynthesis.performTranformation(ControlflowRegionSynthesis.java:188)
+	at de.cau.cs.kieler.sccharts.klighd.synthesis.ControlflowRegionSynthesis.performTranformation(ControlflowRegionSynthesis.java:1)
+	at de.cau.cs.kieler.sccharts.klighd.synthesis.SubSynthesis.transform(SubSynthesis.java:67)
+	at de.cau.cs.kieler.sccharts.klighd.synthesis.StateSynthesis.performTranformation(StateSynthesis.java:318)
+	at de.cau.cs.kieler.sccharts.klighd.synthesis.StateSynthesis.performTranformation(StateSynthesis.java:1)
+	at de.cau.cs.kieler.sccharts.klighd.synthesis.SubSynthesis.transform(SubSynthesis.java:67)
+	at de.cau.cs.kieler.sccharts.klighd.synthesis.SCChartsSynthesis.transform(SCChartsSynthesis.java:114)
+	at de.cau.cs.kieler.sccharts.klighd.synthesis.SCChartsSynthesis.transform(SCChartsSynthesis.java:1)
+	at de.cau.cs.kieler.klighd.syntheses.AbstractDiagramSynthesis.transform(AbstractDiagramSynthesis.java:221)
+	at de.cau.cs.kieler.klighd.syntheses.ReinitializingDiagramSynthesisProxy.transform(ReinitializingDiagramSynthesisProxy.java:286)
+	at de.cau.cs.kieler.klighd.ViewContext.update(ViewContext.java:456)
+	at de.cau.cs.kieler.klighd.ViewContext.update(ViewContext.java:391)
+	at de.cau.cs.kieler.klighd.ViewContext.update(ViewContext.java:375)
+	at de.cau.cs.kieler.klighd.LightDiagramServices.updateDiagram(LightDiagramServices.java:294)
+	at de.cau.cs.kieler.klighd.LightDiagramLayoutConfig.performUpdate(LightDiagramLayoutConfig.java:355)
+	at de.cau.cs.kieler.klighd.ui.view.DiagramView.doUpdateDiagram(DiagramView.java:1120)
+	at de.cau.cs.kieler.klighd.ui.view.DiagramView.access$5(DiagramView.java:1030)
+	at de.cau.cs.kieler.klighd.ui.view.DiagramView$10.runInUIThread(DiagramView.java:1005)
+	at org.eclipse.ui.progress.UIJob$1.run(UIJob.java:97)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4211)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3827)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1121)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1022)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:150)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:693)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:610)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:138)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:673)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1492)
+
+!ENTRY de.cau.cs.kieler.klighd.incremental 1 0 2019-09-21 23:05:29.980
+!MESSAGE Fallback to simple update. Reason: Empty base model.
+
+!ENTRY de.cau.cs.kieler.klighd.incremental 1 0 2019-09-21 23:05:41.157
+!MESSAGE Fallback to simple update. Reason: Empty base model.
+
+!ENTRY de.cau.cs.kieler.kico 2 0 2019-09-21 23:05:48.653
+!MESSAGE KiCo cannot find the feature with ID 'VHDL'
+
+!ENTRY de.cau.cs.kieler.kico 4 0 2019-09-21 23:05:48.653
+!MESSAGE Feature 'circuit' references a feature 'VHDL' that cannot be found.
+
+!ENTRY de.cau.cs.kieler.klighd.incremental 1 0 2019-09-21 23:05:51.861
+!MESSAGE Fallback to simple update. Reason: Empty base model.
+
+!ENTRY org.eclipse.elk.core.service 4 0 2019-09-21 23:05:52.548
+!MESSAGE Failed to perform diagram layout.
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.CrossingMatrixFiller.<init>(CrossingMatrixFiller.java:38)
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.GreedySwitchHeuristic.getNewSwitchDecider(GreedySwitchHeuristic.java:87)
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.GreedySwitchHeuristic.setUp(GreedySwitchHeuristic.java:82)
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.GreedySwitchHeuristic.setFirstLayerOrder(GreedySwitchHeuristic.java:74)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.minimizeCrossingsNoCounter(LayerSweepCrossingMinimizer.java:154)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.lambda$1(LayerSweepCrossingMinimizer.java:122)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.minimizeCrossings(LayerSweepCrossingMinimizer.java:131)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.process(LayerSweepCrossingMinimizer.java:110)
+	at org.eclipse.elk.alg.layered.KlayLayered.hierarchicalLayout(KlayLayered.java:233)
+	at org.eclipse.elk.alg.layered.KlayLayered.doCompoundLayout(KlayLayered.java:179)
+	at org.eclipse.elk.alg.layered.LayeredLayoutProvider.layout(LayeredLayoutProvider.java:58)
+	at org.eclipse.elk.core.RecursiveGraphLayoutEngine.layoutRecursively(RecursiveGraphLayoutEngine.java:181)
+	at org.eclipse.elk.core.RecursiveGraphLayoutEngine.layout(RecursiveGraphLayoutEngine.java:60)
+	at org.eclipse.elk.core.service.DiagramLayoutEngine.layout(DiagramLayoutEngine.java:686)
+	at org.eclipse.elk.core.service.DiagramLayoutEngine.layout(DiagramLayoutEngine.java:618)
+	at org.eclipse.elk.core.service.DiagramLayoutEngine$1.execute(DiagramLayoutEngine.java:390)
+	at org.eclipse.elk.core.service.util.MonitoredOperation$1.run(MonitoredOperation.java:236)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:05:55.301
+!MESSAGE Broken compile chain. Transformation scg.s cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:05:55.304
+!MESSAGE Broken compile chain. Transformation s.c cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:05:55.306
+!MESSAGE An error occurred while calling transformation with the ID 'scg.s'.
+
+de.cau.cs.kieler.kico.KielerCompilerException: Broken compile chain. Transformation scg.s cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl
+	at de.cau.cs.kieler.kico.KielerCompiler.performTransformationTask(KielerCompiler.java:389)
+	at de.cau.cs.kieler.kico.KielerCompiler.compile(KielerCompiler.java:260)
+	at de.cau.cs.kieler.kico.klighd.internal.AsynchronousCompilation.run(AsynchronousCompilation.java:125)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+ (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:05:55.306
+!MESSAGE An error occurred while calling transformation with the ID 's.c'.
+
+de.cau.cs.kieler.kico.KielerCompilerException: Broken compile chain. Transformation scg.s cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl
+	at de.cau.cs.kieler.kico.KielerCompiler.performTransformationTask(KielerCompiler.java:389)
+	at de.cau.cs.kieler.kico.KielerCompiler.compile(KielerCompiler.java:260)
+	at de.cau.cs.kieler.kico.klighd.internal.AsynchronousCompilation.run(AsynchronousCompilation.java:125)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+, de.cau.cs.kieler.kico.KielerCompilerException: Broken compile chain. Transformation s.c cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl
+	at de.cau.cs.kieler.kico.KielerCompiler.performTransformationTask(KielerCompiler.java:389)
+	at de.cau.cs.kieler.kico.KielerCompiler.compile(KielerCompiler.java:260)
+	at de.cau.cs.kieler.kico.klighd.internal.AsynchronousCompilation.run(AsynchronousCompilation.java:125)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+ (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.klighd.incremental 1 0 2019-09-21 23:05:55.358
+!MESSAGE Fallback to simple update. Reason: Empty base model.
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:06:12.457
+!MESSAGE Broken compile chain. Transformation scg.s cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:06:12.459
+!MESSAGE Broken compile chain. Transformation s.c cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:06:12.461
+!MESSAGE An error occurred while calling transformation with the ID 'scg.s'.
+
+de.cau.cs.kieler.kico.KielerCompilerException: Broken compile chain. Transformation scg.s cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl
+	at de.cau.cs.kieler.kico.KielerCompiler.performTransformationTask(KielerCompiler.java:389)
+	at de.cau.cs.kieler.kico.KielerCompiler.compile(KielerCompiler.java:260)
+	at de.cau.cs.kieler.kico.klighd.internal.AsynchronousCompilation.run(AsynchronousCompilation.java:125)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+ (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:06:12.461
+!MESSAGE An error occurred while calling transformation with the ID 's.c'.
+
+de.cau.cs.kieler.kico.KielerCompilerException: Broken compile chain. Transformation scg.s cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl
+	at de.cau.cs.kieler.kico.KielerCompiler.performTransformationTask(KielerCompiler.java:389)
+	at de.cau.cs.kieler.kico.KielerCompiler.compile(KielerCompiler.java:260)
+	at de.cau.cs.kieler.kico.klighd.internal.AsynchronousCompilation.run(AsynchronousCompilation.java:125)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+, de.cau.cs.kieler.kico.KielerCompilerException: Broken compile chain. Transformation s.c cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl
+	at de.cau.cs.kieler.kico.KielerCompiler.performTransformationTask(KielerCompiler.java:389)
+	at de.cau.cs.kieler.kico.KielerCompiler.compile(KielerCompiler.java:260)
+	at de.cau.cs.kieler.kico.klighd.internal.AsynchronousCompilation.run(AsynchronousCompilation.java:125)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+ (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:06:15.388
+!MESSAGE Broken compile chain. Transformation scg.s cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:06:15.390
+!MESSAGE Broken compile chain. Transformation s.c cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:06:15.392
+!MESSAGE An error occurred while calling transformation with the ID 'scg.s'.
+
+de.cau.cs.kieler.kico.KielerCompilerException: Broken compile chain. Transformation scg.s cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl
+	at de.cau.cs.kieler.kico.KielerCompiler.performTransformationTask(KielerCompiler.java:389)
+	at de.cau.cs.kieler.kico.KielerCompiler.compile(KielerCompiler.java:260)
+	at de.cau.cs.kieler.kico.klighd.internal.AsynchronousCompilation.run(AsynchronousCompilation.java:125)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+ (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:06:15.393
+!MESSAGE An error occurred while calling transformation with the ID 's.c'.
+
+de.cau.cs.kieler.kico.KielerCompilerException: Broken compile chain. Transformation scg.s cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl
+	at de.cau.cs.kieler.kico.KielerCompiler.performTransformationTask(KielerCompiler.java:389)
+	at de.cau.cs.kieler.kico.KielerCompiler.compile(KielerCompiler.java:260)
+	at de.cau.cs.kieler.kico.klighd.internal.AsynchronousCompilation.run(AsynchronousCompilation.java:125)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+, de.cau.cs.kieler.kico.KielerCompilerException: Broken compile chain. Transformation s.c cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl
+	at de.cau.cs.kieler.kico.KielerCompiler.performTransformationTask(KielerCompiler.java:389)
+	at de.cau.cs.kieler.kico.KielerCompiler.compile(KielerCompiler.java:260)
+	at de.cau.cs.kieler.kico.klighd.internal.AsynchronousCompilation.run(AsynchronousCompilation.java:125)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+ (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:06:21.441
+!MESSAGE Broken compile chain. Transformation scg.s cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:06:21.443
+!MESSAGE Broken compile chain. Transformation s.c cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:06:21.445
+!MESSAGE An error occurred while calling transformation with the ID 'scg.s'.
+
+de.cau.cs.kieler.kico.KielerCompilerException: Broken compile chain. Transformation scg.s cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl
+	at de.cau.cs.kieler.kico.KielerCompiler.performTransformationTask(KielerCompiler.java:389)
+	at de.cau.cs.kieler.kico.KielerCompiler.compile(KielerCompiler.java:260)
+	at de.cau.cs.kieler.kico.klighd.internal.AsynchronousCompilation.run(AsynchronousCompilation.java:125)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+ (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:06:21.445
+!MESSAGE An error occurred while calling transformation with the ID 's.c'.
+
+de.cau.cs.kieler.kico.KielerCompilerException: Broken compile chain. Transformation scg.s cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl
+	at de.cau.cs.kieler.kico.KielerCompiler.performTransformationTask(KielerCompiler.java:389)
+	at de.cau.cs.kieler.kico.KielerCompiler.compile(KielerCompiler.java:260)
+	at de.cau.cs.kieler.kico.klighd.internal.AsynchronousCompilation.run(AsynchronousCompilation.java:125)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+, de.cau.cs.kieler.kico.KielerCompilerException: Broken compile chain. Transformation s.c cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl
+	at de.cau.cs.kieler.kico.KielerCompiler.performTransformationTask(KielerCompiler.java:389)
+	at de.cau.cs.kieler.kico.KielerCompiler.compile(KielerCompiler.java:260)
+	at de.cau.cs.kieler.kico.klighd.internal.AsynchronousCompilation.run(AsynchronousCompilation.java:125)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+ (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:06:22.312
+!MESSAGE Broken compile chain. Transformation scg.s cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:06:22.314
+!MESSAGE Broken compile chain. Transformation s.c cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:06:22.316
+!MESSAGE An error occurred while calling transformation with the ID 'scg.s'.
+
+de.cau.cs.kieler.kico.KielerCompilerException: Broken compile chain. Transformation scg.s cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl
+	at de.cau.cs.kieler.kico.KielerCompiler.performTransformationTask(KielerCompiler.java:389)
+	at de.cau.cs.kieler.kico.KielerCompiler.compile(KielerCompiler.java:260)
+	at de.cau.cs.kieler.kico.klighd.internal.AsynchronousCompilation.run(AsynchronousCompilation.java:125)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+ (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.kico 4 4 2019-09-21 23:06:22.316
+!MESSAGE An error occurred while calling transformation with the ID 's.c'.
+
+de.cau.cs.kieler.kico.KielerCompilerException: Broken compile chain. Transformation scg.s cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl
+	at de.cau.cs.kieler.kico.KielerCompiler.performTransformationTask(KielerCompiler.java:389)
+	at de.cau.cs.kieler.kico.KielerCompiler.compile(KielerCompiler.java:260)
+	at de.cau.cs.kieler.kico.klighd.internal.AsynchronousCompilation.run(AsynchronousCompilation.java:125)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+, de.cau.cs.kieler.kico.KielerCompilerException: Broken compile chain. Transformation s.c cannot handle input type de.cau.cs.kieler.circuit.impl.ActorImpl
+	at de.cau.cs.kieler.kico.KielerCompiler.performTransformationTask(KielerCompiler.java:389)
+	at de.cau.cs.kieler.kico.KielerCompiler.compile(KielerCompiler.java:260)
+	at de.cau.cs.kieler.kico.klighd.internal.AsynchronousCompilation.run(AsynchronousCompilation.java:125)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+ (de.cau.cs.kieler.kico)
+
+!ENTRY de.cau.cs.kieler.klighd.incremental 1 0 2019-09-21 23:06:23.658
+!MESSAGE Fallback to simple update. Reason: Empty base model.
+
+!ENTRY org.eclipse.elk.core.service 4 0 2019-09-21 23:06:24.074
+!MESSAGE Failed to perform diagram layout.
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.CrossingMatrixFiller.<init>(CrossingMatrixFiller.java:38)
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.GreedySwitchHeuristic.getNewSwitchDecider(GreedySwitchHeuristic.java:87)
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.GreedySwitchHeuristic.setUp(GreedySwitchHeuristic.java:82)
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.GreedySwitchHeuristic.setFirstLayerOrder(GreedySwitchHeuristic.java:74)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.minimizeCrossingsNoCounter(LayerSweepCrossingMinimizer.java:154)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.lambda$1(LayerSweepCrossingMinimizer.java:122)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.minimizeCrossings(LayerSweepCrossingMinimizer.java:131)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.process(LayerSweepCrossingMinimizer.java:110)
+	at org.eclipse.elk.alg.layered.KlayLayered.hierarchicalLayout(KlayLayered.java:233)
+	at org.eclipse.elk.alg.layered.KlayLayered.doCompoundLayout(KlayLayered.java:179)
+	at org.eclipse.elk.alg.layered.LayeredLayoutProvider.layout(LayeredLayoutProvider.java:58)
+	at org.eclipse.elk.core.RecursiveGraphLayoutEngine.layoutRecursively(RecursiveGraphLayoutEngine.java:181)
+	at org.eclipse.elk.core.RecursiveGraphLayoutEngine.layout(RecursiveGraphLayoutEngine.java:60)
+	at org.eclipse.elk.core.service.DiagramLayoutEngine.layout(DiagramLayoutEngine.java:686)
+	at org.eclipse.elk.core.service.DiagramLayoutEngine.layout(DiagramLayoutEngine.java:618)
+	at org.eclipse.elk.core.service.DiagramLayoutEngine$1.execute(DiagramLayoutEngine.java:390)
+	at org.eclipse.elk.core.service.util.MonitoredOperation$1.run(MonitoredOperation.java:236)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.elk.core.service 4 0 2019-09-21 23:06:26.871
+!MESSAGE Failed to perform diagram layout.
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.CrossingMatrixFiller.<init>(CrossingMatrixFiller.java:38)
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.GreedySwitchHeuristic.getNewSwitchDecider(GreedySwitchHeuristic.java:87)
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.GreedySwitchHeuristic.setUp(GreedySwitchHeuristic.java:82)
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.GreedySwitchHeuristic.setFirstLayerOrder(GreedySwitchHeuristic.java:74)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.minimizeCrossingsNoCounter(LayerSweepCrossingMinimizer.java:154)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.lambda$1(LayerSweepCrossingMinimizer.java:122)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.minimizeCrossings(LayerSweepCrossingMinimizer.java:131)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.process(LayerSweepCrossingMinimizer.java:110)
+	at org.eclipse.elk.alg.layered.KlayLayered.hierarchicalLayout(KlayLayered.java:233)
+	at org.eclipse.elk.alg.layered.KlayLayered.doCompoundLayout(KlayLayered.java:179)
+	at org.eclipse.elk.alg.layered.LayeredLayoutProvider.layout(LayeredLayoutProvider.java:58)
+	at org.eclipse.elk.core.RecursiveGraphLayoutEngine.layoutRecursively(RecursiveGraphLayoutEngine.java:181)
+	at org.eclipse.elk.core.RecursiveGraphLayoutEngine.layout(RecursiveGraphLayoutEngine.java:60)
+	at org.eclipse.elk.core.service.DiagramLayoutEngine.layout(DiagramLayoutEngine.java:686)
+	at org.eclipse.elk.core.service.DiagramLayoutEngine.layout(DiagramLayoutEngine.java:618)
+	at org.eclipse.elk.core.service.DiagramLayoutEngine$1.execute(DiagramLayoutEngine.java:390)
+	at org.eclipse.elk.core.service.util.MonitoredOperation$1.run(MonitoredOperation.java:236)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.elk.core.service 4 0 2019-09-21 23:06:27.507
+!MESSAGE Failed to perform diagram layout.
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.CrossingMatrixFiller.<init>(CrossingMatrixFiller.java:38)
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.GreedySwitchHeuristic.getNewSwitchDecider(GreedySwitchHeuristic.java:87)
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.GreedySwitchHeuristic.setUp(GreedySwitchHeuristic.java:82)
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.GreedySwitchHeuristic.setFirstLayerOrder(GreedySwitchHeuristic.java:74)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.minimizeCrossingsNoCounter(LayerSweepCrossingMinimizer.java:154)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.lambda$1(LayerSweepCrossingMinimizer.java:122)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.minimizeCrossings(LayerSweepCrossingMinimizer.java:131)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.process(LayerSweepCrossingMinimizer.java:110)
+	at org.eclipse.elk.alg.layered.KlayLayered.hierarchicalLayout(KlayLayered.java:233)
+	at org.eclipse.elk.alg.layered.KlayLayered.doCompoundLayout(KlayLayered.java:179)
+	at org.eclipse.elk.alg.layered.LayeredLayoutProvider.layout(LayeredLayoutProvider.java:58)
+	at org.eclipse.elk.core.RecursiveGraphLayoutEngine.layoutRecursively(RecursiveGraphLayoutEngine.java:181)
+	at org.eclipse.elk.core.RecursiveGraphLayoutEngine.layout(RecursiveGraphLayoutEngine.java:60)
+	at org.eclipse.elk.core.service.DiagramLayoutEngine.layout(DiagramLayoutEngine.java:686)
+	at org.eclipse.elk.core.service.DiagramLayoutEngine.layout(DiagramLayoutEngine.java:618)
+	at org.eclipse.elk.core.service.DiagramLayoutEngine$1.execute(DiagramLayoutEngine.java:390)
+	at org.eclipse.elk.core.service.util.MonitoredOperation$1.run(MonitoredOperation.java:236)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.elk.core.service 4 0 2019-09-21 23:06:31.461
+!MESSAGE Failed to perform diagram layout.
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.CrossingMatrixFiller.<init>(CrossingMatrixFiller.java:38)
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.GreedySwitchHeuristic.getNewSwitchDecider(GreedySwitchHeuristic.java:87)
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.GreedySwitchHeuristic.setUp(GreedySwitchHeuristic.java:82)
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.GreedySwitchHeuristic.setFirstLayerOrder(GreedySwitchHeuristic.java:74)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.minimizeCrossingsNoCounter(LayerSweepCrossingMinimizer.java:154)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.lambda$1(LayerSweepCrossingMinimizer.java:122)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.minimizeCrossings(LayerSweepCrossingMinimizer.java:131)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.process(LayerSweepCrossingMinimizer.java:110)
+	at org.eclipse.elk.alg.layered.KlayLayered.hierarchicalLayout(KlayLayered.java:233)
+	at org.eclipse.elk.alg.layered.KlayLayered.doCompoundLayout(KlayLayered.java:179)
+	at org.eclipse.elk.alg.layered.LayeredLayoutProvider.layout(LayeredLayoutProvider.java:58)
+	at org.eclipse.elk.core.RecursiveGraphLayoutEngine.layoutRecursively(RecursiveGraphLayoutEngine.java:181)
+	at org.eclipse.elk.core.RecursiveGraphLayoutEngine.layout(RecursiveGraphLayoutEngine.java:60)
+	at org.eclipse.elk.core.service.DiagramLayoutEngine.layout(DiagramLayoutEngine.java:686)
+	at org.eclipse.elk.core.service.DiagramLayoutEngine.layout(DiagramLayoutEngine.java:618)
+	at org.eclipse.elk.core.service.DiagramLayoutEngine$1.execute(DiagramLayoutEngine.java:390)
+	at org.eclipse.elk.core.service.util.MonitoredOperation$1.run(MonitoredOperation.java:236)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.elk.core.service 4 0 2019-09-21 23:06:31.483
+!MESSAGE Failed to perform diagram layout.
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.CrossingMatrixFiller.<init>(CrossingMatrixFiller.java:38)
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.GreedySwitchHeuristic.getNewSwitchDecider(GreedySwitchHeuristic.java:87)
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.GreedySwitchHeuristic.setUp(GreedySwitchHeuristic.java:82)
+	at org.eclipse.elk.alg.layered.intermediate.greedyswitch.GreedySwitchHeuristic.setFirstLayerOrder(GreedySwitchHeuristic.java:74)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.minimizeCrossingsNoCounter(LayerSweepCrossingMinimizer.java:154)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.lambda$1(LayerSweepCrossingMinimizer.java:122)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.minimizeCrossings(LayerSweepCrossingMinimizer.java:131)
+	at org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer.process(LayerSweepCrossingMinimizer.java:110)
+	at org.eclipse.elk.alg.layered.KlayLayered.hierarchicalLayout(KlayLayered.java:233)
+	at org.eclipse.elk.alg.layered.KlayLayered.doCompoundLayout(KlayLayered.java:179)
+	at org.eclipse.elk.alg.layered.LayeredLayoutProvider.layout(LayeredLayoutProvider.java:58)
+	at org.eclipse.elk.core.RecursiveGraphLayoutEngine.layoutRecursively(RecursiveGraphLayoutEngine.java:181)
+	at org.eclipse.elk.core.RecursiveGraphLayoutEngine.layout(RecursiveGraphLayoutEngine.java:60)
+	at org.eclipse.elk.core.service.DiagramLayoutEngine.layout(DiagramLayoutEngine.java:686)
+	at org.eclipse.elk.core.service.DiagramLayoutEngine.layout(DiagramLayoutEngine.java:618)
+	at org.eclipse.elk.core.service.DiagramLayoutEngine$1.execute(DiagramLayoutEngine.java:390)
+	at org.eclipse.elk.core.service.util.MonitoredOperation$1.run(MonitoredOperation.java:236)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY de.cau.cs.kieler.klighd.incremental 1 0 2019-09-21 23:06:33.904
+!MESSAGE Fallback to simple update. Reason: Empty base model.
+
+!ENTRY de.cau.cs.kieler.klighd.incremental 1 0 2019-09-21 23:06:37.535
+!MESSAGE Fallback to simple update. Reason: Empty base model.
+
+!ENTRY de.cau.cs.kieler.klighd.incremental 1 0 2019-09-21 23:06:40.574
+!MESSAGE Fallback to simple update. Reason: Empty base model.
+
+!ENTRY org.eclipse.ui 4 0 2019-09-21 23:06:41.004
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4533)
+	at org.eclipse.swt.SWT.error(SWT.java:4448)
+	at org.eclipse.swt.SWT.error(SWT.java:4419)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:482)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:354)
+	at org.eclipse.swt.widgets.Widget.addListener(Widget.java:199)
+	at de.cau.cs.kieler.klighd.piccolo.internal.KlighdCanvas$KlighdRoot.getDefaultInputManager(KlighdCanvas.java:142)
+	at de.cau.cs.kieler.klighd.piccolo.internal.KlighdCanvas.sendInputEventToInputManager(KlighdCanvas.java:223)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdMouseEventListener$1.run(KlighdMouseEventListener.java:169)
+	at org.eclipse.swt.widgets.Display.runTimer(Display.java:4337)
+	at org.eclipse.swt.widgets.Display.messageProc(Display.java:3426)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2552)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3822)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1121)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1022)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:150)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:693)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:610)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:138)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:673)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1492)
+
+!ENTRY de.cau.cs.kieler.sccharts.kivi 2 2 2019-09-21 23:06:51.730
+!MESSAGE null (de.cau.cs.kieler.sccharts.kivi)
+!STACK 0
+java.lang.NullPointerException
+	at de.cau.cs.kieler.sim.kivi.KiViDataComponent.step(KiViDataComponent.java:398)
+	at de.cau.cs.kieler.sim.kiem.execution.ObserverExecution.run(ObserverExecution.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY de.cau.cs.kieler.sccharts.kivi 2 2 2019-09-21 23:06:53.723
+!MESSAGE null (de.cau.cs.kieler.sccharts.kivi)
+!STACK 0
+java.lang.NullPointerException
+	at de.cau.cs.kieler.sim.kivi.KiViDataComponent.step(KiViDataComponent.java:398)
+	at de.cau.cs.kieler.sim.kiem.execution.ObserverExecution.run(ObserverExecution.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY de.cau.cs.kieler.sccharts.kivi 2 2 2019-09-21 23:06:55.721
+!MESSAGE null (de.cau.cs.kieler.sccharts.kivi)
+!STACK 0
+java.lang.NullPointerException
+	at de.cau.cs.kieler.sim.kivi.KiViDataComponent.step(KiViDataComponent.java:398)
+	at de.cau.cs.kieler.sim.kiem.execution.ObserverExecution.run(ObserverExecution.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY de.cau.cs.kieler.sccharts.kivi 2 2 2019-09-21 23:06:57.720
+!MESSAGE null (de.cau.cs.kieler.sccharts.kivi)
+!STACK 0
+java.lang.NullPointerException
+	at de.cau.cs.kieler.sim.kivi.KiViDataComponent.step(KiViDataComponent.java:398)
+	at de.cau.cs.kieler.sim.kiem.execution.ObserverExecution.run(ObserverExecution.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY de.cau.cs.kieler.klighd.incremental 1 0 2019-09-21 23:06:58.629
+!MESSAGE Fallback to simple update. Reason: Empty base model.
+
+!ENTRY de.cau.cs.kieler.sccharts.kivi 2 2 2019-09-21 23:06:59.720
+!MESSAGE null (de.cau.cs.kieler.sccharts.kivi)
+!STACK 0
+java.lang.NullPointerException
+	at de.cau.cs.kieler.sim.kivi.KiViDataComponent.step(KiViDataComponent.java:398)
+	at de.cau.cs.kieler.sim.kiem.execution.ObserverExecution.run(ObserverExecution.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY de.cau.cs.kieler.sccharts.kivi 2 2 2019-09-21 23:07:01.719
+!MESSAGE null (de.cau.cs.kieler.sccharts.kivi)
+!STACK 0
+java.lang.NullPointerException
+	at de.cau.cs.kieler.sim.kivi.KiViDataComponent.step(KiViDataComponent.java:398)
+	at de.cau.cs.kieler.sim.kiem.execution.ObserverExecution.run(ObserverExecution.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY de.cau.cs.kieler.sccharts.kivi 2 2 2019-09-21 23:07:03.719
+!MESSAGE null (de.cau.cs.kieler.sccharts.kivi)
+!STACK 0
+java.lang.NullPointerException
+	at de.cau.cs.kieler.sim.kivi.KiViDataComponent.step(KiViDataComponent.java:398)
+	at de.cau.cs.kieler.sim.kiem.execution.ObserverExecution.run(ObserverExecution.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY de.cau.cs.kieler.sccharts.kivi 2 2 2019-09-21 23:07:05.718
+!MESSAGE null (de.cau.cs.kieler.sccharts.kivi)
+!STACK 0
+java.lang.NullPointerException
+	at de.cau.cs.kieler.sim.kivi.KiViDataComponent.step(KiViDataComponent.java:398)
+	at de.cau.cs.kieler.sim.kiem.execution.ObserverExecution.run(ObserverExecution.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY de.cau.cs.kieler.sccharts.kivi 2 2 2019-09-21 23:07:07.718
+!MESSAGE null (de.cau.cs.kieler.sccharts.kivi)
+!STACK 0
+java.lang.NullPointerException
+	at de.cau.cs.kieler.sim.kivi.KiViDataComponent.step(KiViDataComponent.java:398)
+	at de.cau.cs.kieler.sim.kiem.execution.ObserverExecution.run(ObserverExecution.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY de.cau.cs.kieler.klighd.incremental 1 0 2019-09-21 23:07:17.075
+!MESSAGE Fallback to simple update. Reason: Empty base model.
+
+!ENTRY de.cau.cs.kieler.sim.kiem 4 4 2019-09-21 23:07:17.742
+!MESSAGE Timeout of component 'SCCharts Visualization' occurred while performing the following operation: wrapup. You can increase the DataComponent timeout under Preference->KIELER->Execution Manager. (de.cau.cs.kieler.sim.kiem)
+
+!ENTRY de.cau.cs.kieler.klighd.incremental 1 0 2019-09-21 23:07:39.651
+!MESSAGE Fallback to simple update. Reason: Empty base model.

@@ -54,6 +54,8 @@ scchart pacemaker {
 		--> PVARPWait with / PVARPStart;
 	state PVARPWait
 		--> idle with PVARPExpired
+		--> ASenseCheck;
+	connector state ASenseCheck
 		--> PVARPWait immediate with ASense;
 
 	/* VRP – Ventricular Refractory Period
@@ -68,6 +70,8 @@ scchart pacemaker {
 		--> VRPWait with / VRPStart;
 	state VRPWait
 		--> idle with VRPExpired
+		--> VSenseCheck;
+	connector state VSenseCheck
 		--> VRPWait immediate with VSense;
     
 	/* AEI – Atrial Escape Interval

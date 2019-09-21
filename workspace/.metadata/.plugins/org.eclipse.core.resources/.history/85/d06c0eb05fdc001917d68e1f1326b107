@@ -1,8 +1,8 @@
 scchart pacemaker {
   input signal ASense, VSense;
-  output signal AEIStart, AVIStart, PVARPStart, VRPStart, URIStart;
-  input signal AEIExpired, AVIExpired, PVARPExpired, VRPExpired, URIExpired;
-  output signal AEIStop, AVIStop, PVARPStop, VRPStop, URIStop;
+  output signal AEIStart, AVIStart, PVARPStart, VRPStart, URIStart, LRIStart;
+  input signal AEIExpired, AVIExpired, PVARPExpired, VRPExpired, URIExpired, LRIExpired;
+  output signal AEIStop, AVIStop, PVARPStop, VRPStop, URIStop, LRIStop;
   output signal APace, VPace;
 
   initial state main { 
@@ -11,8 +11,13 @@ scchart pacemaker {
     region AVI:
 	
 	initial state idle
-		--> V_wait with ASense
+		--> PVARPWait with ASense
 		--> V_wait with APace; 
+	state PVARPWait
+		--> ASWait with PVARPExpired;
+	state ASWait 
+		--> V_wait with ASense
+		--> V_wait with APace;
 	connector state V_wait
 		--> AVI_on immediate with / AVIStart;
 	state AVI_on
@@ -36,19 +41,20 @@ scchart pacemaker {
 	state AVITimerURIDone
 		--> idle with AVIStop
 		--> idle with AVIExpired / VPace;
-		
+	
 	/* PVARP – Post-Ventricular Atrial Refractory Period
 	The time after a ventricular event where any atrial events are ignored as Atrial
 	Refractory (AR) signals */
     region PVARP:
-
+    
    	initial state idle
-    	--> AR_wait with ASense / PVARPStart
-		--> AR_wait with APace / PVARPStart; 
+    	--> AR_wait with ASense
+		--> AR_wait with APace;
 	connector state AR_wait
 		--> PVARPWait with / PVARPStart;
 	state PVARPWait
-		--> idle with !ASense;
+		--> idle with PVARPExpired
+		--> PVARPWait immediate with ASense;
 
 	/* VRP – Ventricular Refractory Period
 	The time after a ventricular event where any other ventricular events are ignored as
@@ -56,8 +62,8 @@ scchart pacemaker {
     region VRP:
 
     initial state idle
-    	--> V_wait with ASense / VRPStart
-		--> V_wait with APace / VRPStart; 
+    	--> V_wait with ASense
+		--> V_wait with APace;
 	connector state V_wait
 		--> VRPWait with / VRPStart;
 	state VRPWait
@@ -69,6 +75,11 @@ scchart pacemaker {
     region AEI:
 
     initial state idle
+		--> VRPWait with VSense
+		--> A_wait with VPace;
+	state VRPWait
+		--> VSWait with VRPExpired;
+	state VSWait
 		--> A_wait with VSense
 		--> A_wait with VPace;
 	connector state A_wait
@@ -93,18 +104,39 @@ scchart pacemaker {
     region LRI:
     
     initial state idle
-		--> LRI_wait with VSense / AEIStart
-		--> LRI_wait with VPace / AEIStart;
-	connector state LRI_wait;
+		--> VRPWait with VSense / LRIStart;
+	state VRPWait
+		--> LRI_on with VRPExpired;
+	state LRI_on
+		--> resetLRI with VSense / LRIStop
+		--> resetLRI with LRIExpired / VPace;
+	state resetLRI
+		--> VRPWait with / LRIStart;
     
+    /* LRITimer – Lower Rate Interval Timer
+	This is the timer that handles pacing based on the LRI Timer */
+    region LRITimer:
+
+    initial state idle
+		--> LRITimer with LRIStart;
+	state LRITimer
+		--> idle with LRIExpired;
+		
 	/* URI – Upper Rate Interval
 	The fastest rate at which the pacemaker will ever pace the heart at. This is measured
 	as the time between ventricular events */
     region URI:
 
     initial state idle
-		--> URI_on with VSense / URIStart
-		--> URI_on with VPace / URIStart;
+		--> VRPWait with VSense
+		--> URI_wait with VPace;
+	state VRPWait 
+		--> VSWait with VRPExpired;
+	state VSWait
+		--> URI_wait with VSense
+		--> URI_wait with VPace;
+	connector state URI_wait
+		--> URI_on immediate with / URIStart;
 	state URI_on
 		--> idle with URIExpired;
 	
