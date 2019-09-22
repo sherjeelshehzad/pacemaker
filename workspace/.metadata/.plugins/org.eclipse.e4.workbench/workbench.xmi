@@ -34,9 +34,7 @@
           <tags>persp.newWizSC:de.cau.cs.kieler.sccharts.prom.filewizard</tags>
           <children xsi:type="basic:PartSashContainer" xmi:id="_1NW5odN9Eem78piKLZaUDw" selectedElement="_1NW5otN9Eem78piKLZaUDw">
             <children xsi:type="basic:PartSashContainer" xmi:id="_1NW5otN9Eem78piKLZaUDw" containerData="7000" selectedElement="_1NW5pNN9Eem78piKLZaUDw" horizontal="true">
-              <children xsi:type="advanced:Placeholder" xmi:id="_1NW5o9N9Eem78piKLZaUDw" elementId="org.eclipse.ui.editorss" visible="false" containerData="5000" ref="_1NQzANN9Eem78piKLZaUDw">
-                <tags>Minimized</tags>
-              </children>
+              <children xsi:type="advanced:Placeholder" xmi:id="_1NW5o9N9Eem78piKLZaUDw" elementId="org.eclipse.ui.editorss" containerData="5000" ref="_1NQzANN9Eem78piKLZaUDw"/>
               <children xsi:type="basic:PartStack" xmi:id="_1NW5pNN9Eem78piKLZaUDw" elementId="topRight" containerData="5000" selectedElement="_1NW5pdN9Eem78piKLZaUDw">
                 <tags>active</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_1NW5pdN9Eem78piKLZaUDw" elementId="de.cau.cs.kieler.klighd.ui.view.diagram" ref="_1NVEcNN9Eem78piKLZaUDw"/>
@@ -96,7 +94,7 @@
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <children xsi:type="basic:Part" xmi:id="_PGPjMNN-Eemfj4Xlfmnxqw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="pacemaker.sct" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;de.cau.cs.kieler.sccharts.text.sct.Sct&quot; name=&quot;pacemaker.sct&quot; partName=&quot;pacemaker.sct&quot; title=&quot;pacemaker.sct&quot; tooltip=&quot;pacemaker/pacemaker.sct&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/pacemaker/pacemaker.sct&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1395&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;de.cau.cs.kieler.sccharts.text.sct.Sct&quot; name=&quot;pacemaker.sct&quot; partName=&quot;pacemaker.sct&quot; title=&quot;pacemaker.sct&quot; tooltip=&quot;pacemaker/pacemaker.sct&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/pacemaker/pacemaker.sct&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;55&quot; selectionOffset=&quot;238&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>de.cau.cs.kieler.sccharts.text.sct.Sct</tags>
           <tags>removeOnHide</tags>
@@ -206,7 +204,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_1KiPINN9Eem78piKLZaUDw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_4H0PINy-Eemz5ITciV40HQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_1BRl19N9Eem78piKLZaUDw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_ydKAUNzoEem4o74KDO9pUQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_1BRl19N9Eem78piKLZaUDw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_1KiPIdN9Eem78piKLZaUDw" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -230,7 +228,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_1KiPJdN9Eem78piKLZaUDw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_4H1dQdy-Eemz5ITciV40HQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_1BQ-0NN9Eem78piKLZaUDw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_ydLOc9zoEem4o74KDO9pUQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_1BQ-0NN9Eem78piKLZaUDw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_1KiPJtN9Eem78piKLZaUDw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -269,12 +267,12 @@
         <tags>Draggable</tags>
       </children>
     </trimBars>
-    <trimBars xmi:id="_1BBt1NN9Eem78piKLZaUDw" elementId="org.eclipse.ui.trim.vertical1" contributorURI="platform:/plugin/org.eclipse.ui.workbench" side="Left">
+    <trimBars xmi:id="_1BBt1NN9Eem78piKLZaUDw" elementId="org.eclipse.ui.trim.vertical1" contributorURI="platform:/plugin/org.eclipse.ui.workbench" toBeRendered="false" side="Left">
       <children xsi:type="menu:ToolControl" xmi:id="_1eRDcNN9Eem78piKLZaUDw" elementId="org.eclipse.ui.ide.perspectivestack(minimized)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
         <tags>Draggable</tags>
       </children>
-      <children xsi:type="menu:ToolControl" xmi:id="_-FP24Ny-Eemz5ITciV40HQ" elementId="org.eclipse.ui.editorss(IDEWindow).(de.cau.cs.kieler.Modeling)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+      <children xsi:type="menu:ToolControl" xmi:id="_-FP24Ny-Eemz5ITciV40HQ" elementId="org.eclipse.ui.editorss(IDEWindow).(de.cau.cs.kieler.Modeling)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
         <tags>Draggable</tags>
       </children>
@@ -1812,7 +1810,7 @@
   <addons xmi:id="_1BBt49N9Eem78piKLZaUDw" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_1BBt5NN9Eem78piKLZaUDw" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_1BEKENN9Eem78piKLZaUDw" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_3y-nkNy-Eemz5ITciV40HQ" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_1BOiINN9Eem78piKLZaUDw" elementId="org.eclipse.team.ui.category.team" name="Team" description="Actions that apply when working with a Team"/>
   <categories xmi:id="_1BOiIdN9Eem78piKLZaUDw" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>

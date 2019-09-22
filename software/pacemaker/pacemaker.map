@@ -1,5 +1,9 @@
 Archive member included to satisfy reference by file (symbol)
 
+../pacemaker_bsp/\libhal_bsp.a(alt_irq_register.o)
+                              obj/default/main.o (alt_irq_register)
+../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
+                              ../pacemaker_bsp/\libhal_bsp.a(alt_irq_register.o) (alt_irq_active)
 ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
                               ../pacemaker_bsp//obj/HAL/src/crt0.o (alt_load)
 ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
@@ -55,11 +59,9 @@ Archive member included to satisfy reference by file (symbol)
 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
                               ../pacemaker_bsp/\libhal_bsp.a(alt_main.o) (alt_io_redirect)
 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_entry.o)
-                              ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o) (alt_irq_entry)
+                              ../pacemaker_bsp/\libhal_bsp.a(alt_irq_register.o) (alt_irq_entry)
 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
-                              ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o) (alt_irq)
-../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
-                              ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o) (alt_irq_active)
+                              ../pacemaker_bsp/\libhal_bsp.a(alt_irq_register.o) (alt_irq)
 ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
                               ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o) (open)
 ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
@@ -292,6 +294,7 @@ onchip_mem       0x0000000001080000 0x0000000000007800
 Linker script and memory map
 
 LOAD ../pacemaker_bsp//obj/HAL/src/crt0.o
+LOAD obj/default/main.o
 LOAD obj/default/pacemaker.o
 LOAD d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libstdc++.a
 LOAD d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libm.a
@@ -369,7 +372,7 @@ LOAD d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-
                 0x0000000000800244                PROVIDE (__ram_exceptions_end, ABSOLUTE (.))
                 0x0000000000800020                PROVIDE (__flash_exceptions_start, LOADADDR (.exceptions))
 
-.text           0x0000000000800244     0x6580
+.text           0x0000000000800244     0x67a4
                 [!provide]                        PROVIDE (stext, ABSOLUTE (.))
  *(.interp)
  *(.hash)
@@ -416,144 +419,148 @@ LOAD d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-
  *(.text .stub .text.* .gnu.linkonce.t.*)
  .text          0x0000000000800244       0x4c ../pacemaker_bsp//obj/HAL/src/crt0.o
                 0x0000000000800244                _start
- .text          0x0000000000800290     0x2478 obj/default/pacemaker.o
-                0x0000000000800290                reset
-                0x00000000008003a4                tick
-                0x00000000008026a8                main
- .text          0x0000000000802708       0xec ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
-                0x0000000000802770                alt_load
- .text          0x00000000008027f4       0x7c ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
-                0x00000000008027f4                alt_main
- .text          0x0000000000802870      0x10c ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
-                0x00000000008028a8                alt_irq_init
-                0x00000000008028e0                alt_sys_init
- .text          0x000000000080297c      0x164 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
-                0x000000000080297c                altera_avalon_jtag_uart_read_fd
-                0x00000000008029dc                altera_avalon_jtag_uart_write_fd
-                0x0000000000802a3c                altera_avalon_jtag_uart_close_fd
-                0x0000000000802a8c                altera_avalon_jtag_uart_ioctl_fd
- .text          0x0000000000802ae0      0x3e4 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
-                0x0000000000802ae0                altera_avalon_jtag_uart_init
-                0x0000000000802e5c                altera_avalon_jtag_uart_close
- .text          0x0000000000802ec4       0xf0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
-                0x0000000000802ec4                altera_avalon_jtag_uart_ioctl
- .text          0x0000000000802fb4      0x21c ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
-                0x0000000000802fb4                altera_avalon_jtag_uart_read
- .text          0x00000000008031d0      0x224 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
-                0x00000000008031d0                altera_avalon_jtag_uart_write
- .text          0x00000000008033f4      0xea4 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
-                0x0000000000803bc8                altera_avalon_lcd_16207_write
-                0x000000000080415c                altera_avalon_lcd_16207_init
- .text          0x0000000000804298       0x60 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207_fd.o)
-                0x0000000000804298                altera_avalon_lcd_16207_write_fd
- .text          0x00000000008042f8      0x104 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
-                0x0000000000804370                alt_avalon_timer_sc_init
- .text          0x00000000008043fc      0x110 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_fd.o)
-                0x00000000008043fc                altera_avalon_uart_read_fd
-                0x000000000080445c                altera_avalon_uart_write_fd
-                0x00000000008044bc                altera_avalon_uart_close_fd
- .text          0x000000000080450c      0x3c8 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_init.o)
-                0x000000000080450c                altera_avalon_uart_init
-                0x0000000000804880                altera_avalon_uart_close
- .text          0x00000000008048d4      0x22c ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_read.o)
-                0x0000000000804924                altera_avalon_uart_read
- .text          0x0000000000804b00      0x1fc ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
-                0x0000000000804b50                altera_avalon_uart_write
- .text          0x0000000000804cfc      0x140 ../pacemaker_bsp/\libhal_bsp.a(alt_alarm_start.o)
-                0x0000000000804cfc                alt_alarm_start
- .text          0x0000000000804e3c      0x120 ../pacemaker_bsp/\libhal_bsp.a(alt_close.o)
-                0x0000000000804e8c                close
- .text          0x0000000000804f5c       0x48 ../pacemaker_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
-                0x0000000000804f5c                alt_dcache_flush_all
- .text          0x0000000000804fa4       0x2c ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
- .text          0x0000000000804fd0       0xf4 ../pacemaker_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
-                0x0000000000805020                alt_dev_llist_insert
- .text          0x00000000008050c4       0x60 ../pacemaker_bsp/\libhal_bsp.a(alt_do_ctors.o)
-                0x00000000008050c4                _do_ctors
- .text          0x0000000000805124       0x60 ../pacemaker_bsp/\libhal_bsp.a(alt_do_dtors.o)
-                0x0000000000805124                _do_dtors
- .text          0x0000000000805184        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_errno.o)
- .text          0x0000000000805184       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
-                0x0000000000805184                alt_icache_flush_all
- .text          0x00000000008051b8      0x1e0 ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o)
-                0x00000000008051b8                alt_ic_isr_register
-                0x0000000000805208                alt_ic_irq_enable
-                0x00000000008052a8                alt_ic_irq_disable
-                0x000000000080534c                alt_ic_irq_enabled
- .text          0x0000000000805398       0xf0 ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
-                0x0000000000805398                alt_iic_isr_register
- .text          0x0000000000805488      0x140 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
-                0x000000000080554c                alt_io_redirect
- .text          0x00000000008055c8        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_entry.o)
- .text          0x00000000008055c8        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
- .text          0x00000000008055c8        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
- .text          0x00000000008055c8      0x274 ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
-                0x00000000008056e4                open
- .text          0x000000000080583c       0x64 ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
-                0x000000000080583c                alt_release_fd
- .text          0x00000000008058a0      0x1a4 ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
-                0x00000000008058a0                alt_alarm_stop
-                0x000000000080593c                alt_tick
- .text          0x0000000000805a44       0x30 ../pacemaker_bsp/\libhal_bsp.a(alt_usleep.o)
-                0x0000000000805a44                usleep
- .text          0x0000000000805a74       0x24 ../pacemaker_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
-                0x0000000000805a74                altera_nios2_gen2_irq_init
- .text          0x0000000000805a98      0x158 ../pacemaker_bsp/\libhal_bsp.a(alt_busy_sleep.o)
-                0x0000000000805a98                alt_busy_sleep
- .text          0x0000000000805bf0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_exception_entry.o)
- .text          0x0000000000805bf0       0x90 ../pacemaker_bsp/\libhal_bsp.a(alt_find_dev.o)
-                0x0000000000805bf0                alt_find_dev
- .text          0x0000000000805c80      0x114 ../pacemaker_bsp/\libhal_bsp.a(alt_find_file.o)
-                0x0000000000805c80                alt_find_file
- .text          0x0000000000805d94       0xb4 ../pacemaker_bsp/\libhal_bsp.a(alt_get_fd.o)
-                0x0000000000805d94                alt_get_fd
- .text          0x0000000000805e48       0x90 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush.o)
-                0x0000000000805e48                alt_icache_flush
- .text          0x0000000000805ed8       0x9c ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
-                0x0000000000805ed8                alt_exception_cause_generated_bad_addr
- .text          0x0000000000805f74        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
- .text.atexit   0x0000000000805f74       0x14 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
-                0x0000000000805f74                atexit
- .text          0x0000000000805f88        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
- .text          0x0000000000805f88        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
- .text.exit     0x0000000000805f88       0x38 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
-                0x0000000000805f88                exit
- .text          0x0000000000805fc0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
- .text          0x0000000000805fc0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-int_errno.o)
- .text          0x0000000000805fc0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
- .text.memcmp   0x0000000000805fc0       0x7c d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
-                0x0000000000805fc0                memcmp
- .text          0x000000000080603c        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
- .text.memcpy   0x000000000080603c      0x148 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
-                0x000000000080603c                memcpy
- .text          0x0000000000806184        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
- .text.memset   0x0000000000806184      0x128 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
-                0x0000000000806184                memset
- .text          0x00000000008062ac        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
- .text.strlen   0x00000000008062ac       0x98 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
-                0x00000000008062ac                strlen
- .text          0x0000000000806344        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
+ .text          0x0000000000800290       0xd4 obj/default/main.o
+                0x0000000000800290                button_interrupt
+                0x0000000000800310                main
+ .text          0x0000000000800364     0x2418 obj/default/pacemaker.o
+                0x0000000000800364                reset
+                0x0000000000800478                tick
+ .text          0x000000000080277c      0x1b0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_register.o)
+                0x000000000080277c                alt_irq_register
+ .text          0x000000000080292c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .text          0x000000000080292c       0xec ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
+                0x0000000000802994                alt_load
+ .text          0x0000000000802a18       0x7c ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
+                0x0000000000802a18                alt_main
+ .text          0x0000000000802a94      0x10c ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
+                0x0000000000802acc                alt_irq_init
+                0x0000000000802b04                alt_sys_init
+ .text          0x0000000000802ba0      0x164 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+                0x0000000000802ba0                altera_avalon_jtag_uart_read_fd
+                0x0000000000802c00                altera_avalon_jtag_uart_write_fd
+                0x0000000000802c60                altera_avalon_jtag_uart_close_fd
+                0x0000000000802cb0                altera_avalon_jtag_uart_ioctl_fd
+ .text          0x0000000000802d04      0x3e4 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
+                0x0000000000802d04                altera_avalon_jtag_uart_init
+                0x0000000000803080                altera_avalon_jtag_uart_close
+ .text          0x00000000008030e8       0xf0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+                0x00000000008030e8                altera_avalon_jtag_uart_ioctl
+ .text          0x00000000008031d8      0x21c ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+                0x00000000008031d8                altera_avalon_jtag_uart_read
+ .text          0x00000000008033f4      0x224 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                0x00000000008033f4                altera_avalon_jtag_uart_write
+ .text          0x0000000000803618      0xea4 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
+                0x0000000000803dec                altera_avalon_lcd_16207_write
+                0x0000000000804380                altera_avalon_lcd_16207_init
+ .text          0x00000000008044bc       0x60 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207_fd.o)
+                0x00000000008044bc                altera_avalon_lcd_16207_write_fd
+ .text          0x000000000080451c      0x104 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+                0x0000000000804594                alt_avalon_timer_sc_init
+ .text          0x0000000000804620      0x110 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_fd.o)
+                0x0000000000804620                altera_avalon_uart_read_fd
+                0x0000000000804680                altera_avalon_uart_write_fd
+                0x00000000008046e0                altera_avalon_uart_close_fd
+ .text          0x0000000000804730      0x3c8 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_init.o)
+                0x0000000000804730                altera_avalon_uart_init
+                0x0000000000804aa4                altera_avalon_uart_close
+ .text          0x0000000000804af8      0x22c ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_read.o)
+                0x0000000000804b48                altera_avalon_uart_read
+ .text          0x0000000000804d24      0x1fc ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
+                0x0000000000804d74                altera_avalon_uart_write
+ .text          0x0000000000804f20      0x140 ../pacemaker_bsp/\libhal_bsp.a(alt_alarm_start.o)
+                0x0000000000804f20                alt_alarm_start
+ .text          0x0000000000805060      0x120 ../pacemaker_bsp/\libhal_bsp.a(alt_close.o)
+                0x00000000008050b0                close
+ .text          0x0000000000805180       0x48 ../pacemaker_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+                0x0000000000805180                alt_dcache_flush_all
+ .text          0x00000000008051c8       0x2c ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
+ .text          0x00000000008051f4       0xf4 ../pacemaker_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+                0x0000000000805244                alt_dev_llist_insert
+ .text          0x00000000008052e8       0x60 ../pacemaker_bsp/\libhal_bsp.a(alt_do_ctors.o)
+                0x00000000008052e8                _do_ctors
+ .text          0x0000000000805348       0x60 ../pacemaker_bsp/\libhal_bsp.a(alt_do_dtors.o)
+                0x0000000000805348                _do_dtors
+ .text          0x00000000008053a8        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_errno.o)
+ .text          0x00000000008053a8       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+                0x00000000008053a8                alt_icache_flush_all
+ .text          0x00000000008053dc      0x1e0 ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o)
+                0x00000000008053dc                alt_ic_isr_register
+                0x000000000080542c                alt_ic_irq_enable
+                0x00000000008054cc                alt_ic_irq_disable
+                0x0000000000805570                alt_ic_irq_enabled
+ .text          0x00000000008055bc       0xf0 ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+                0x00000000008055bc                alt_iic_isr_register
+ .text          0x00000000008056ac      0x140 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
+                0x0000000000805770                alt_io_redirect
+ .text          0x00000000008057ec        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .text          0x00000000008057ec        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .text          0x00000000008057ec      0x274 ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
+                0x0000000000805908                open
+ .text          0x0000000000805a60       0x64 ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
+                0x0000000000805a60                alt_release_fd
+ .text          0x0000000000805ac4      0x1a4 ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
+                0x0000000000805ac4                alt_alarm_stop
+                0x0000000000805b60                alt_tick
+ .text          0x0000000000805c68       0x30 ../pacemaker_bsp/\libhal_bsp.a(alt_usleep.o)
+                0x0000000000805c68                usleep
+ .text          0x0000000000805c98       0x24 ../pacemaker_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+                0x0000000000805c98                altera_nios2_gen2_irq_init
+ .text          0x0000000000805cbc      0x158 ../pacemaker_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+                0x0000000000805cbc                alt_busy_sleep
+ .text          0x0000000000805e14        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .text          0x0000000000805e14       0x90 ../pacemaker_bsp/\libhal_bsp.a(alt_find_dev.o)
+                0x0000000000805e14                alt_find_dev
+ .text          0x0000000000805ea4      0x114 ../pacemaker_bsp/\libhal_bsp.a(alt_find_file.o)
+                0x0000000000805ea4                alt_find_file
+ .text          0x0000000000805fb8       0xb4 ../pacemaker_bsp/\libhal_bsp.a(alt_get_fd.o)
+                0x0000000000805fb8                alt_get_fd
+ .text          0x000000000080606c       0x90 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush.o)
+                0x000000000080606c                alt_icache_flush
+ .text          0x00000000008060fc       0x9c ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+                0x00000000008060fc                alt_exception_cause_generated_bad_addr
+ .text          0x0000000000806198        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
+ .text.atexit   0x0000000000806198       0x14 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
+                0x0000000000806198                atexit
+ .text          0x00000000008061ac        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
+ .text          0x00000000008061ac        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
+ .text.exit     0x00000000008061ac       0x38 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
+                0x00000000008061ac                exit
+ .text          0x00000000008061e4        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
+ .text          0x00000000008061e4        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-int_errno.o)
+ .text          0x00000000008061e4        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
+ .text.memcmp   0x00000000008061e4       0x7c d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
+                0x00000000008061e4                memcmp
+ .text          0x0000000000806260        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
+ .text.memcpy   0x0000000000806260      0x148 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
+                0x0000000000806260                memcpy
+ .text          0x00000000008063a8        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
+ .text.memset   0x00000000008063a8      0x128 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
+                0x00000000008063a8                memset
+ .text          0x00000000008064d0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
+ .text.strlen   0x00000000008064d0       0x98 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
+                0x00000000008064d0                strlen
+ .text          0x0000000000806568        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
  .text.__register_exitproc
-                0x0000000000806344      0x118 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
-                0x0000000000806344                __register_exitproc
- .text          0x000000000080645c        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
+                0x0000000000806568      0x118 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
+                0x0000000000806568                __register_exitproc
+ .text          0x0000000000806680        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
  .text.__call_exitprocs
-                0x000000000080645c      0x180 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
-                0x000000000080645c                __call_exitprocs
- .text          0x00000000008065dc      0x1b4 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0\libgcc.a(lib2-divmod.o)
-                0x00000000008065dc                __divsi3
-                0x0000000000806660                __modsi3
-                0x00000000008066d4                __udivsi3
-                0x0000000000806738                __umodsi3
- .text          0x0000000000806790       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_exit.o)
-                0x0000000000806790                _exit
+                0x0000000000806680      0x180 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
+                0x0000000000806680                __call_exitprocs
+ .text          0x0000000000806800      0x1b4 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0\libgcc.a(lib2-divmod.o)
+                0x0000000000806800                __divsi3
+                0x0000000000806884                __modsi3
+                0x00000000008068f8                __udivsi3
+                0x000000000080695c                __umodsi3
+ .text          0x00000000008069b4       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_exit.o)
+                0x00000000008069b4                _exit
  *(.gnu.warning.*)
  *(.fini)
                 [!provide]                        PROVIDE (__etext, ABSOLUTE (.))
                 [!provide]                        PROVIDE (_etext, ABSOLUTE (.))
                 [!provide]                        PROVIDE (etext, ABSOLUTE (.))
  *(.eh_frame_hdr)
-                0x00000000008067c4                . = ALIGN (0x4)
+                0x00000000008069e8                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__preinit_array_start, ABSOLUTE (.))
  *(.preinit_array)
                 [!provide]                        PROVIDE (__preinit_array_end, ABSOLUTE (.))
@@ -566,404 +573,408 @@ LOAD d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-
  *(.eh_frame)
  *(.gcc_except_table .gcc_except_table.*)
  *(.dynamic)
-                0x00000000008067c4                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
+                0x00000000008069e8                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
  *(.ctors)
  *(SORT(.ctors.*))
-                0x00000000008067c4                PROVIDE (__CTOR_END__, ABSOLUTE (.))
-                0x00000000008067c4                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
+                0x00000000008069e8                PROVIDE (__CTOR_END__, ABSOLUTE (.))
+                0x00000000008069e8                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
  *(.dtors)
  *(SORT(.dtors.*))
-                0x00000000008067c4                PROVIDE (__DTOR_END__, ABSOLUTE (.))
+                0x00000000008069e8                PROVIDE (__DTOR_END__, ABSOLUTE (.))
  *(.jcr)
-                0x00000000008067c4                . = ALIGN (0x4)
+                0x00000000008069e8                . = ALIGN (0x4)
 
-.rodata         0x00000000008067c4      0x2c8
-                0x00000000008067c4                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
-                0x00000000008067c4                . = ALIGN (0x4)
+.rodata         0x00000000008069e8      0x2c8
+                0x00000000008069e8                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
+                0x00000000008069e8                . = ALIGN (0x4)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata        0x00000000008067c4        0xf ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
- *fill*         0x00000000008067d3        0x1 
- .rodata        0x00000000008067d4       0x26 ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
- *fill*         0x00000000008067fa        0x2 
- .rodata        0x00000000008067fc        0xa ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
+ .rodata        0x00000000008069e8        0xf ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
+ *fill*         0x00000000008069f7        0x1 
+ .rodata        0x00000000008069f8       0x26 ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
+ *fill*         0x0000000000806a1e        0x2 
+ .rodata        0x0000000000806a20        0xa ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
  .rodata._ctype_
-                0x0000000000806806      0x101 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
-                0x0000000000806806                _ctype_
+                0x0000000000806a2a      0x101 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
+                0x0000000000806a2a                _ctype_
  .rodata._ctype_b
-                0x0000000000806907      0x180 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
- *fill*         0x0000000000806a87        0x1 
+                0x0000000000806b2b      0x180 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
+ *fill*         0x0000000000806cab        0x1 
  .rodata.str1.4
-                0x0000000000806a88        0x4 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
+                0x0000000000806cac        0x4 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
                                           0x2 (size before relaxing)
  *(.rodata1)
-                0x0000000000806a8c                . = ALIGN (0x4)
-                0x0000000000806a8c                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
-                0x00000000008067c4                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
+                0x0000000000806cb0                . = ALIGN (0x4)
+                0x0000000000806cb0                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
+                0x00000000008069e8                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
 
-.rwdata         0x0000000000806a8c     0x1844 load address 0x00000000008082d0
-                0x0000000000806a8c                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
-                0x0000000000806a8c                . = ALIGN (0x4)
+.rwdata         0x0000000000806cb0     0x1844 load address 0x00000000008084f4
+                0x0000000000806cb0                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
+                0x0000000000806cb0                . = ALIGN (0x4)
  *(.got.plt)
  *(.got)
  *(.data1)
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x0000000000806a8c        0x0 ../pacemaker_bsp//obj/HAL/src/crt0.o
- .data          0x0000000000806a8c        0x0 obj/default/pacemaker.o
- .data          0x0000000000806a8c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
- .data          0x0000000000806a8c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
- .data          0x0000000000806a8c     0x1244 ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
- .data          0x0000000000807cd0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .data          0x0000000000807cd0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
- .data          0x0000000000807cd0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
- .data          0x0000000000807cd0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .data          0x0000000000807cd0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .data          0x0000000000807cd0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
- .data          0x0000000000807cd0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207_fd.o)
- .data          0x0000000000807cd0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
- .data          0x0000000000807cd0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_fd.o)
- .data          0x0000000000807cd0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_init.o)
- .data          0x0000000000807cd0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_read.o)
- .data          0x0000000000807cd0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
- .data          0x0000000000807cd0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_alarm_start.o)
- .data          0x0000000000807cd0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_close.o)
- .data          0x0000000000807cd0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
- .data          0x0000000000807cd0      0x1a8 ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
-                0x0000000000807cd0                alt_dev_null
-                0x0000000000807cf8                alt_fd_list
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_do_ctors.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_do_dtors.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_errno.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_entry.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_usleep.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_busy_sleep.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_exception_entry.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_find_dev.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_find_file.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_get_fd.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush.o)
- .data          0x0000000000807e78        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
- .data          0x0000000000807e78        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
- .data          0x0000000000807e78        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
- .data          0x0000000000807e78        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
- .data          0x0000000000807e78        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
+ .data          0x0000000000806cb0        0x0 ../pacemaker_bsp//obj/HAL/src/crt0.o
+ .data          0x0000000000806cb0        0x0 obj/default/main.o
+ .data          0x0000000000806cb0        0x0 obj/default/pacemaker.o
+ .data          0x0000000000806cb0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_register.o)
+ .data          0x0000000000806cb0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .data          0x0000000000806cb0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
+ .data          0x0000000000806cb0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
+ .data          0x0000000000806cb0     0x1244 ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .data          0x0000000000807ef4        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .data          0x0000000000807ef4        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
+ .data          0x0000000000807ef4        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .data          0x0000000000807ef4        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .data          0x0000000000807ef4        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .data          0x0000000000807ef4        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
+ .data          0x0000000000807ef4        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207_fd.o)
+ .data          0x0000000000807ef4        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+ .data          0x0000000000807ef4        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_fd.o)
+ .data          0x0000000000807ef4        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_init.o)
+ .data          0x0000000000807ef4        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_read.o)
+ .data          0x0000000000807ef4        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
+ .data          0x0000000000807ef4        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_alarm_start.o)
+ .data          0x0000000000807ef4        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_close.o)
+ .data          0x0000000000807ef4        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .data          0x0000000000807ef4      0x1a8 ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
+                0x0000000000807ef4                alt_dev_null
+                0x0000000000807f1c                alt_fd_list
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_do_ctors.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_do_dtors.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_errno.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_usleep.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_find_file.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush.o)
+ .data          0x000000000080809c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .data          0x000000000080809c        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
+ .data          0x000000000080809c        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
+ .data          0x000000000080809c        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
+ .data          0x000000000080809c        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
  .data.impure_data
-                0x0000000000807e78      0x424 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
- .data          0x000000000080829c        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-int_errno.o)
- .data          0x000000000080829c        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
- .data          0x000000000080829c        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
- .data          0x000000000080829c        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
- .data          0x000000000080829c        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
- .data          0x000000000080829c        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
- .data          0x000000000080829c        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
- .data          0x000000000080829c        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0\libgcc.a(lib2-divmod.o)
- .data          0x000000000080829c        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_exit.o)
-                0x000000000081029c                _gp = ABSOLUTE ((. + 0x8000))
+                0x000000000080809c      0x424 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
+ .data          0x00000000008084c0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-int_errno.o)
+ .data          0x00000000008084c0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
+ .data          0x00000000008084c0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
+ .data          0x00000000008084c0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
+ .data          0x00000000008084c0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
+ .data          0x00000000008084c0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
+ .data          0x00000000008084c0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
+ .data          0x00000000008084c0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0\libgcc.a(lib2-divmod.o)
+ .data          0x00000000008084c0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_exit.o)
+                0x00000000008104c0                _gp = ABSOLUTE ((. + 0x8000))
                 [!provide]                        PROVIDE (gp, _gp)
  *(.rwdata .rwdata.*)
  *(.sdata .sdata.* .gnu.linkonce.s.*)
- .sdata         0x000000000080829c        0x4 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
- .sdata         0x00000000008082a0       0x14 ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
-                0x00000000008082a0                alt_fs_list
-                0x00000000008082a8                alt_dev_list
-                0x00000000008082b0                alt_max_fd
- .sdata         0x00000000008082b4        0x4 ../pacemaker_bsp/\libhal_bsp.a(alt_errno.o)
-                0x00000000008082b4                alt_errno
- .sdata         0x00000000008082b8        0x4 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
-                0x00000000008082b8                alt_priority_mask
- .sdata         0x00000000008082bc        0x8 ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
-                0x00000000008082bc                alt_alarm_list
+ .sdata         0x00000000008084c0        0x4 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
+                0x00000000008084c0                alt_priority_mask
+ .sdata         0x00000000008084c4        0x4 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
+ .sdata         0x00000000008084c8       0x14 ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
+                0x00000000008084c8                alt_fs_list
+                0x00000000008084d0                alt_dev_list
+                0x00000000008084d8                alt_max_fd
+ .sdata         0x00000000008084dc        0x4 ../pacemaker_bsp/\libhal_bsp.a(alt_errno.o)
+                0x00000000008084dc                alt_errno
+ .sdata         0x00000000008084e0        0x8 ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
+                0x00000000008084e0                alt_alarm_list
  .sdata.__ctype_ptr__
-                0x00000000008082c4        0x4 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
-                0x00000000008082c4                __ctype_ptr__
+                0x00000000008084e8        0x4 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
+                0x00000000008084e8                __ctype_ptr__
  .sdata._global_impure_ptr
-                0x00000000008082c8        0x4 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
-                0x00000000008082c8                _global_impure_ptr
+                0x00000000008084ec        0x4 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
+                0x00000000008084ec                _global_impure_ptr
  .sdata._impure_ptr
-                0x00000000008082cc        0x4 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
-                0x00000000008082cc                _impure_ptr
+                0x00000000008084f0        0x4 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
+                0x00000000008084f0                _impure_ptr
  *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
-                0x00000000008082d0                . = ALIGN (0x4)
-                0x00000000008082d0                _edata = ABSOLUTE (.)
+                0x00000000008084f4                . = ALIGN (0x4)
+                0x00000000008084f4                _edata = ABSOLUTE (.)
                 [!provide]                        PROVIDE (edata, ABSOLUTE (.))
-                0x00000000008082d0                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
-                0x00000000008082d0                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
+                0x00000000008084f4                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
+                0x00000000008084f4                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
 
-.bss            0x0000000000809b14      0x1cc
-                0x0000000000809b14                __bss_start = ABSOLUTE (.)
+.bss            0x0000000000809d38      0x1cc
+                0x0000000000809d38                __bss_start = ABSOLUTE (.)
                 [!provide]                        PROVIDE (__sbss_start, ABSOLUTE (.))
                 [!provide]                        PROVIDE (___sbss_start, ABSOLUTE (.))
  *(.dynsbss)
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
- .sbss          0x0000000000809b14       0xaa obj/default/pacemaker.o
-                0x0000000000809b14                g40
-                0x0000000000809b15                APace
-                0x0000000000809b16                g19_e2
-                0x0000000000809b17                g4
-                0x0000000000809b18                g19
-                0x0000000000809b19                g77_fix0
-                0x0000000000809b1a                AVIEnd
-                0x0000000000809b1b                g55
-                0x0000000000809b1c                g27
-                0x0000000000809b1d                g3
-                0x0000000000809b1e                PRE_g63
-                0x0000000000809b1f                PRE_g27
-                0x0000000000809b20                g55b
-                0x0000000000809b21                g47
-                0x0000000000809b22                g42
-                0x0000000000809b23                g9
-                0x0000000000809b24                _cg7
-                0x0000000000809b28                _PRE_GO
-                0x0000000000809b2c                PRE_g3
-                0x0000000000809b2d                g31_e3
-                0x0000000000809b2e                PRE_g13
-                0x0000000000809b2f                PRE_g72
-                0x0000000000809b30                g44
-                0x0000000000809b31                VRPExpired
-                0x0000000000809b32                AEIStop
-                0x0000000000809b33                g1
-                0x0000000000809b34                g61
-                0x0000000000809b35                g71
-                0x0000000000809b36                g82
-                0x0000000000809b37                PRE_g69
-                0x0000000000809b38                g12
-                0x0000000000809b39                g52
-                0x0000000000809b3a                g58_e6
-                0x0000000000809b3b                _cg46
-                0x0000000000809b3c                _cg74
-                0x0000000000809b3d                g17
-                0x0000000000809b3e                g76
-                0x0000000000809b3f                g31
-                0x0000000000809b40                g37
-                0x0000000000809b41                g62
-                0x0000000000809b42                g41
-                0x0000000000809b43                _cg61
-                0x0000000000809b44                _cg26
-                0x0000000000809b45                AVIStop
-                0x0000000000809b46                _cg34
-                0x0000000000809b47                g18
-                0x0000000000809b48                ASense
-                0x0000000000809b49                g48
-                0x0000000000809b4a                VR
-                0x0000000000809b4b                g38
-                0x0000000000809b4c                PRE_g42
-                0x0000000000809b4d                _cg43
-                0x0000000000809b4e                g14b
-                0x0000000000809b4f                g64
-                0x0000000000809b50                g21
-                0x0000000000809b51                _cg14
-                0x0000000000809b52                g79
-                0x0000000000809b53                g34
-                0x0000000000809b54                g5
-                0x0000000000809b55                g49
-                0x0000000000809b56                g2
-                0x0000000000809b57                g7
-                0x0000000000809b58                _cg53
-                0x0000000000809b59                _cg16
-                0x0000000000809b5a                g67_e7
-                0x0000000000809b5b                PVARPStart
-                0x0000000000809b5c                g80
-                0x0000000000809b5d                PRE_g25
-                0x0000000000809b5e                g77_e1_fix
-                0x0000000000809b5f                g59
-                0x0000000000809b60                g54
-                0x0000000000809b61                g66
-                0x0000000000809b62                g23
-                0x0000000000809b63                _cg48
-                0x0000000000809b64                AVIExpired
-                0x0000000000809b65                g14
-                0x0000000000809b66                PRE_g79
-                0x0000000000809b67                PRE_g36
-                0x0000000000809b68                VRPStart
-                0x0000000000809b69                g56
-                0x0000000000809b6a                PRE_g52
-                0x0000000000809b6b                VSense
-                0x0000000000809b6c                PRE_g6
-                0x0000000000809b6d                g78
-                0x0000000000809b6e                g33
-                0x0000000000809b6f                g11_e1
-                0x0000000000809b70                g50_e5
-                0x0000000000809b71                _cg29
-                0x0000000000809b72                g35
-                0x0000000000809b73                _cg38
-                0x0000000000809b74                g15
-                0x0000000000809b75                _GO
-                0x0000000000809b76                PRE_g54
-                0x0000000000809b77                VRPStop
-                0x0000000000809b78                g81_e2
-                0x0000000000809b79                g63
-                0x0000000000809b7a                g20
-                0x0000000000809b7b                g60
-                0x0000000000809b7c                _cg10
-                0x0000000000809b7d                AVIStart
-                0x0000000000809b7e                _cg22
-                0x0000000000809b7f                g43
-                0x0000000000809b80                _cg65
-                0x0000000000809b81                g53b
-                0x0000000000809b82                g36
-                0x0000000000809b83                g76_e8
-                0x0000000000809b84                g46
-                0x0000000000809b85                g50
-                0x0000000000809b86                g51
-                0x0000000000809b87                PRE_g60
-                0x0000000000809b88                _cg70
-                0x0000000000809b89                g13
-                0x0000000000809b8a                g53
-                0x0000000000809b8b                g8
-                0x0000000000809b8c                g57
-                0x0000000000809b8d                g70
-                0x0000000000809b8e                AR
-                0x0000000000809b8f                g6
-                0x0000000000809b90                _cg56
-                0x0000000000809b91                g72
-                0x0000000000809b92                g81
-                0x0000000000809b93                PRE_g33
-                0x0000000000809b94                _cg9
-                0x0000000000809b95                g0
-                0x0000000000809b96                _cg17
-                0x0000000000809b97                g75
-                0x0000000000809b98                g30
-                0x0000000000809b99                PRE_g15
-                0x0000000000809b9a                PRE_g21
-                0x0000000000809b9b                g16
-                0x0000000000809b9c                _cg24
-                0x0000000000809b9d                g58
-                0x0000000000809b9e                g68
-                0x0000000000809b9f                g25
-                0x0000000000809ba0                PVARPStop
-                0x0000000000809ba1                AEIExpired
-                0x0000000000809ba2                g11
-                0x0000000000809ba3                g65
-                0x0000000000809ba4                g22
-                0x0000000000809ba5                g28
-                0x0000000000809ba6                g73
-                0x0000000000809ba7                g16b
-                0x0000000000809ba8                g40_e4
-                0x0000000000809ba9                g77
-                0x0000000000809baa                g32
-                0x0000000000809bab                AEIStart
-                0x0000000000809bac                g45
-                0x0000000000809bad                _cg55
-                0x0000000000809bae                PRE_g45
-                0x0000000000809baf                VPace
-                0x0000000000809bb0                g39
-                0x0000000000809bb1                _cg49
-                0x0000000000809bb2                g29
-                0x0000000000809bb3                _cg4
-                0x0000000000809bb4                g67
-                0x0000000000809bb5                g24
-                0x0000000000809bb6                AEIEnd
-                0x0000000000809bb7                g10
-                0x0000000000809bb8                PVARPExpired
-                0x0000000000809bb9                g26b
-                0x0000000000809bba                g69
-                0x0000000000809bbb                g26
-                0x0000000000809bbc                g77_e1
-                0x0000000000809bbd                g74
- *fill*         0x0000000000809bbe        0x2 
- .sbss          0x0000000000809bc0        0xc ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
-                0x0000000000809bc0                alt_argc
-                0x0000000000809bc4                alt_argv
-                0x0000000000809bc8                alt_envp
- .sbss          0x0000000000809bcc        0x4 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
-                0x0000000000809bcc                alt_irq_active
- .sbss          0x0000000000809bd0        0x8 ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
-                0x0000000000809bd0                _alt_tick_rate
-                0x0000000000809bd4                _alt_nticks
- .sbss          0x0000000000809bd8        0x4 ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
-                0x0000000000809bd8                alt_instruction_exception_handler
- .sbss          0x0000000000809bdc        0x4 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-int_errno.o)
-                0x0000000000809bdc                errno
+ .sbss          0x0000000000809d38       0xaa obj/default/pacemaker.o
+                0x0000000000809d38                g40
+                0x0000000000809d39                APace
+                0x0000000000809d3a                g19_e2
+                0x0000000000809d3b                g4
+                0x0000000000809d3c                g19
+                0x0000000000809d3d                g77_fix0
+                0x0000000000809d3e                AVIEnd
+                0x0000000000809d3f                g55
+                0x0000000000809d40                g27
+                0x0000000000809d41                g3
+                0x0000000000809d42                PRE_g63
+                0x0000000000809d43                PRE_g27
+                0x0000000000809d44                g55b
+                0x0000000000809d45                g47
+                0x0000000000809d46                g42
+                0x0000000000809d47                g9
+                0x0000000000809d48                _cg7
+                0x0000000000809d4c                _PRE_GO
+                0x0000000000809d50                PRE_g3
+                0x0000000000809d51                g31_e3
+                0x0000000000809d52                PRE_g13
+                0x0000000000809d53                PRE_g72
+                0x0000000000809d54                g44
+                0x0000000000809d55                VRPExpired
+                0x0000000000809d56                AEIStop
+                0x0000000000809d57                g1
+                0x0000000000809d58                g61
+                0x0000000000809d59                g71
+                0x0000000000809d5a                g82
+                0x0000000000809d5b                PRE_g69
+                0x0000000000809d5c                g12
+                0x0000000000809d5d                g52
+                0x0000000000809d5e                g58_e6
+                0x0000000000809d5f                _cg46
+                0x0000000000809d60                _cg74
+                0x0000000000809d61                g17
+                0x0000000000809d62                g76
+                0x0000000000809d63                g31
+                0x0000000000809d64                g37
+                0x0000000000809d65                g62
+                0x0000000000809d66                g41
+                0x0000000000809d67                _cg61
+                0x0000000000809d68                _cg26
+                0x0000000000809d69                AVIStop
+                0x0000000000809d6a                _cg34
+                0x0000000000809d6b                g18
+                0x0000000000809d6c                ASense
+                0x0000000000809d6d                g48
+                0x0000000000809d6e                VR
+                0x0000000000809d6f                g38
+                0x0000000000809d70                PRE_g42
+                0x0000000000809d71                _cg43
+                0x0000000000809d72                g14b
+                0x0000000000809d73                g64
+                0x0000000000809d74                g21
+                0x0000000000809d75                _cg14
+                0x0000000000809d76                g79
+                0x0000000000809d77                g34
+                0x0000000000809d78                g5
+                0x0000000000809d79                g49
+                0x0000000000809d7a                g2
+                0x0000000000809d7b                g7
+                0x0000000000809d7c                _cg53
+                0x0000000000809d7d                _cg16
+                0x0000000000809d7e                g67_e7
+                0x0000000000809d7f                PVARPStart
+                0x0000000000809d80                g80
+                0x0000000000809d81                PRE_g25
+                0x0000000000809d82                g77_e1_fix
+                0x0000000000809d83                g59
+                0x0000000000809d84                g54
+                0x0000000000809d85                g66
+                0x0000000000809d86                g23
+                0x0000000000809d87                _cg48
+                0x0000000000809d88                AVIExpired
+                0x0000000000809d89                g14
+                0x0000000000809d8a                PRE_g79
+                0x0000000000809d8b                PRE_g36
+                0x0000000000809d8c                VRPStart
+                0x0000000000809d8d                g56
+                0x0000000000809d8e                PRE_g52
+                0x0000000000809d8f                VSense
+                0x0000000000809d90                PRE_g6
+                0x0000000000809d91                g78
+                0x0000000000809d92                g33
+                0x0000000000809d93                g11_e1
+                0x0000000000809d94                g50_e5
+                0x0000000000809d95                _cg29
+                0x0000000000809d96                g35
+                0x0000000000809d97                _cg38
+                0x0000000000809d98                g15
+                0x0000000000809d99                _GO
+                0x0000000000809d9a                PRE_g54
+                0x0000000000809d9b                VRPStop
+                0x0000000000809d9c                g81_e2
+                0x0000000000809d9d                g63
+                0x0000000000809d9e                g20
+                0x0000000000809d9f                g60
+                0x0000000000809da0                _cg10
+                0x0000000000809da1                AVIStart
+                0x0000000000809da2                _cg22
+                0x0000000000809da3                g43
+                0x0000000000809da4                _cg65
+                0x0000000000809da5                g53b
+                0x0000000000809da6                g36
+                0x0000000000809da7                g76_e8
+                0x0000000000809da8                g46
+                0x0000000000809da9                g50
+                0x0000000000809daa                g51
+                0x0000000000809dab                PRE_g60
+                0x0000000000809dac                _cg70
+                0x0000000000809dad                g13
+                0x0000000000809dae                g53
+                0x0000000000809daf                g8
+                0x0000000000809db0                g57
+                0x0000000000809db1                g70
+                0x0000000000809db2                AR
+                0x0000000000809db3                g6
+                0x0000000000809db4                _cg56
+                0x0000000000809db5                g72
+                0x0000000000809db6                g81
+                0x0000000000809db7                PRE_g33
+                0x0000000000809db8                _cg9
+                0x0000000000809db9                g0
+                0x0000000000809dba                _cg17
+                0x0000000000809dbb                g75
+                0x0000000000809dbc                g30
+                0x0000000000809dbd                PRE_g15
+                0x0000000000809dbe                PRE_g21
+                0x0000000000809dbf                g16
+                0x0000000000809dc0                _cg24
+                0x0000000000809dc1                g58
+                0x0000000000809dc2                g68
+                0x0000000000809dc3                g25
+                0x0000000000809dc4                PVARPStop
+                0x0000000000809dc5                AEIExpired
+                0x0000000000809dc6                g11
+                0x0000000000809dc7                g65
+                0x0000000000809dc8                g22
+                0x0000000000809dc9                g28
+                0x0000000000809dca                g73
+                0x0000000000809dcb                g16b
+                0x0000000000809dcc                g40_e4
+                0x0000000000809dcd                g77
+                0x0000000000809dce                g32
+                0x0000000000809dcf                AEIStart
+                0x0000000000809dd0                g45
+                0x0000000000809dd1                _cg55
+                0x0000000000809dd2                PRE_g45
+                0x0000000000809dd3                VPace
+                0x0000000000809dd4                g39
+                0x0000000000809dd5                _cg49
+                0x0000000000809dd6                g29
+                0x0000000000809dd7                _cg4
+                0x0000000000809dd8                g67
+                0x0000000000809dd9                g24
+                0x0000000000809dda                AEIEnd
+                0x0000000000809ddb                g10
+                0x0000000000809ddc                PVARPExpired
+                0x0000000000809ddd                g26b
+                0x0000000000809dde                g69
+                0x0000000000809ddf                g26
+                0x0000000000809de0                g77_e1
+                0x0000000000809de1                g74
+ *fill*         0x0000000000809de2        0x2 
+ .sbss          0x0000000000809de4        0x4 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
+                0x0000000000809de4                alt_irq_active
+ .sbss          0x0000000000809de8        0xc ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
+                0x0000000000809de8                alt_argc
+                0x0000000000809dec                alt_argv
+                0x0000000000809df0                alt_envp
+ .sbss          0x0000000000809df4        0x8 ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
+                0x0000000000809df4                _alt_tick_rate
+                0x0000000000809df8                _alt_nticks
+ .sbss          0x0000000000809dfc        0x4 ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+                0x0000000000809dfc                alt_instruction_exception_handler
+ .sbss          0x0000000000809e00        0x4 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-int_errno.o)
+                0x0000000000809e00                errno
  *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
  *(.scommon)
                 [!provide]                        PROVIDE (__sbss_end, ABSOLUTE (.))
                 [!provide]                        PROVIDE (___sbss_end, ABSOLUTE (.))
  *(.dynbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp//obj/HAL/src/crt0.o
- .bss           0x0000000000809be0        0x0 obj/default/pacemaker.o
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207_fd.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_fd.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_init.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_read.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_alarm_start.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_close.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_do_ctors.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_do_dtors.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_errno.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_entry.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_usleep.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_busy_sleep.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_exception_entry.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_find_dev.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_find_file.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_get_fd.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
- .bss           0x0000000000809be0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
- .bss           0x0000000000809be0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
- .bss           0x0000000000809be0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
- .bss           0x0000000000809be0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
- .bss           0x0000000000809be0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-int_errno.o)
- .bss           0x0000000000809be0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
- .bss           0x0000000000809be0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
- .bss           0x0000000000809be0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
- .bss           0x0000000000809be0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
- .bss           0x0000000000809be0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
- .bss           0x0000000000809be0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
- .bss           0x0000000000809be0        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0\libgcc.a(lib2-divmod.o)
- .bss           0x0000000000809be0        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_exit.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp//obj/HAL/src/crt0.o
+ .bss           0x0000000000809e04        0x0 obj/default/main.o
+ .bss           0x0000000000809e04        0x0 obj/default/pacemaker.o
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_register.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207_fd.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_fd.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_init.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_read.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_alarm_start.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_close.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_do_ctors.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_do_dtors.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_errno.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_usleep.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_find_file.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .bss           0x0000000000809e04        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
+ .bss           0x0000000000809e04        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
+ .bss           0x0000000000809e04        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
+ .bss           0x0000000000809e04        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
+ .bss           0x0000000000809e04        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-int_errno.o)
+ .bss           0x0000000000809e04        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
+ .bss           0x0000000000809e04        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
+ .bss           0x0000000000809e04        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
+ .bss           0x0000000000809e04        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
+ .bss           0x0000000000809e04        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
+ .bss           0x0000000000809e04        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
+ .bss           0x0000000000809e04        0x0 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0\libgcc.a(lib2-divmod.o)
+ .bss           0x0000000000809e04        0x0 ../pacemaker_bsp/\libhal_bsp.a(alt_exit.o)
  *(COMMON)
- COMMON         0x0000000000809be0      0x100 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
-                0x0000000000809be0                alt_irq
-                0x0000000000809ce0                . = ALIGN (0x4)
-                0x0000000000809ce0                __bss_end = ABSOLUTE (.)
+ COMMON         0x0000000000809e04      0x100 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
+                0x0000000000809e04                alt_irq
+                0x0000000000809f04                . = ALIGN (0x4)
+                0x0000000000809f04                __bss_end = ABSOLUTE (.)
 
-.sdram          0x0000000000809ce0        0x0
+.sdram          0x0000000000809f04        0x0
                 [!provide]                        PROVIDE (_alt_partition_sdram_start, ABSOLUTE (.))
  *(.sdram .sdram. sdram.*)
-                0x0000000000809ce0                . = ALIGN (0x4)
+                0x0000000000809f04                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (_alt_partition_sdram_end, ABSOLUTE (.))
-                0x0000000000809ce0                _end = ABSOLUTE (.)
-                0x0000000000809ce0                end = ABSOLUTE (.)
-                0x0000000000809ce0                __alt_stack_base = ABSOLUTE (.)
+                0x0000000000809f04                _end = ABSOLUTE (.)
+                0x0000000000809f04                end = ABSOLUTE (.)
+                0x0000000000809f04                __alt_stack_base = ABSOLUTE (.)
                 [!provide]                        PROVIDE (_alt_partition_sdram_load_addr, LOADADDR (.sdram))
 
-.onchip_mem     0x0000000001080000        0x0 load address 0x0000000000809ce0
+.onchip_mem     0x0000000001080000        0x0 load address 0x0000000000809f04
                 [!provide]                        PROVIDE (_alt_partition_onchip_mem_start, ABSOLUTE (.))
  *(.onchip_mem .onchip_mem. onchip_mem.*)
                 0x0000000001080000                . = ALIGN (0x4)
@@ -990,8 +1001,11 @@ LOAD d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-
 
 .comment        0x0000000000000000       0x23
  *(.comment)
- .comment       0x0000000000000000       0x23 obj/default/pacemaker.o
+ .comment       0x0000000000000000       0x23 obj/default/main.o
                                          0x24 (size before relaxing)
+ .comment       0x0000000000000023       0x24 obj/default/pacemaker.o
+ .comment       0x0000000000000023       0x24 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_register.o)
+ .comment       0x0000000000000023       0x24 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
  .comment       0x0000000000000023       0x24 ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
  .comment       0x0000000000000023       0x24 ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
  .comment       0x0000000000000023       0x24 ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
@@ -1020,7 +1034,6 @@ LOAD d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-
  .comment       0x0000000000000023       0x24 ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
  .comment       0x0000000000000023       0x24 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
  .comment       0x0000000000000023       0x24 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
- .comment       0x0000000000000023       0x24 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
  .comment       0x0000000000000023       0x24 ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
  .comment       0x0000000000000023       0x24 ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
  .comment       0x0000000000000023       0x24 ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
@@ -1058,467 +1071,483 @@ LOAD d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x0000000000000000      0x730
+.debug_aranges  0x0000000000000000      0x770
  *(.debug_aranges)
  .debug_aranges
                 0x0000000000000000       0x28 ../pacemaker_bsp//obj/HAL/src/crt0.o
  .debug_aranges
-                0x0000000000000028       0x20 obj/default/pacemaker.o
+                0x0000000000000028       0x20 obj/default/main.o
  .debug_aranges
-                0x0000000000000048       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
+                0x0000000000000048       0x20 obj/default/pacemaker.o
  .debug_aranges
-                0x0000000000000068       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
+                0x0000000000000068       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_register.o)
  .debug_aranges
-                0x0000000000000088       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
+                0x0000000000000088       0x18 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
  .debug_aranges
-                0x00000000000000a8       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+                0x00000000000000a0       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
  .debug_aranges
-                0x00000000000000c8       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
+                0x00000000000000c0       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
  .debug_aranges
-                0x00000000000000e8       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+                0x00000000000000e0       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
  .debug_aranges
-                0x0000000000000108       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+                0x0000000000000100       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
  .debug_aranges
-                0x0000000000000128       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                0x0000000000000120       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
  .debug_aranges
-                0x0000000000000148       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
+                0x0000000000000140       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
  .debug_aranges
-                0x0000000000000168       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207_fd.o)
+                0x0000000000000160       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
  .debug_aranges
-                0x0000000000000188       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+                0x0000000000000180       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
  .debug_aranges
-                0x00000000000001a8       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_fd.o)
+                0x00000000000001a0       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
  .debug_aranges
-                0x00000000000001c8       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_init.o)
+                0x00000000000001c0       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207_fd.o)
  .debug_aranges
-                0x00000000000001e8       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_read.o)
+                0x00000000000001e0       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
  .debug_aranges
-                0x0000000000000208       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
+                0x0000000000000200       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_fd.o)
  .debug_aranges
-                0x0000000000000228       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_alarm_start.o)
+                0x0000000000000220       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_init.o)
  .debug_aranges
-                0x0000000000000248       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_close.o)
+                0x0000000000000240       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_read.o)
  .debug_aranges
-                0x0000000000000268       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+                0x0000000000000260       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
  .debug_aranges
-                0x0000000000000288       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
+                0x0000000000000280       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_alarm_start.o)
  .debug_aranges
-                0x00000000000002a8       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+                0x00000000000002a0       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_close.o)
  .debug_aranges
-                0x00000000000002c8       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_do_ctors.o)
+                0x00000000000002c0       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
  .debug_aranges
-                0x00000000000002e8       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_do_dtors.o)
+                0x00000000000002e0       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
  .debug_aranges
-                0x0000000000000308       0x18 ../pacemaker_bsp/\libhal_bsp.a(alt_errno.o)
+                0x0000000000000300       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
  .debug_aranges
-                0x0000000000000320       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+                0x0000000000000320       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_do_ctors.o)
  .debug_aranges
-                0x0000000000000340       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o)
+                0x0000000000000340       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_do_dtors.o)
  .debug_aranges
-                0x0000000000000360       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+                0x0000000000000360       0x18 ../pacemaker_bsp/\libhal_bsp.a(alt_errno.o)
  .debug_aranges
-                0x0000000000000380       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
+                0x0000000000000378       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
  .debug_aranges
-                0x00000000000003a0       0x30 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_entry.o)
+                0x0000000000000398       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o)
  .debug_aranges
-                0x00000000000003d0       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
+                0x00000000000003b8       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
  .debug_aranges
-                0x00000000000003f0       0x18 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
+                0x00000000000003d8       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
  .debug_aranges
-                0x0000000000000408       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
+                0x00000000000003f8       0x30 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_entry.o)
  .debug_aranges
-                0x0000000000000428       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
+                0x0000000000000428       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
  .debug_aranges
-                0x0000000000000448       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
+                0x0000000000000448       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
  .debug_aranges
-                0x0000000000000468       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_usleep.o)
+                0x0000000000000468       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
  .debug_aranges
-                0x0000000000000488       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+                0x0000000000000488       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
  .debug_aranges
-                0x00000000000004a8       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+                0x00000000000004a8       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_usleep.o)
  .debug_aranges
-                0x00000000000004c8       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_exception_entry.o)
+                0x00000000000004c8       0x20 ../pacemaker_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
  .debug_aranges
-                0x0000000000000500       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_find_dev.o)
+                0x00000000000004e8       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_busy_sleep.o)
  .debug_aranges
-                0x0000000000000520       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_find_file.o)
+                0x0000000000000508       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_exception_entry.o)
  .debug_aranges
-                0x0000000000000540       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_get_fd.o)
+                0x0000000000000540       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_find_dev.o)
  .debug_aranges
-                0x0000000000000560       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush.o)
+                0x0000000000000560       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_find_file.o)
  .debug_aranges
-                0x0000000000000580       0x28 ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+                0x0000000000000580       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_get_fd.o)
  .debug_aranges
-                0x00000000000005a8       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
+                0x00000000000005a0       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush.o)
  .debug_aranges
-                0x00000000000005c8       0x18 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
+                0x00000000000005c0       0x28 ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
  .debug_aranges
-                0x00000000000005e0       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
+                0x00000000000005e8       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
  .debug_aranges
-                0x0000000000000600       0x18 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
+                0x0000000000000608       0x18 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
  .debug_aranges
-                0x0000000000000618       0x18 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-int_errno.o)
+                0x0000000000000620       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
  .debug_aranges
-                0x0000000000000630       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
+                0x0000000000000640       0x18 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
  .debug_aranges
-                0x0000000000000650       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
+                0x0000000000000658       0x18 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-int_errno.o)
  .debug_aranges
-                0x0000000000000670       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
+                0x0000000000000670       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
  .debug_aranges
-                0x0000000000000690       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
+                0x0000000000000690       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
  .debug_aranges
-                0x00000000000006b0       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
+                0x00000000000006b0       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
  .debug_aranges
-                0x00000000000006d0       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
+                0x00000000000006d0       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
  .debug_aranges
-                0x00000000000006f0       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0\libgcc.a(lib2-divmod.o)
+                0x00000000000006f0       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
  .debug_aranges
-                0x0000000000000710       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_exit.o)
+                0x0000000000000710       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
+ .debug_aranges
+                0x0000000000000730       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0\libgcc.a(lib2-divmod.o)
+ .debug_aranges
+                0x0000000000000750       0x20 ../pacemaker_bsp/\libhal_bsp.a(alt_exit.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0xa41f
+.debug_info     0x0000000000000000     0xa7e9
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000       0x6c ../pacemaker_bsp//obj/HAL/src/crt0.o
- .debug_info    0x000000000000006c      0xbd0 obj/default/pacemaker.o
- .debug_info    0x0000000000000c3c      0x145 ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
- .debug_info    0x0000000000000d81      0x131 ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
- .debug_info    0x0000000000000eb2      0x723 ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
- .debug_info    0x00000000000015d5      0x52e ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .debug_info    0x0000000000001b03      0x3a0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
- .debug_info    0x0000000000001ea3      0x280 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
- .debug_info    0x0000000000002123      0x345 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .debug_info    0x0000000000002468      0x340 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_info    0x00000000000027a8      0x6d1 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
- .debug_info    0x0000000000002e79      0x4cc ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207_fd.o)
- .debug_info    0x0000000000003345      0x226 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
- .debug_info    0x000000000000356b      0x447 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_fd.o)
- .debug_info    0x00000000000039b2      0x333 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_init.o)
- .debug_info    0x0000000000003ce5      0x319 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_read.o)
- .debug_info    0x0000000000003ffe      0x31e ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
- .debug_info    0x000000000000431c      0x2cc ../pacemaker_bsp/\libhal_bsp.a(alt_alarm_start.o)
- .debug_info    0x00000000000045e8      0x321 ../pacemaker_bsp/\libhal_bsp.a(alt_close.o)
- .debug_info    0x0000000000004909       0xa5 ../pacemaker_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_info    0x00000000000049ae      0x49c ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
- .debug_info    0x0000000000004e4a      0x1a9 ../pacemaker_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_info    0x0000000000004ff3       0x83 ../pacemaker_bsp/\libhal_bsp.a(alt_do_ctors.o)
- .debug_info    0x0000000000005076       0x83 ../pacemaker_bsp/\libhal_bsp.a(alt_do_dtors.o)
- .debug_info    0x00000000000050f9       0xa6 ../pacemaker_bsp/\libhal_bsp.a(alt_errno.o)
- .debug_info    0x000000000000519f       0x92 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
- .debug_info    0x0000000000005231      0x350 ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o)
- .debug_info    0x0000000000005581      0x1ef ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
- .debug_info    0x0000000000005770      0x4a5 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
- .debug_info    0x0000000000005c15       0x75 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_entry.o)
- .debug_info    0x0000000000005c8a      0x187 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
- .debug_info    0x0000000000005e11       0x88 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
- .debug_info    0x0000000000005e99      0x3bb ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
- .debug_info    0x0000000000006254      0x2b0 ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
- .debug_info    0x0000000000006504      0x299 ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
- .debug_info    0x000000000000679d       0xb0 ../pacemaker_bsp/\libhal_bsp.a(alt_usleep.o)
- .debug_info    0x000000000000684d       0x92 ../pacemaker_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
- .debug_info    0x00000000000068df       0xd7 ../pacemaker_bsp/\libhal_bsp.a(alt_busy_sleep.o)
- .debug_info    0x00000000000069b6       0x7b ../pacemaker_bsp/\libhal_bsp.a(alt_exception_entry.o)
- .debug_info    0x0000000000006a31      0x2e9 ../pacemaker_bsp/\libhal_bsp.a(alt_find_dev.o)
- .debug_info    0x0000000000006d1a      0x2e6 ../pacemaker_bsp/\libhal_bsp.a(alt_find_file.o)
- .debug_info    0x0000000000007000      0x310 ../pacemaker_bsp/\libhal_bsp.a(alt_get_fd.o)
- .debug_info    0x0000000000007310       0xdc ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush.o)
- .debug_info    0x00000000000073ec      0x1e7 ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
- .debug_info    0x00000000000075d3       0xfe d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
- .debug_info    0x00000000000076d1       0x96 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
- .debug_info    0x0000000000007767      0x8e4 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
- .debug_info    0x000000000000804b      0x8a1 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
- .debug_info    0x00000000000088ec       0x8a d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-int_errno.o)
- .debug_info    0x0000000000008976      0x11a d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
- .debug_info    0x0000000000008a90      0x144 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
- .debug_info    0x0000000000008bd4      0x121 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
- .debug_info    0x0000000000008cf5       0xe2 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
- .debug_info    0x0000000000008dd7      0x934 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
- .debug_info    0x000000000000970b      0x965 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
- .debug_info    0x000000000000a070      0x2c3 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0\libgcc.a(lib2-divmod.o)
- .debug_info    0x000000000000a333       0xec ../pacemaker_bsp/\libhal_bsp.a(alt_exit.o)
+ .debug_info    0x000000000000006c      0x148 obj/default/main.o
+ .debug_info    0x00000000000001b4      0xb2e obj/default/pacemaker.o
+ .debug_info    0x0000000000000ce2      0x324 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_register.o)
+ .debug_info    0x0000000000001006       0x88 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .debug_info    0x000000000000108e      0x145 ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_info    0x00000000000011d3      0x131 ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_info    0x0000000000001304      0x723 ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_info    0x0000000000001a27      0x52e ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_info    0x0000000000001f55      0x3a0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
+ .debug_info    0x00000000000022f5      0x280 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .debug_info    0x0000000000002575      0x345 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_info    0x00000000000028ba      0x340 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_info    0x0000000000002bfa      0x6d1 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
+ .debug_info    0x00000000000032cb      0x4cc ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207_fd.o)
+ .debug_info    0x0000000000003797      0x226 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+ .debug_info    0x00000000000039bd      0x447 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_fd.o)
+ .debug_info    0x0000000000003e04      0x333 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_init.o)
+ .debug_info    0x0000000000004137      0x319 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_read.o)
+ .debug_info    0x0000000000004450      0x31e ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
+ .debug_info    0x000000000000476e      0x2cc ../pacemaker_bsp/\libhal_bsp.a(alt_alarm_start.o)
+ .debug_info    0x0000000000004a3a      0x321 ../pacemaker_bsp/\libhal_bsp.a(alt_close.o)
+ .debug_info    0x0000000000004d5b       0xa5 ../pacemaker_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_info    0x0000000000004e00      0x49c ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
+ .debug_info    0x000000000000529c      0x1a9 ../pacemaker_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_info    0x0000000000005445       0x83 ../pacemaker_bsp/\libhal_bsp.a(alt_do_ctors.o)
+ .debug_info    0x00000000000054c8       0x83 ../pacemaker_bsp/\libhal_bsp.a(alt_do_dtors.o)
+ .debug_info    0x000000000000554b       0xa6 ../pacemaker_bsp/\libhal_bsp.a(alt_errno.o)
+ .debug_info    0x00000000000055f1       0x92 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_info    0x0000000000005683      0x350 ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o)
+ .debug_info    0x00000000000059d3      0x1ef ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .debug_info    0x0000000000005bc2      0x4a5 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .debug_info    0x0000000000006067       0x75 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .debug_info    0x00000000000060dc      0x187 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .debug_info    0x0000000000006263      0x3bb ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
+ .debug_info    0x000000000000661e      0x2b0 ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .debug_info    0x00000000000068ce      0x299 ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
+ .debug_info    0x0000000000006b67       0xb0 ../pacemaker_bsp/\libhal_bsp.a(alt_usleep.o)
+ .debug_info    0x0000000000006c17       0x92 ../pacemaker_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_info    0x0000000000006ca9       0xd7 ../pacemaker_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .debug_info    0x0000000000006d80       0x7b ../pacemaker_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .debug_info    0x0000000000006dfb      0x2e9 ../pacemaker_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .debug_info    0x00000000000070e4      0x2e6 ../pacemaker_bsp/\libhal_bsp.a(alt_find_file.o)
+ .debug_info    0x00000000000073ca      0x310 ../pacemaker_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .debug_info    0x00000000000076da       0xdc ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush.o)
+ .debug_info    0x00000000000077b6      0x1e7 ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .debug_info    0x000000000000799d       0xfe d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
+ .debug_info    0x0000000000007a9b       0x96 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
+ .debug_info    0x0000000000007b31      0x8e4 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
+ .debug_info    0x0000000000008415      0x8a1 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
+ .debug_info    0x0000000000008cb6       0x8a d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-int_errno.o)
+ .debug_info    0x0000000000008d40      0x11a d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
+ .debug_info    0x0000000000008e5a      0x144 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
+ .debug_info    0x0000000000008f9e      0x121 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
+ .debug_info    0x00000000000090bf       0xe2 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
+ .debug_info    0x00000000000091a1      0x934 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
+ .debug_info    0x0000000000009ad5      0x965 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
+ .debug_info    0x000000000000a43a      0x2c3 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0\libgcc.a(lib2-divmod.o)
+ .debug_info    0x000000000000a6fd       0xec ../pacemaker_bsp/\libhal_bsp.a(alt_exit.o)
 
-.debug_abbrev   0x0000000000000000     0x36ae
+.debug_abbrev   0x0000000000000000     0x38cd
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000       0x12 ../pacemaker_bsp//obj/HAL/src/crt0.o
- .debug_abbrev  0x0000000000000012       0x9f obj/default/pacemaker.o
- .debug_abbrev  0x00000000000000b1       0x9f ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
- .debug_abbrev  0x0000000000000150       0xba ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
- .debug_abbrev  0x000000000000020a      0x19f ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
- .debug_abbrev  0x00000000000003a9      0x127 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .debug_abbrev  0x00000000000004d0      0x19e ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
- .debug_abbrev  0x000000000000066e      0x111 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
- .debug_abbrev  0x000000000000077f      0x1aa ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .debug_abbrev  0x0000000000000929      0x1a8 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_abbrev  0x0000000000000ad1      0x20f ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
- .debug_abbrev  0x0000000000000ce0      0x125 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207_fd.o)
- .debug_abbrev  0x0000000000000e05      0x155 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
- .debug_abbrev  0x0000000000000f5a      0x109 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_fd.o)
- .debug_abbrev  0x0000000000001063      0x178 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_init.o)
- .debug_abbrev  0x00000000000011db      0x183 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_read.o)
- .debug_abbrev  0x000000000000135e      0x18a ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
- .debug_abbrev  0x00000000000014e8      0x162 ../pacemaker_bsp/\libhal_bsp.a(alt_alarm_start.o)
- .debug_abbrev  0x000000000000164a      0x11f ../pacemaker_bsp/\libhal_bsp.a(alt_close.o)
- .debug_abbrev  0x0000000000001769       0x5a ../pacemaker_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_abbrev  0x00000000000017c3       0xd9 ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
- .debug_abbrev  0x000000000000189c      0x114 ../pacemaker_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_abbrev  0x00000000000019b0       0x79 ../pacemaker_bsp/\libhal_bsp.a(alt_do_ctors.o)
- .debug_abbrev  0x0000000000001a29       0x79 ../pacemaker_bsp/\libhal_bsp.a(alt_do_dtors.o)
- .debug_abbrev  0x0000000000001aa2       0x5a ../pacemaker_bsp/\libhal_bsp.a(alt_errno.o)
- .debug_abbrev  0x0000000000001afc       0x42 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
- .debug_abbrev  0x0000000000001b3e      0x163 ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o)
- .debug_abbrev  0x0000000000001ca1      0x169 ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
- .debug_abbrev  0x0000000000001e0a      0x114 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
- .debug_abbrev  0x0000000000001f1e       0x12 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_entry.o)
- .debug_abbrev  0x0000000000001f30      0x122 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
- .debug_abbrev  0x0000000000002052       0x40 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
- .debug_abbrev  0x0000000000002092      0x148 ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
- .debug_abbrev  0x00000000000021da       0xde ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
- .debug_abbrev  0x00000000000022b8      0x15a ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
- .debug_abbrev  0x0000000000002412       0x60 ../pacemaker_bsp/\libhal_bsp.a(alt_usleep.o)
- .debug_abbrev  0x0000000000002472       0x42 ../pacemaker_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
- .debug_abbrev  0x00000000000024b4       0x7e ../pacemaker_bsp/\libhal_bsp.a(alt_busy_sleep.o)
- .debug_abbrev  0x0000000000002532       0x12 ../pacemaker_bsp/\libhal_bsp.a(alt_exception_entry.o)
- .debug_abbrev  0x0000000000002544       0xf0 ../pacemaker_bsp/\libhal_bsp.a(alt_find_dev.o)
- .debug_abbrev  0x0000000000002634       0xf0 ../pacemaker_bsp/\libhal_bsp.a(alt_find_file.o)
- .debug_abbrev  0x0000000000002724      0x10d ../pacemaker_bsp/\libhal_bsp.a(alt_get_fd.o)
- .debug_abbrev  0x0000000000002831       0x8c ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush.o)
- .debug_abbrev  0x00000000000028bd       0xdc ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
- .debug_abbrev  0x0000000000002999       0xaa d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
- .debug_abbrev  0x0000000000002a43       0x5d d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
- .debug_abbrev  0x0000000000002aa0      0x1e5 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
- .debug_abbrev  0x0000000000002c85      0x18f d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
- .debug_abbrev  0x0000000000002e14       0x37 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-int_errno.o)
- .debug_abbrev  0x0000000000002e4b       0x7f d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
- .debug_abbrev  0x0000000000002eca       0xa3 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
- .debug_abbrev  0x0000000000002f6d       0xae d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
- .debug_abbrev  0x000000000000301b       0x90 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
- .debug_abbrev  0x00000000000030ab      0x21e d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
- .debug_abbrev  0x00000000000032c9      0x22e d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
- .debug_abbrev  0x00000000000034f7      0x10e d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0\libgcc.a(lib2-divmod.o)
- .debug_abbrev  0x0000000000003605       0xa9 ../pacemaker_bsp/\libhal_bsp.a(alt_exit.o)
+ .debug_abbrev  0x0000000000000012       0xd6 obj/default/main.o
+ .debug_abbrev  0x00000000000000e8       0x62 obj/default/pacemaker.o
+ .debug_abbrev  0x000000000000014a      0x186 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_register.o)
+ .debug_abbrev  0x00000000000002d0       0x40 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .debug_abbrev  0x0000000000000310       0x9f ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_abbrev  0x00000000000003af       0xba ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_abbrev  0x0000000000000469      0x19f ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_abbrev  0x0000000000000608      0x127 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_abbrev  0x000000000000072f      0x19e ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
+ .debug_abbrev  0x00000000000008cd      0x111 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .debug_abbrev  0x00000000000009de      0x1aa ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_abbrev  0x0000000000000b88      0x1a8 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_abbrev  0x0000000000000d30      0x20f ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
+ .debug_abbrev  0x0000000000000f3f      0x125 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207_fd.o)
+ .debug_abbrev  0x0000000000001064      0x155 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+ .debug_abbrev  0x00000000000011b9      0x109 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_fd.o)
+ .debug_abbrev  0x00000000000012c2      0x178 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_init.o)
+ .debug_abbrev  0x000000000000143a      0x183 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_read.o)
+ .debug_abbrev  0x00000000000015bd      0x18a ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
+ .debug_abbrev  0x0000000000001747      0x162 ../pacemaker_bsp/\libhal_bsp.a(alt_alarm_start.o)
+ .debug_abbrev  0x00000000000018a9      0x11f ../pacemaker_bsp/\libhal_bsp.a(alt_close.o)
+ .debug_abbrev  0x00000000000019c8       0x5a ../pacemaker_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_abbrev  0x0000000000001a22       0xd9 ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
+ .debug_abbrev  0x0000000000001afb      0x114 ../pacemaker_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_abbrev  0x0000000000001c0f       0x79 ../pacemaker_bsp/\libhal_bsp.a(alt_do_ctors.o)
+ .debug_abbrev  0x0000000000001c88       0x79 ../pacemaker_bsp/\libhal_bsp.a(alt_do_dtors.o)
+ .debug_abbrev  0x0000000000001d01       0x5a ../pacemaker_bsp/\libhal_bsp.a(alt_errno.o)
+ .debug_abbrev  0x0000000000001d5b       0x42 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_abbrev  0x0000000000001d9d      0x163 ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o)
+ .debug_abbrev  0x0000000000001f00      0x169 ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .debug_abbrev  0x0000000000002069      0x114 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .debug_abbrev  0x000000000000217d       0x12 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .debug_abbrev  0x000000000000218f      0x122 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .debug_abbrev  0x00000000000022b1      0x148 ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
+ .debug_abbrev  0x00000000000023f9       0xde ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .debug_abbrev  0x00000000000024d7      0x15a ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
+ .debug_abbrev  0x0000000000002631       0x60 ../pacemaker_bsp/\libhal_bsp.a(alt_usleep.o)
+ .debug_abbrev  0x0000000000002691       0x42 ../pacemaker_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_abbrev  0x00000000000026d3       0x7e ../pacemaker_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .debug_abbrev  0x0000000000002751       0x12 ../pacemaker_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .debug_abbrev  0x0000000000002763       0xf0 ../pacemaker_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .debug_abbrev  0x0000000000002853       0xf0 ../pacemaker_bsp/\libhal_bsp.a(alt_find_file.o)
+ .debug_abbrev  0x0000000000002943      0x10d ../pacemaker_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .debug_abbrev  0x0000000000002a50       0x8c ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush.o)
+ .debug_abbrev  0x0000000000002adc       0xdc ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .debug_abbrev  0x0000000000002bb8       0xaa d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
+ .debug_abbrev  0x0000000000002c62       0x5d d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
+ .debug_abbrev  0x0000000000002cbf      0x1e5 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
+ .debug_abbrev  0x0000000000002ea4      0x18f d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
+ .debug_abbrev  0x0000000000003033       0x37 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-int_errno.o)
+ .debug_abbrev  0x000000000000306a       0x7f d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
+ .debug_abbrev  0x00000000000030e9       0xa3 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
+ .debug_abbrev  0x000000000000318c       0xae d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
+ .debug_abbrev  0x000000000000323a       0x90 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
+ .debug_abbrev  0x00000000000032ca      0x21e d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
+ .debug_abbrev  0x00000000000034e8      0x22e d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
+ .debug_abbrev  0x0000000000003716      0x10e d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0\libgcc.a(lib2-divmod.o)
+ .debug_abbrev  0x0000000000003824       0xa9 ../pacemaker_bsp/\libhal_bsp.a(alt_exit.o)
 
-.debug_line     0x0000000000000000     0x42f2
+.debug_line     0x0000000000000000     0x44a6
  *(.debug_line)
  .debug_line    0x0000000000000000       0x72 ../pacemaker_bsp//obj/HAL/src/crt0.o
- .debug_line    0x0000000000000072      0x9ff obj/default/pacemaker.o
- .debug_line    0x0000000000000a71       0x8e ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
- .debug_line    0x0000000000000aff       0xa4 ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
- .debug_line    0x0000000000000ba3      0x1c6 ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
- .debug_line    0x0000000000000d69      0x12f ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .debug_line    0x0000000000000e98      0x18b ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
- .debug_line    0x0000000000001023      0x131 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
- .debug_line    0x0000000000001154      0x171 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .debug_line    0x00000000000012c5      0x170 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_line    0x0000000000001435      0x341 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
- .debug_line    0x0000000000001776      0x119 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207_fd.o)
- .debug_line    0x000000000000188f       0xfd ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
- .debug_line    0x000000000000198c       0xee ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_fd.o)
- .debug_line    0x0000000000001a7a      0x18f ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_init.o)
- .debug_line    0x0000000000001c09      0x17f ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_read.o)
- .debug_line    0x0000000000001d88      0x166 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
- .debug_line    0x0000000000001eee       0xfa ../pacemaker_bsp/\libhal_bsp.a(alt_alarm_start.o)
- .debug_line    0x0000000000001fe8      0x163 ../pacemaker_bsp/\libhal_bsp.a(alt_close.o)
- .debug_line    0x000000000000214b       0x61 ../pacemaker_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_line    0x00000000000021ac       0xf5 ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
- .debug_line    0x00000000000022a1       0xd0 ../pacemaker_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_line    0x0000000000002371       0x59 ../pacemaker_bsp/\libhal_bsp.a(alt_do_ctors.o)
- .debug_line    0x00000000000023ca       0x59 ../pacemaker_bsp/\libhal_bsp.a(alt_do_dtors.o)
- .debug_line    0x0000000000002423       0x51 ../pacemaker_bsp/\libhal_bsp.a(alt_errno.o)
- .debug_line    0x0000000000002474       0x50 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
- .debug_line    0x00000000000024c4       0xef ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o)
- .debug_line    0x00000000000025b3       0xdb ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
- .debug_line    0x000000000000268e      0x130 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
- .debug_line    0x00000000000027be       0x6b ../pacemaker_bsp/\libhal_bsp.a(alt_irq_entry.o)
- .debug_line    0x0000000000002829       0xaa ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
- .debug_line    0x00000000000028d3       0x50 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
- .debug_line    0x0000000000002923      0x12a ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
- .debug_line    0x0000000000002a4d       0xae ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
- .debug_line    0x0000000000002afb       0xff ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
- .debug_line    0x0000000000002bfa       0xaa ../pacemaker_bsp/\libhal_bsp.a(alt_usleep.o)
- .debug_line    0x0000000000002ca4       0x51 ../pacemaker_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
- .debug_line    0x0000000000002cf5       0xa0 ../pacemaker_bsp/\libhal_bsp.a(alt_busy_sleep.o)
- .debug_line    0x0000000000002d95       0xb3 ../pacemaker_bsp/\libhal_bsp.a(alt_exception_entry.o)
- .debug_line    0x0000000000002e48       0xb5 ../pacemaker_bsp/\libhal_bsp.a(alt_find_dev.o)
- .debug_line    0x0000000000002efd       0xd1 ../pacemaker_bsp/\libhal_bsp.a(alt_find_file.o)
- .debug_line    0x0000000000002fce       0xd5 ../pacemaker_bsp/\libhal_bsp.a(alt_get_fd.o)
- .debug_line    0x00000000000030a3       0x81 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush.o)
- .debug_line    0x0000000000003124       0xba ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
- .debug_line    0x00000000000031de       0xe4 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
- .debug_line    0x00000000000032c2       0xc4 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
- .debug_line    0x0000000000003386      0x1f9 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
- .debug_line    0x000000000000357f      0x15d d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
- .debug_line    0x00000000000036dc       0x5c d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-int_errno.o)
- .debug_line    0x0000000000003738      0x173 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
- .debug_line    0x00000000000038ab      0x189 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
- .debug_line    0x0000000000003a34      0x18c d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
- .debug_line    0x0000000000003bc0      0x16c d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
- .debug_line    0x0000000000003d2c      0x21c d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
- .debug_line    0x0000000000003f48      0x237 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
- .debug_line    0x000000000000417f      0x102 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0\libgcc.a(lib2-divmod.o)
- .debug_line    0x0000000000004281       0x71 ../pacemaker_bsp/\libhal_bsp.a(alt_exit.o)
+ .debug_line    0x0000000000000072       0xc7 obj/default/main.o
+ .debug_line    0x0000000000000139      0x993 obj/default/pacemaker.o
+ .debug_line    0x0000000000000acc      0x159 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_register.o)
+ .debug_line    0x0000000000000c25       0x50 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .debug_line    0x0000000000000c75       0x8e ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_line    0x0000000000000d03       0xa4 ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_line    0x0000000000000da7      0x1c6 ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_line    0x0000000000000f6d      0x12f ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_line    0x000000000000109c      0x18b ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
+ .debug_line    0x0000000000001227      0x131 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .debug_line    0x0000000000001358      0x171 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_line    0x00000000000014c9      0x170 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_line    0x0000000000001639      0x341 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
+ .debug_line    0x000000000000197a      0x119 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207_fd.o)
+ .debug_line    0x0000000000001a93       0xfd ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+ .debug_line    0x0000000000001b90       0xee ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_fd.o)
+ .debug_line    0x0000000000001c7e      0x18f ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_init.o)
+ .debug_line    0x0000000000001e0d      0x17f ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_read.o)
+ .debug_line    0x0000000000001f8c      0x166 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
+ .debug_line    0x00000000000020f2       0xfa ../pacemaker_bsp/\libhal_bsp.a(alt_alarm_start.o)
+ .debug_line    0x00000000000021ec      0x163 ../pacemaker_bsp/\libhal_bsp.a(alt_close.o)
+ .debug_line    0x000000000000234f       0x61 ../pacemaker_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_line    0x00000000000023b0       0xf5 ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
+ .debug_line    0x00000000000024a5       0xd0 ../pacemaker_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_line    0x0000000000002575       0x59 ../pacemaker_bsp/\libhal_bsp.a(alt_do_ctors.o)
+ .debug_line    0x00000000000025ce       0x59 ../pacemaker_bsp/\libhal_bsp.a(alt_do_dtors.o)
+ .debug_line    0x0000000000002627       0x51 ../pacemaker_bsp/\libhal_bsp.a(alt_errno.o)
+ .debug_line    0x0000000000002678       0x50 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_line    0x00000000000026c8       0xef ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o)
+ .debug_line    0x00000000000027b7       0xdb ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .debug_line    0x0000000000002892      0x130 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .debug_line    0x00000000000029c2       0x6b ../pacemaker_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .debug_line    0x0000000000002a2d       0xaa ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .debug_line    0x0000000000002ad7      0x12a ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
+ .debug_line    0x0000000000002c01       0xae ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .debug_line    0x0000000000002caf       0xff ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
+ .debug_line    0x0000000000002dae       0xaa ../pacemaker_bsp/\libhal_bsp.a(alt_usleep.o)
+ .debug_line    0x0000000000002e58       0x51 ../pacemaker_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_line    0x0000000000002ea9       0xa0 ../pacemaker_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .debug_line    0x0000000000002f49       0xb3 ../pacemaker_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .debug_line    0x0000000000002ffc       0xb5 ../pacemaker_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .debug_line    0x00000000000030b1       0xd1 ../pacemaker_bsp/\libhal_bsp.a(alt_find_file.o)
+ .debug_line    0x0000000000003182       0xd5 ../pacemaker_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .debug_line    0x0000000000003257       0x81 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush.o)
+ .debug_line    0x00000000000032d8       0xba ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .debug_line    0x0000000000003392       0xe4 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
+ .debug_line    0x0000000000003476       0xc4 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
+ .debug_line    0x000000000000353a      0x1f9 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
+ .debug_line    0x0000000000003733      0x15d d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
+ .debug_line    0x0000000000003890       0x5c d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-int_errno.o)
+ .debug_line    0x00000000000038ec      0x173 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
+ .debug_line    0x0000000000003a5f      0x189 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
+ .debug_line    0x0000000000003be8      0x18c d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
+ .debug_line    0x0000000000003d74      0x16c d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
+ .debug_line    0x0000000000003ee0      0x21c d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
+ .debug_line    0x00000000000040fc      0x237 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
+ .debug_line    0x0000000000004333      0x102 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0\libgcc.a(lib2-divmod.o)
+ .debug_line    0x0000000000004435       0x71 ../pacemaker_bsp/\libhal_bsp.a(alt_exit.o)
 
-.debug_frame    0x0000000000000000      0xfec
+.debug_frame    0x0000000000000000     0x1054
  *(.debug_frame)
- .debug_frame   0x0000000000000000       0x74 obj/default/pacemaker.o
- .debug_frame   0x0000000000000074       0x5c ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
- .debug_frame   0x00000000000000d0       0x2c ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
- .debug_frame   0x00000000000000fc       0x88 ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
- .debug_frame   0x0000000000000184       0xb0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .debug_frame   0x0000000000000234       0xa4 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
- .debug_frame   0x00000000000002d8       0x34 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
- .debug_frame   0x000000000000030c       0x38 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .debug_frame   0x0000000000000344       0x38 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_frame   0x000000000000037c      0x178 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
- .debug_frame   0x00000000000004f4       0x38 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207_fd.o)
- .debug_frame   0x000000000000052c       0x60 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
- .debug_frame   0x000000000000058c       0x88 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_fd.o)
- .debug_frame   0x0000000000000614       0xcc ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_init.o)
- .debug_frame   0x00000000000006e0       0x60 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_read.o)
- .debug_frame   0x0000000000000740       0x60 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
- .debug_frame   0x00000000000007a0       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_alarm_start.o)
- .debug_frame   0x00000000000007d4       0x60 ../pacemaker_bsp/\libhal_bsp.a(alt_close.o)
- .debug_frame   0x0000000000000834       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_frame   0x0000000000000868       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
- .debug_frame   0x000000000000089c       0x60 ../pacemaker_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
- .debug_frame   0x00000000000008fc       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_do_ctors.o)
- .debug_frame   0x0000000000000934       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_do_dtors.o)
- .debug_frame   0x000000000000096c       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
- .debug_frame   0x00000000000009a4       0xa4 ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o)
- .debug_frame   0x0000000000000a48       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
- .debug_frame   0x0000000000000a80       0x60 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
- .debug_frame   0x0000000000000ae0       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
- .debug_frame   0x0000000000000b18       0x84 ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
- .debug_frame   0x0000000000000b9c       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
- .debug_frame   0x0000000000000bd0       0x5c ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
- .debug_frame   0x0000000000000c2c       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_usleep.o)
- .debug_frame   0x0000000000000c64       0x34 ../pacemaker_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
- .debug_frame   0x0000000000000c98       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_busy_sleep.o)
- .debug_frame   0x0000000000000cd0       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_find_dev.o)
- .debug_frame   0x0000000000000d08       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_find_file.o)
- .debug_frame   0x0000000000000d40       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_get_fd.o)
- .debug_frame   0x0000000000000d74       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush.o)
- .debug_frame   0x0000000000000da8       0x5c ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
- .debug_frame   0x0000000000000e04       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
- .debug_frame   0x0000000000000e24       0x28 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
- .debug_frame   0x0000000000000e4c       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
- .debug_frame   0x0000000000000e6c       0x38 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
- .debug_frame   0x0000000000000ea4       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
- .debug_frame   0x0000000000000ec4       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
- .debug_frame   0x0000000000000ee4       0x38 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
- .debug_frame   0x0000000000000f1c       0x54 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
- .debug_frame   0x0000000000000f70       0x50 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0\libgcc.a(lib2-divmod.o)
- .debug_frame   0x0000000000000fc0       0x2c ../pacemaker_bsp/\libhal_bsp.a(alt_exit.o)
+ .debug_frame   0x0000000000000000       0x50 obj/default/main.o
+ .debug_frame   0x0000000000000050       0x58 obj/default/pacemaker.o
+ .debug_frame   0x00000000000000a8       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_register.o)
+ .debug_frame   0x00000000000000dc       0x5c ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_frame   0x0000000000000138       0x2c ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_frame   0x0000000000000164       0x88 ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_frame   0x00000000000001ec       0xb0 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_frame   0x000000000000029c       0xa4 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
+ .debug_frame   0x0000000000000340       0x34 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .debug_frame   0x0000000000000374       0x38 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_frame   0x00000000000003ac       0x38 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_frame   0x00000000000003e4      0x178 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
+ .debug_frame   0x000000000000055c       0x38 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207_fd.o)
+ .debug_frame   0x0000000000000594       0x60 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
+ .debug_frame   0x00000000000005f4       0x88 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_fd.o)
+ .debug_frame   0x000000000000067c       0xcc ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_init.o)
+ .debug_frame   0x0000000000000748       0x60 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_read.o)
+ .debug_frame   0x00000000000007a8       0x60 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
+ .debug_frame   0x0000000000000808       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_alarm_start.o)
+ .debug_frame   0x000000000000083c       0x60 ../pacemaker_bsp/\libhal_bsp.a(alt_close.o)
+ .debug_frame   0x000000000000089c       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_frame   0x00000000000008d0       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
+ .debug_frame   0x0000000000000904       0x60 ../pacemaker_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .debug_frame   0x0000000000000964       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_do_ctors.o)
+ .debug_frame   0x000000000000099c       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_do_dtors.o)
+ .debug_frame   0x00000000000009d4       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_frame   0x0000000000000a0c       0xa4 ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o)
+ .debug_frame   0x0000000000000ab0       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .debug_frame   0x0000000000000ae8       0x60 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .debug_frame   0x0000000000000b48       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .debug_frame   0x0000000000000b80       0x84 ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
+ .debug_frame   0x0000000000000c04       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .debug_frame   0x0000000000000c38       0x5c ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
+ .debug_frame   0x0000000000000c94       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_usleep.o)
+ .debug_frame   0x0000000000000ccc       0x34 ../pacemaker_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_frame   0x0000000000000d00       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .debug_frame   0x0000000000000d38       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .debug_frame   0x0000000000000d70       0x38 ../pacemaker_bsp/\libhal_bsp.a(alt_find_file.o)
+ .debug_frame   0x0000000000000da8       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .debug_frame   0x0000000000000ddc       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush.o)
+ .debug_frame   0x0000000000000e10       0x5c ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .debug_frame   0x0000000000000e6c       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
+ .debug_frame   0x0000000000000e8c       0x28 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
+ .debug_frame   0x0000000000000eb4       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
+ .debug_frame   0x0000000000000ed4       0x38 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
+ .debug_frame   0x0000000000000f0c       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
+ .debug_frame   0x0000000000000f2c       0x20 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
+ .debug_frame   0x0000000000000f4c       0x38 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
+ .debug_frame   0x0000000000000f84       0x54 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x0000000000000fd8       0x50 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0\libgcc.a(lib2-divmod.o)
+ .debug_frame   0x0000000000001028       0x2c ../pacemaker_bsp/\libhal_bsp.a(alt_exit.o)
 
-.debug_str      0x0000000000000000     0x2516
+.debug_str      0x0000000000000000     0x2553
  *(.debug_str)
- .debug_str     0x0000000000000000      0x346 obj/default/pacemaker.o
-                                        0x390 (size before relaxing)
- .debug_str     0x0000000000000346      0x166 ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
-                                        0x20c (size before relaxing)
- .debug_str     0x00000000000004ac       0x70 ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
-                                        0x197 (size before relaxing)
- .debug_str     0x000000000000051c      0x2f9 ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
-                                        0x4f3 (size before relaxing)
- .debug_str     0x0000000000000815       0xb9 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
-                                        0x39e (size before relaxing)
- .debug_str     0x00000000000008ce       0xd1 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
-                                        0x332 (size before relaxing)
- .debug_str     0x000000000000099f       0x4a ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
-                                        0x28d (size before relaxing)
- .debug_str     0x00000000000009e9       0x7f ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
-                                        0x2e2 (size before relaxing)
- .debug_str     0x0000000000000a68       0x4a ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
-                                        0x2e3 (size before relaxing)
- .debug_str     0x0000000000000ab2      0x1f9 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
-                                        0x489 (size before relaxing)
- .debug_str     0x0000000000000cab       0x4a ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207_fd.o)
-                                        0x352 (size before relaxing)
- .debug_str     0x0000000000000cf5       0x6d ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
-                                        0x245 (size before relaxing)
- .debug_str     0x0000000000000d62       0x77 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_fd.o)
-                                        0x2ef (size before relaxing)
- .debug_str     0x0000000000000dd9       0xb1 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_init.o)
-                                        0x2b1 (size before relaxing)
- .debug_str     0x0000000000000e8a       0x5d ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_read.o)
-                                        0x292 (size before relaxing)
- .debug_str     0x0000000000000ee7       0x49 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
-                                        0x286 (size before relaxing)
- .debug_str     0x0000000000000f30       0x59 ../pacemaker_bsp/\libhal_bsp.a(alt_alarm_start.o)
-                                        0x278 (size before relaxing)
- .debug_str     0x0000000000000f89       0x2c ../pacemaker_bsp/\libhal_bsp.a(alt_close.o)
-                                        0x205 (size before relaxing)
- .debug_str     0x0000000000000fb5       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
-                                        0x14f (size before relaxing)
- .debug_str     0x0000000000000fe9      0x120 ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
-                                        0x2ff (size before relaxing)
- .debug_str     0x0000000000001109       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
-                                        0x1c6 (size before relaxing)
- .debug_str     0x000000000000113d       0x48 ../pacemaker_bsp/\libhal_bsp.a(alt_do_ctors.o)
-                                         0xca (size before relaxing)
- .debug_str     0x0000000000001185       0x4c ../pacemaker_bsp/\libhal_bsp.a(alt_do_dtors.o)
-                                         0xc9 (size before relaxing)
- .debug_str     0x00000000000011d1       0x14 ../pacemaker_bsp/\libhal_bsp.a(alt_errno.o)
-                                        0x13f (size before relaxing)
- .debug_str     0x00000000000011e5       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
-                                        0x14f (size before relaxing)
- .debug_str     0x0000000000001219       0xbd ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o)
-                                        0x238 (size before relaxing)
- .debug_str     0x00000000000012d6       0x4c ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
-                                        0x1e2 (size before relaxing)
- .debug_str     0x0000000000001322       0x56 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
-                                        0x310 (size before relaxing)
- .debug_str     0x0000000000001378       0x3a ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
-                                        0x191 (size before relaxing)
- .debug_str     0x00000000000013b2       0x17 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .debug_str     0x0000000000000000      0x130 obj/default/main.o
+                                        0x184 (size before relaxing)
+ .debug_str     0x0000000000000130      0x238 obj/default/pacemaker.o
+                                        0x2bb (size before relaxing)
+ .debug_str     0x0000000000000368      0x13b ../pacemaker_bsp/\libhal_bsp.a(alt_irq_register.o)
+                                        0x202 (size before relaxing)
+ .debug_str     0x00000000000004a3       0x17 ../pacemaker_bsp/\libhal_bsp.a(alt_irq_vars.o)
                                         0x134 (size before relaxing)
- .debug_str     0x00000000000013c9       0x2f ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
+ .debug_str     0x00000000000004ba       0xe9 ../pacemaker_bsp/\libhal_bsp.a(alt_load.o)
+                                        0x20c (size before relaxing)
+ .debug_str     0x00000000000005a3       0x70 ../pacemaker_bsp/\libhal_bsp.a(alt_main.o)
+                                        0x197 (size before relaxing)
+ .debug_str     0x0000000000000613      0x2f9 ../pacemaker_bsp/\libhal_bsp.a(alt_sys_init.o)
+                                        0x4f3 (size before relaxing)
+ .debug_str     0x000000000000090c       0xb9 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+                                        0x39e (size before relaxing)
+ .debug_str     0x00000000000009c5       0xd1 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
+                                        0x332 (size before relaxing)
+ .debug_str     0x0000000000000a96       0x4a ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+                                        0x28d (size before relaxing)
+ .debug_str     0x0000000000000ae0       0x48 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+                                        0x2e2 (size before relaxing)
+ .debug_str     0x0000000000000b28       0x4a ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                                        0x2e3 (size before relaxing)
+ .debug_str     0x0000000000000b72      0x1f9 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207.o)
+                                        0x489 (size before relaxing)
+ .debug_str     0x0000000000000d6b       0x4a ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_lcd_16207_fd.o)
+                                        0x352 (size before relaxing)
+ .debug_str     0x0000000000000db5       0x6d ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_timer_sc.o)
                                         0x245 (size before relaxing)
- .debug_str     0x00000000000013f8       0x28 ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .debug_str     0x0000000000000e22       0x77 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_fd.o)
+                                        0x2ef (size before relaxing)
+ .debug_str     0x0000000000000e99       0xaa ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_init.o)
+                                        0x2b1 (size before relaxing)
+ .debug_str     0x0000000000000f43       0x5d ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_read.o)
+                                        0x292 (size before relaxing)
+ .debug_str     0x0000000000000fa0       0x49 ../pacemaker_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
+                                        0x286 (size before relaxing)
+ .debug_str     0x0000000000000fe9       0x59 ../pacemaker_bsp/\libhal_bsp.a(alt_alarm_start.o)
+                                        0x278 (size before relaxing)
+ .debug_str     0x0000000000001042       0x2c ../pacemaker_bsp/\libhal_bsp.a(alt_close.o)
+                                        0x205 (size before relaxing)
+ .debug_str     0x000000000000106e       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+                                        0x14f (size before relaxing)
+ .debug_str     0x00000000000010a2      0x120 ../pacemaker_bsp/\libhal_bsp.a(alt_dev.o)
+                                        0x2ff (size before relaxing)
+ .debug_str     0x00000000000011c2       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+                                        0x1c6 (size before relaxing)
+ .debug_str     0x00000000000011f6       0x48 ../pacemaker_bsp/\libhal_bsp.a(alt_do_ctors.o)
+                                         0xca (size before relaxing)
+ .debug_str     0x000000000000123e       0x4c ../pacemaker_bsp/\libhal_bsp.a(alt_do_dtors.o)
+                                         0xc9 (size before relaxing)
+ .debug_str     0x000000000000128a       0x14 ../pacemaker_bsp/\libhal_bsp.a(alt_errno.o)
+                                        0x13f (size before relaxing)
+ .debug_str     0x000000000000129e       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+                                        0x14f (size before relaxing)
+ .debug_str     0x00000000000012d2       0x70 ../pacemaker_bsp/\libhal_bsp.a(alt_iic.o)
+                                        0x238 (size before relaxing)
+ .debug_str     0x0000000000001342       0x34 ../pacemaker_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+                                        0x1e2 (size before relaxing)
+ .debug_str     0x0000000000001376       0x56 ../pacemaker_bsp/\libhal_bsp.a(alt_io_redirect.o)
+                                        0x310 (size before relaxing)
+ .debug_str     0x00000000000013cc       0x3a ../pacemaker_bsp/\libhal_bsp.a(alt_irq_handler.o)
+                                        0x191 (size before relaxing)
+ .debug_str     0x0000000000001406       0x2f ../pacemaker_bsp/\libhal_bsp.a(alt_open.o)
+                                        0x245 (size before relaxing)
+ .debug_str     0x0000000000001435       0x28 ../pacemaker_bsp/\libhal_bsp.a(alt_release_fd.o)
                                         0x1cd (size before relaxing)
- .debug_str     0x0000000000001420       0x4a ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
+ .debug_str     0x000000000000145d       0x4a ../pacemaker_bsp/\libhal_bsp.a(alt_tick.o)
                                         0x24c (size before relaxing)
- .debug_str     0x000000000000146a       0x27 ../pacemaker_bsp/\libhal_bsp.a(alt_usleep.o)
+ .debug_str     0x00000000000014a7       0x27 ../pacemaker_bsp/\libhal_bsp.a(alt_usleep.o)
                                         0x142 (size before relaxing)
- .debug_str     0x0000000000001491       0x3b ../pacemaker_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_str     0x00000000000014ce       0x3b ../pacemaker_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
                                         0x156 (size before relaxing)
- .debug_str     0x00000000000014cc       0x42 ../pacemaker_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .debug_str     0x0000000000001509       0x42 ../pacemaker_bsp/\libhal_bsp.a(alt_busy_sleep.o)
                                         0x165 (size before relaxing)
- .debug_str     0x000000000000150e       0x24 ../pacemaker_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .debug_str     0x000000000000154b       0x24 ../pacemaker_bsp/\libhal_bsp.a(alt_find_dev.o)
                                         0x1e6 (size before relaxing)
- .debug_str     0x0000000000001532       0x26 ../pacemaker_bsp/\libhal_bsp.a(alt_find_file.o)
+ .debug_str     0x000000000000156f       0x26 ../pacemaker_bsp/\libhal_bsp.a(alt_find_file.o)
                                         0x1f4 (size before relaxing)
- .debug_str     0x0000000000001558       0x30 ../pacemaker_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .debug_str     0x0000000000001595       0x30 ../pacemaker_bsp/\libhal_bsp.a(alt_get_fd.o)
                                         0x216 (size before relaxing)
- .debug_str     0x0000000000001588       0x2c ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush.o)
+ .debug_str     0x00000000000015c5       0x2c ../pacemaker_bsp/\libhal_bsp.a(alt_icache_flush.o)
                                         0x155 (size before relaxing)
- .debug_str     0x00000000000015b4      0x48b ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .debug_str     0x00000000000015f1      0x48b ../pacemaker_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
                                         0x59a (size before relaxing)
- .debug_str     0x0000000000001a3f      0x162 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
+ .debug_str     0x0000000000001a7c      0x162 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-atexit.o)
                                         0x207 (size before relaxing)
- .debug_str     0x0000000000001ba1       0xcd d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
+ .debug_str     0x0000000000001bde       0xcd d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-ctype_.o)
                                         0x149 (size before relaxing)
- .debug_str     0x0000000000001c6e      0x3ac d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
+ .debug_str     0x0000000000001cab      0x3ac d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-exit.o)
                                         0x5a4 (size before relaxing)
- .debug_str     0x000000000000201a       0xc8 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
+ .debug_str     0x0000000000002057       0xc8 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-impure.o)
                                         0x59b (size before relaxing)
- .debug_str     0x00000000000020e2       0x3c d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-int_errno.o)
+ .debug_str     0x000000000000211f       0x3c d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-int_errno.o)
                                         0x1c3 (size before relaxing)
- .debug_str     0x000000000000211e       0xcc d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
+ .debug_str     0x000000000000215b       0xcc d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcmp.o)
                                         0x1ca (size before relaxing)
- .debug_str     0x00000000000021ea       0x68 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
+ .debug_str     0x0000000000002227       0x68 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memcpy.o)
                                         0x1f1 (size before relaxing)
- .debug_str     0x0000000000002252       0x4e d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
+ .debug_str     0x000000000000228f       0x4e d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-memset.o)
                                         0x1de (size before relaxing)
- .debug_str     0x00000000000022a0       0x41 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
+ .debug_str     0x00000000000022dd       0x41 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-strlen.o)
                                         0x1dd (size before relaxing)
- .debug_str     0x00000000000022e1       0x3c d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
+ .debug_str     0x000000000000231e       0x3c d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__atexit.o)
                                         0x5dc (size before relaxing)
- .debug_str     0x000000000000231d       0x62 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
+ .debug_str     0x000000000000235a       0x62 d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0/../../../../../H-x86_64-mingw32/nios2-elf/lib\libc.a(lib_a-__call_atexit.o)
                                         0x5c8 (size before relaxing)
- .debug_str     0x000000000000237f      0x16d d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0\libgcc.a(lib2-divmod.o)
+ .debug_str     0x00000000000023bc      0x16d d:/altera_lite/16.0/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.2.0\libgcc.a(lib2-divmod.o)
                                         0x1b8 (size before relaxing)
- .debug_str     0x00000000000024ec       0x2a ../pacemaker_bsp/\libhal_bsp.a(alt_exit.o)
+ .debug_str     0x0000000000002529       0x2a ../pacemaker_bsp/\libhal_bsp.a(alt_exit.o)
                                         0x14b (size before relaxing)
 
 .debug_loc      0x0000000000000000      0xdc4

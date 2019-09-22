@@ -1,0 +1,21 @@
+/*
+ * pacemaker.h
+ *
+ *  Created on: 22/09/2019
+ *      Author: kevin
+ */
+
+#ifndef PACEMAKER_H_
+#define PACEMAKER_H_
+
+// Functions
+void reset();
+void tick();
+// Inputs
+extern char ASense;
+extern char VSense;
+
+extern char
+//Outputs
+
+#endif /* PACEMAKER_H_ */

@@ -12,24 +12,6 @@
 /* This code is provided under the terms of the Eclipse Public License (EPL).*/
 /*****************************************************************************/
 
-#include <stdio.h>
-#include "sys/alt_alarm.h"
-#include "pacemaker.h"
-#include <system.h>
-#include <altera_avalon_pio_regs.h>
-#include <math.h>
-#include <string.h>
-#include <alt_types.h> //alt_u32 is a kind of alt_type
-#include <sys/alt_irq.h> //to register interrupts
-
-// Example timeout values in milliseconds
-#define AVI_VALUE 300
-#define AEI_VALUE 800
-#define PVARP_VALUE 50
-#define VRP_VALUE 150
-#define LRI_VALUE 950
-#define URI_VALUE 900
-
 char AVIEnd;
 char VRPStart;
 char VRPExpired;
@@ -412,14 +394,4 @@ void tick(){
    PRE_g79 = g79;
    _PRE_GO = _GO;
    return;
-}
-
-int main(){
-   reset();
-   while(1){
-	  VSense = !(IORD_ALTERA_AVALON_PIO_DATA(BUTTONS_BASE) & 1<<0);
-      ASense = !(IORD_ALTERA_AVALON_PIO_DATA(BUTTONS_BASE) & 1<<1);
-
-      tick();
-   }
 }
