@@ -1,0 +1,54 @@
+/*
+ * timers.c
+ *
+ *  Created on: 23/09/2019
+ *      Author: sshe325
+ */
+
+#include "timers.h"
+
+alt_u32 AEITimerISR(void* context){
+	AEIExpired = 0;
+	AEITimerStarted = 0;
+	return 0;
+}
+
+alt_u32 AVITimerISR(void* context){
+	AVIExpired = 0;
+	AVITimerStarted = 0;
+	return 0;
+}
+
+alt_u32 LRITimerISR(void* context){
+	LRIExpired = 0;
+	LRITimerStarted = 0;
+	return 0;
+}
+
+alt_u32 URITimerISR(void* context){
+	URIExpired = 0;
+	URITimerStarted = 0;
+	return 0;
+}
+
+alt_u32 VRPTimerISR(void* context){
+	VRPExpired = 0;
+	VRPTimerStarted = 0;
+	return 0;
+}
+
+alt_u32 PVARPTimerISR(void* context){
+	PVARPExpired = 0;
+	PVARPTimerStarted = 0;
+	return 0;
+}
+
+alt_u32 APLEDTimerISR(void* context){
+	APTimerStarted = 0;
+	return 0;
+}
+
+alt_u32 VPLEDTimerISR(void* context){
+	VPTimerStarted = 0;
+	return 0;
+}

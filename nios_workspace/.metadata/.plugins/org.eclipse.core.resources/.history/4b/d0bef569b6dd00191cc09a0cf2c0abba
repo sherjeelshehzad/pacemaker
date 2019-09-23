@@ -1,0 +1,16 @@
+/*
+ * timers.h
+ *
+ *  Created on: 23/09/2019
+ *      Author: sshe325
+ */
+
+#ifndef TIMERS_H_
+#define TIMERS_H_
+
+#include "sys/alt_alarm.h"
+#include <system.h>
+
+alt_alarm
+
+#endif /* TIMERS_H_ */

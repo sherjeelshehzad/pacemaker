@@ -1,0 +1,55 @@
+/*
+ * timers.h
+ *
+ *  Created on: 23/09/2019
+ *      Author: sshe325
+ */
+
+#ifndef TIMERS_H_
+#define TIMERS_H_
+
+#include "pacemaker.h"
+#include <system.h>
+#include <altera_avalon_pio_regs.h>
+#include <alt_types.h> //alt_u32 is a kind of alt_type
+#include "sys/alt_alarm.h"
+
+//timers
+alt_alarm AEITimer;
+alt_alarm AVITimer;
+alt_alarm URITimer;
+alt_alarm LRITimer;
+alt_alarm VRPTimer;
+alt_alarm PVARPTimer;
+alt_alarm APLEDTimer;
+alt_alarm VPLEDTimer;
+alt_alarm AEITimer;
+alt_alarm AVITimer;
+alt_alarm URITimer;
+alt_alarm LRITimer;
+alt_alarm VRPTimer;
+alt_alarm PVARPTimer;
+alt_alarm APLEDTimer;
+alt_alarm VPLEDTimer;
+
+//timer ISRs
+alt_u32 AEITimerISR(void* context);
+alt_u32 AVITimerISR(void* context);
+alt_u32 LRITimerISR(void* context);
+alt_u32 URITimerISR(void* context);
+alt_u32 VRPTimerISR(void* context);
+alt_u32 PVARPTimerISR(void* context);
+alt_u32 APLEDTimerISR(void* context);
+alt_u32 VPLEDTimerISR(void* context);
+
+//timer crash guard variables (to check if timer has already started or not)
+int AEITimerStarted;
+int AVITimerStarted;
+int LRITimerStarted;
+int URITimerStarted;
+int VRPTimerStarted;
+int PVARPTimerStarted;
+int APLEDTimerStarted;
+int VPLEDTimerStarted;
+
+#endif /* TIMERS_H_ */

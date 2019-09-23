@@ -1,0 +1,58 @@
+/*
+ * timers.c
+ *
+ *  Created on: 23/09/2019
+ *      Author: sshe325
+ */
+
+#include "timers.h"
+
+//these are all mappings for the timers expiring
+alt_u32 AEITimerISR(void* context){
+	AEIExpired = 1;
+	AEITimerStarted = 0;
+	printf("AEIExpired\r\n");
+	return 0;
+}
+
+alt_u32 AVITimerISR(void* context){
+	AVIExpired = 1;
+	AVITimerStarted = 0;
+	return 0;
+}
+
+alt_u32 LRITimerISR(void* context){
+	LRIExpired = 1;
+	LRITimerStarted = 0;
+	return 0;
+}
+
+alt_u32 URITimerISR(void* context){
+	URIExpired = 1;
+	URITimerStarted = 0;
+	return 0;
+}
+
+alt_u32 VRPTimerISR(void* context){
+	VRPExpired = 1;
+	VRPTimerStarted = 0;
+	return 0;
+}
+
+alt_u32 PVARPTimerISR(void* context){
+	PVARPExpired = 1;
+	PVARPTimerStarted = 0;
+	return 0;
+}
+
+alt_u32 APLEDTimerISR(void* context){
+	APLEDTimerStarted = 1;
+	IOWR_ALTERA_AVALON_PIO_DATA(LEDS_GREEN_BASE, 0b00); //turn off LEDs
+	return 0;
+}
+
+alt_u32 VPLEDTimerISR(void* context){
+	VPLEDTimerStarted = 1;
+	IOWR_ALTERA_AVALON_PIO_DATA(LEDS_GREEN_BASE, 0b00); //turn off LEDs
+	return 0;
+}

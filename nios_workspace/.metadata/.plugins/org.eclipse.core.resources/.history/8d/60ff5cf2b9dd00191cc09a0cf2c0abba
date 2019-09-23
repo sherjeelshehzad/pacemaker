@@ -1,0 +1,118 @@
+ /*
+ *  Created on: 22/09/2019
+ *      Author: kevin
+ */
+
+#include "main.h"
+
+//button interrupt function for ASense and VSense
+void button_interrupt(void* context, alt_u32 id) {
+
+	VSense = !(IORD_ALTERA_AVALON_PIO_DATA(BUTTONS_BASE) & 1<<0);
+	ASense = !(IORD_ALTERA_AVALON_PIO_DATA(BUTTONS_BASE) & 1<<1);
+	//clear edge capture register for next interrupt
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE, 0);
+}
+
+int main(){
+
+	//reset signals
+	reset();
+	while(1){
+		void* context = 0;
+		//clear edge capture register
+		IOWR_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE, 0);
+		//enable interrupts for all buttons
+		IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, 0x7);
+		//register the button interrupt ISR
+		alt_irq_register(BUTTONS_IRQ, context, button_interrupt);
+
+		//start timers if timer start signals are detected
+		if (AEIStart){
+			if (AEITimerStarted == 0){
+				alt_alarm_start(&AEITimer, AEI_VALUE, AEITimerISR, context);
+				AEITimerStarted = 1;
+			}
+		}
+		if (AVIStart){
+			if (AVITimerStarted == 0){
+				alt_alarm_start(&AVITimer, AVI_VALUE, AVITimerISR, context);
+				AVITimerStarted = 1;
+			}
+		}
+		if (LRIStart){
+			if (LRITimerStarted == 0){
+				alt_alarm_start(&LRITimer, LRI_VALUE, LRITimerISR, context);
+				LRITimerStarted = 1;
+			}
+		}
+		if (URIStart){
+			if (URITimerStarted == 0){
+				alt_alarm_start(&URITimer, URI_VALUE, URITimerISR, context);
+				URITimerStarted = 1;
+			}
+		}
+		if (VRPStart){
+			if (VRPTimerStarted == 0){
+				alt_alarm_start(&VRPTimer, VRP_VALUE, VRPTimerISR, context);
+				VRPTimerStarted = 1;
+			}
+		}
+		if (PVARPStart){
+			if (PVARPTimerStarted == 0){
+				alt_alarm_start(&PVARPTimer, PVARP_VALUE, PVARPTimerISR, context);
+				PVARPTimerStarted = 1;
+			}
+		}
+
+		//stop timers if timer stop signals are detected
+		if (AEIStop){
+			if (AEITimerStarted == 1){
+				alt_alarm_start(&AEITimer, AEI_VALUE, AEITimerISR, context);
+				AEITimerStarted = 0;
+			}
+		}
+		if (AVIStop){
+			if (AVITimerStarted == 1){
+				alt_alarm_start(&AVITimer, AVI_VALUE, AVITimerISR, context);
+				AVITimerStarted = 0;
+			}
+		}
+		if (LRIStop){
+			if (LRITimerStarted == 1){
+				alt_alarm_start(&LRITimer, LRI_VALUE, LRITimerISR, context);
+				LRITimerStarted = 0;
+			}
+		}
+		if (URIStop){
+			if (URITimerStarted == 1){
+				alt_alarm_start(&URITimer, URI_VALUE, URITimerISR, context);
+				URITimerStarted = 0;
+			}
+		}
+		if (VRPStop){
+			if (VRPTimerStarted == 1){
+				alt_alarm_start(&VRPTimer, VRP_VALUE, VRPTimerISR, context);
+				VRPTimerStarted = 0;
+			}
+		}
+		if (PVARPStop){
+			if (PVARPTimerStarted == 1){
+				alt_alarm_start(&PVARPTimer, PVARP_VALUE, PVARPTimerISR, context);
+				PVARPTimerStarted = 0;
+			}
+		}
+
+		if (VPace){
+			IOWR_ALTERA_AVALON_PIO_DATA(LEDS_GREEN_BASE, 0b01);
+			alt_alarm_start(&PVARPTimer, PVARP_VALUE, PVARPTimerISR, context);
+		}
+		if (APace){
+			IOWR_ALTERA_AVALON_PIO_DATA(LEDS_GREEN_BASE, 0b10);
+			alt_alarm_start(&PVARPTimer, PVARP_VALUE, PVARPTimerISR, context);
+		}
+
+		//tick function
+		tick();
+	}
+}

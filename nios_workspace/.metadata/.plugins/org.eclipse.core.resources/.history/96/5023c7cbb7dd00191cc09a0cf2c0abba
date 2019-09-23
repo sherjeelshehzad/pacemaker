@@ -1,0 +1,33 @@
+/*
+ * timers.h
+ *
+ *  Created on: 23/09/2019
+ *      Author: sshe325
+ */
+
+#ifndef TIMERS_H_
+#define TIMERS_H_
+
+#include "sys/alt_alarm.h"
+#include <system.h>
+#include "pacemaker.h"
+
+//timers
+extern alt_alarm AEITimer;
+extern alt_alarm AVITimer;
+extern alt_alarm URITimer;
+extern alt_alarm LRITimer;
+extern alt_alarm VRPTimer;
+extern alt_alarm PVARPTimer;
+
+//timer ISRs
+extern alt_u32 AEITimerISR(void* context);
+extern alt_u32 AVITimerISR(void* context);
+extern alt_u32 LRITimerISR(void* context);
+extern alt_u32 URITimerISR(void* context);
+extern alt_u32 VRPTimerISR(void* context);
+extern alt_u32 PVARPTimerISR(void* context);
+
+//timer crash guard variables (to check if timer has already started or not)
+
+#endif /* TIMERS_H_ */

@@ -44,15 +44,17 @@
               <children xsi:type="basic:PartStack" xmi:id="_1NW5p9N9Eem78piKLZaUDw" elementId="bottomLeft" containerData="2000" selectedElement="_1NW5qNN9Eem78piKLZaUDw">
                 <children xsi:type="advanced:Placeholder" xmi:id="_1NW5qNN9Eem78piKLZaUDw" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_1NVEcdN9Eem78piKLZaUDw"/>
               </children>
-              <children xsi:type="basic:PartStack" xmi:id="_1NW5qdN9Eem78piKLZaUDw" elementId="bottomRight" containerData="8000" selectedElement="_bu1AkdmuEemRKtGpyPV1Jw">
+              <children xsi:type="basic:PartStack" xmi:id="_1NW5qdN9Eem78piKLZaUDw" elementId="bottomRight" containerData="8000" selectedElement="_1NW5qtN9Eem78piKLZaUDw">
                 <tags>KIELER Simulation</tags>
                 <tags>KIELER Lightweight Diagrams</tags>
+                <tags>General</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_1NW5qtN9Eem78piKLZaUDw" elementId="de.cau.cs.kieler.kico.selection" ref="_1NUdYNN9Eem78piKLZaUDw"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_1NW5q9N9Eem78piKLZaUDw" elementId="org.eclipse.ui.console.ConsoleView" ref="_1NWSkNN9Eem78piKLZaUDw"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_bsKHEdmuEemRKtGpyPV1Jw" elementId="de.cau.cs.kieler.sim.table.view" ref="_bsKHENmuEemRKtGpyPV1Jw"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_bu1AkdmuEemRKtGpyPV1Jw" elementId="de.cau.cs.kieler.sim.signals.ui.view" ref="_bu1AkNmuEemRKtGpyPV1Jw"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_99cnMdnIEemRKtGpyPV1Jw" elementId="de.cau.cs.kieler.klighd.ui.view.diagram:1568779278627" toBeRendered="false" ref="_99cnMNnIEemRKtGpyPV1Jw"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_-KasMdnIEemRKtGpyPV1Jw" elementId="de.cau.cs.kieler.klighd.ui.view.diagram:1568779279977" toBeRendered="false" ref="_-KasMNnIEemRKtGpyPV1Jw"/>
+                <children xsi:type="advanced:Placeholder" xmi:id="_DtGY4N2_EemLfJkfBsRbpg" elementId="org.eclipse.search.ui.views.SearchView" ref="_DtFx0N2_EemLfJkfBsRbpg"/>
               </children>
             </children>
           </children>
@@ -94,7 +96,7 @@
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <children xsi:type="basic:Part" xmi:id="_PGPjMNN-Eemfj4Xlfmnxqw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="pacemaker.sct" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;de.cau.cs.kieler.sccharts.text.sct.Sct&quot; name=&quot;pacemaker.sct&quot; partName=&quot;pacemaker.sct&quot; title=&quot;pacemaker.sct&quot; tooltip=&quot;pacemaker/pacemaker.sct&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/pacemaker/pacemaker.sct&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;55&quot; selectionOffset=&quot;238&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;de.cau.cs.kieler.sccharts.text.sct.Sct&quot; name=&quot;pacemaker.sct&quot; partName=&quot;pacemaker.sct&quot; title=&quot;pacemaker.sct&quot; tooltip=&quot;pacemaker/pacemaker.sct&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/pacemaker/pacemaker.sct&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;4489&quot; selectionTopPixel=&quot;1680&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>de.cau.cs.kieler.sccharts.text.sct.Sct</tags>
           <tags>removeOnHide</tags>
@@ -111,12 +113,12 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_1Svv8dN9Eem78piKLZaUDw" elementId="de.cau.cs.kieler.kico.selection" visible="false"/>
+      <toolbar xmi:id="_1Svv8dN9Eem78piKLZaUDw" elementId="de.cau.cs.kieler.kico.selection"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_1NVEcNN9Eem78piKLZaUDw" elementId="de.cau.cs.kieler.klighd.ui.view.diagram" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Diagram" iconURI="platform:/plugin/de.cau.cs.kieler.klighd.ui.view/icons/full/etool16/diagrams_view.gif" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="de.cau.cs.kieler.klighd.ui.view.DiagramView"/>
       <persistedState key="originalCompatibilityViewBundle" value="de.cau.cs.kieler.klighd.ui.view"/>
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view isLinkedWithActiveEditor=&quot;true&quot; synchronizeSelection=&quot;true&quot;>&#xD;&#xA;&lt;recentSynthesisOptions>&#xD;&#xA;&lt;de.cau.cs.kieler.sccharts.klighd.synthesis.SCChartsSynthesis/>&#xD;&#xA;&lt;/recentSynthesisOptions>&#xD;&#xA;&lt;synthesisSelection de.cau.cs.kieler.circuit.impl.ActorImpl=&quot;de.cau.cs.kieler.circuit.klighd.CircuitDiagramSynthesis&quot; de.cau.cs.kieler.kico.klighd.internal.model.CodePlaceHolder=&quot;de.cau.cs.kieler.kico.klighd.internal.model.CodePlaceHolderSynthesis&quot; de.cau.cs.kieler.kico.klighd.internal.model.ModelChain=&quot;de.cau.cs.kieler.kico.klighd.internal.model.ModelChainSynthesis&quot; de.cau.cs.kieler.klighd.ui.view.model.ErrorModel=&quot;de.cau.cs.kieler.klighd.ui.view.syntheses.ErrorModelSynthesis&quot; de.cau.cs.kieler.sccharts.impl.StateImpl=&quot;de.cau.cs.kieler.sccharts.klighd.synthesis.SCChartsSynthesis&quot; de.cau.cs.kieler.scg.impl.SCGraphImpl=&quot;de.cau.cs.kieler.scg.klighd.diagramSynthesis&quot;/>&#xD;&#xA;&lt;controllers>&#xD;&#xA;&lt;de.cau.cs.kieler.kico.klighd.KiCoModelUpdateController compileToggleAction=&quot;true&quot; debugModeToggleAction=&quot;false&quot; diagramPlaceholderToggleAction=&quot;false&quot; sideBySideToggleAction=&quot;false&quot; tracingChainToggleAction=&quot;false&quot; tracingToggleAction=&quot;false&quot;/>&#xD;&#xA;&lt;/controllers>&#xD;&#xA;&lt;/view>"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view isLinkedWithActiveEditor=&quot;true&quot; synchronizeSelection=&quot;true&quot;>&#xD;&#xA;&lt;recentSynthesisOptions>&#xD;&#xA;&lt;de.cau.cs.kieler.klighd.ui.view.syntheses.MessageModelSynthesis/>&#xD;&#xA;&lt;de.cau.cs.kieler.sccharts.klighd.synthesis.SCChartsSynthesis/>&#xD;&#xA;&lt;de.cau.cs.kieler.kico.klighd.internal.model.CodePlaceHolderSynthesis/>&#xD;&#xA;&lt;/recentSynthesisOptions>&#xD;&#xA;&lt;synthesisSelection de.cau.cs.kieler.circuit.impl.ActorImpl=&quot;de.cau.cs.kieler.circuit.klighd.CircuitDiagramSynthesis&quot; de.cau.cs.kieler.kico.klighd.internal.model.CodePlaceHolder=&quot;de.cau.cs.kieler.kico.klighd.internal.model.CodePlaceHolderSynthesis&quot; de.cau.cs.kieler.kico.klighd.internal.model.ModelChain=&quot;de.cau.cs.kieler.kico.klighd.internal.model.ModelChainSynthesis&quot; de.cau.cs.kieler.klighd.ui.view.model.ErrorModel=&quot;de.cau.cs.kieler.klighd.ui.view.syntheses.ErrorModelSynthesis&quot; de.cau.cs.kieler.sccharts.impl.StateImpl=&quot;de.cau.cs.kieler.sccharts.klighd.synthesis.SCChartsSynthesis&quot; de.cau.cs.kieler.scg.impl.SCGraphImpl=&quot;de.cau.cs.kieler.scg.klighd.diagramSynthesis&quot;/>&#xD;&#xA;&lt;controllers>&#xD;&#xA;&lt;de.cau.cs.kieler.kico.klighd.KiCoModelUpdateController compileToggleAction=&quot;true&quot; debugModeToggleAction=&quot;false&quot; diagramPlaceholderToggleAction=&quot;false&quot; sideBySideToggleAction=&quot;false&quot; tracingChainToggleAction=&quot;false&quot; tracingToggleAction=&quot;false&quot;/>&#xD;&#xA;&lt;/controllers>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:KIELER Lightweight Diagrams</tags>
       <tags>active</tags>
@@ -173,7 +175,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_bu7HMdmuEemRKtGpyPV1Jw" elementId="de.cau.cs.kieler.sim.signals.ui.view"/>
+      <toolbar xmi:id="_bu7HMdmuEemRKtGpyPV1Jw" elementId="de.cau.cs.kieler.sim.signals.ui.view" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_99cnMNnIEemRKtGpyPV1Jw" elementId="de.cau.cs.kieler.klighd.ui.view.diagram:1568779278627" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Diagram" iconURI="platform:/plugin/de.cau.cs.kieler.klighd.ui.view/icons/full/etool16/diagrams_view.gif" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewBundle" value="de.cau.cs.kieler.klighd.ui.view"/>
@@ -197,6 +199,18 @@
       </menus>
       <toolbar xmi:id="_-KasM9nIEemRKtGpyPV1Jw" elementId="de.cau.cs.kieler.klighd.ui.view.diagram" visible="false"/>
     </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_DtFx0N2_EemLfJkfBsRbpg" elementId="org.eclipse.search.ui.views.SearchView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Search" iconURI="platform:/plugin/org.eclipse.search/icons/full/eview16/searchres.gif" tooltip="" closeable="true">
+      <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.search"/>
+      <persistedState key="originalCompatibilityViewClass" value="org.eclipse.search2.internal.ui.SearchView"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view isPinned=&quot;false&quot;>&#xD;&#xA;&lt;view IMemento.internal.id=&quot;org.eclipse.xtext.ui.editor.findref.SearchViewPage&quot; org.eclipse.search.lastActivation=&quot;1&quot;/>&#xD;&#xA;&lt;view IMemento.internal.id=&quot;&quot; org.eclipse.search.lastActivation=&quot;0&quot;/>&#xD;&#xA;&lt;/view>"/>
+      <tags>View</tags>
+      <tags>categoryTag:General</tags>
+      <menus xmi:id="_DtTNMN2_EemLfJkfBsRbpg" elementId="org.eclipse.search.ui.views.SearchView">
+        <tags>ViewMenu</tags>
+        <tags>menuContribution:menu</tags>
+      </menus>
+      <toolbar xmi:id="_DtTNMd2_EemLfJkfBsRbpg" elementId="org.eclipse.search.ui.views.SearchView" visible="false"/>
+    </sharedElements>
     <trimBars xmi:id="_1BBt0tN9Eem78piKLZaUDw" elementId="org.eclipse.ui.main.toolbar" contributorURI="platform:/plugin/org.eclipse.ui.workbench">
       <children xsi:type="menu:ToolBar" xmi:id="_1KhoENN9Eem78piKLZaUDw" elementId="group.file" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -204,7 +218,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_1KiPINN9Eem78piKLZaUDw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_ydKAUNzoEem4o74KDO9pUQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_1BRl19N9Eem78piKLZaUDw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_adjZQN28EemLfJkfBsRbpg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_1BRl19N9Eem78piKLZaUDw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_1KiPIdN9Eem78piKLZaUDw" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -228,7 +242,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_1KiPJdN9Eem78piKLZaUDw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_ydLOc9zoEem4o74KDO9pUQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_1BQ-0NN9Eem78piKLZaUDw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_adl1gN28EemLfJkfBsRbpg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_1BQ-0NN9Eem78piKLZaUDw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_1KiPJtN9Eem78piKLZaUDw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -985,7 +999,7 @@
     <tags>View</tags>
     <tags>categoryTag:General</tags>
   </descriptors>
-  <descriptors xmi:id="_1DFjUdN9Eem78piKLZaUDw" elementId="org.eclipse.ui.browser.view" label="Internal Web Browser" iconURI="platform:/plugin/org.eclipse.ui.browser/icons/obj16/internal_browser.png" tooltip="" allowMultiple="true" category="General" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_1DFjUdN9Eem78piKLZaUDw" elementId="org.eclipse.ui.browser.view" label="Internal Web Browser" iconURI="platform:/plugin/org.eclipse.ui.browser/icons/obj16/internal_browser.gif" tooltip="" allowMultiple="true" category="General" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.browser.WebBrowserView"/>
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.ui.browser"/>
     <tags>View</tags>
@@ -1810,7 +1824,7 @@
   <addons xmi:id="_1BBt49N9Eem78piKLZaUDw" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_1BBt5NN9Eem78piKLZaUDw" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_1BEKENN9Eem78piKLZaUDw" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_aNwpwd28EemLfJkfBsRbpg" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_1BOiINN9Eem78piKLZaUDw" elementId="org.eclipse.team.ui.category.team" name="Team" description="Actions that apply when working with a Team"/>
   <categories xmi:id="_1BOiIdN9Eem78piKLZaUDw" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>

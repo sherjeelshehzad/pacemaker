@@ -1,0 +1,44 @@
+/*
+ * pacemaker.h
+ *
+ *  Created on: 22/09/2019
+ *      Author: kevin
+ */
+
+#ifndef PACEMAKER_H_
+#define PACEMAKER_H_
+
+// Functions
+extern void reset();
+extern void tick();
+
+// Inputs
+extern char ASense;
+extern char VSense;
+
+extern volatile char AEIExpired;
+extern volatile char AVIExpired;
+extern volatile char PVARPExpired;
+extern volatile char VRPExpired;
+extern volatile char URIExpired;
+extern volatile char LRIExpired;
+
+//Outputs
+extern volatile char AEIStart;
+extern volatile char AVIStart;
+extern volatile char PVARPStart;
+extern volatile char VRPStart;
+extern volatile char URIStart;
+extern volatile char LRIStart;
+
+extern volatile char AEIStop;
+extern volatile char AVIStop;
+extern volatile char PVARPStop;
+extern volatile char VRPStop;
+extern volatile char URIStop;
+extern volatilechar LRIStop;
+
+extern volatile char APace;
+extern volatilechar VPace;
+
+#endif /* PACEMAKER_H_ */

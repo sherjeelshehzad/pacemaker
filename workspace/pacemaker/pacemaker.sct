@@ -48,31 +48,31 @@ scchart pacemaker {
     region PVARP:
     
    	initial state idle
-    	--> AR_wait with ASense
-		--> AR_wait with APace;
+    	--> AR_wait with VSense
+		--> AR_wait with VPace;
 	connector state AR_wait
 		--> PVARPWait with / PVARPStart;
 	state PVARPWait
 		--> idle with PVARPExpired
-		--> ASenseCheck;
+		--> ASenseCheck with ASense;
 	connector state ASenseCheck
-		--> PVARPWait immediate with ASense;
-
+		--> PVARPWait;
+		
 	/* VRP – Ventricular Refractory Period
 	The time after a ventricular event where any other ventricular events are ignored as
 	Ventricular Refractory (VR) signals */
     region VRP:
 
     initial state idle
-    	--> V_wait with ASense
-		--> V_wait with APace;
+    	--> V_wait with VSense
+		--> V_wait with VPace;
 	connector state V_wait
 		--> VRPWait with / VRPStart;
 	state VRPWait
 		--> idle with VRPExpired
-		--> VSenseCheck;
+		--> VSenseCheck with VSense;
 	connector state VSenseCheck
-		--> VRPWait immediate with VSense;
+		--> VRPWait;
     
 	/* AEI – Atrial Escape Interval
 	The maximum time between a ventricular event and its subsequent atrial event */
@@ -113,6 +113,7 @@ scchart pacemaker {
 		--> LRI_on with VRPExpired;
 	state LRI_on
 		--> resetLRI with VSense / LRIStop
+		--> resetLRI with VPace / LRIStop
 		--> resetLRI with LRIExpired / VPace;
 	state resetLRI
 		--> VRPWait with / LRIStart;
@@ -124,7 +125,8 @@ scchart pacemaker {
     initial state idle
 		--> LRITimer with LRIStart;
 	state LRITimer
-		--> idle with LRIExpired;
+		--> idle with LRIExpired
+		--> idle with LRIStop;
 		
 	/* URI – Upper Rate Interval
 	The fastest rate at which the pacemaker will ever pace the heart at. This is measured
@@ -151,7 +153,8 @@ scchart pacemaker {
     initial state idle
 		--> URITimer with URIStart;
 	state URITimer
-		--> idle with URIExpired;
+		--> idle with URIExpired
+		--> idle with URIStop;
 	
   };
 }

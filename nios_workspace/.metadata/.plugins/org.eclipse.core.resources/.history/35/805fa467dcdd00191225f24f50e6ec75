@@ -1,0 +1,171 @@
+ /*
+ *  Created on: 22/09/2019
+ *      Author: kevin
+ */
+//The main traffic light controller
+#include "main.h"
+
+//checks timer start and stop signals and treats them accordingly
+void timer_check(){
+	//no context needed
+	void* context = 0;
+
+	//start timers if timer start signals are detected
+	if (AEIStart){
+		if (AEITimerStarted == 0){
+			alt_alarm_start(&AEITimer, AEI_VALUE, AEITimerISR, context);
+			AEITimerStarted = 1;
+			printf("AEI Started\r\n");
+		}
+	}
+	if (AVIStart){
+		if (AVITimerStarted == 0){
+			alt_alarm_start(&AVITimer, AVI_VALUE, AVITimerISR, context);
+			AVITimerStarted = 1;
+			printf("AVI Started\r\n");
+		}
+	}
+	if (LRIStart){
+		if (LRITimerStarted == 0){
+			alt_alarm_start(&LRITimer, LRI_VALUE, LRITimerISR, context);
+			LRITimerStarted = 1;
+			printf("LRI Started\r\n");
+		}
+	}
+	if (URIStart){
+		if (URITimerStarted == 0){
+			alt_alarm_start(&URITimer, URI_VALUE, URITimerISR, context);
+			URITimerStarted = 1;
+			printf("URI Started\r\n");
+		}
+	}
+	if (VRPStart){
+		if (VRPTimerStarted == 0){
+			alt_alarm_start(&VRPTimer, VRP_VALUE, VRPTimerISR, context);
+			VRPTimerStarted = 1;
+			printf("VRP Started\r\n");
+		}
+	}
+	if (PVARPStart){
+		if (PVARPTimerStarted == 0){
+			alt_alarm_start(&PVARPTimer, PVARP_VALUE, PVARPTimerISR, context);
+			PVARPTimerStarted = 1;
+			printf("PVARP Started\r\n");
+		}
+	}
+
+	//stop timers if timer stop signals are detected
+	if (AEIStop){
+		if (AEITimerStarted == 1){
+			alt_alarm_stop(&AEITimer);
+			AEITimerStarted = 0;
+			printf("AEi Stopped\r\n");
+		}
+	}
+	if (AVIStop){
+		if (AVITimerStarted == 1){
+			alt_alarm_stop(&AVITimer);
+			AVITimerStarted = 0;
+			printf("AVI Stopped\r\n");
+		}
+	}
+	if (LRIStop){
+		if (LRITimerStarted == 1){
+			alt_alarm_stop(&LRITimer);
+			LRITimerStarted = 0;
+			printf("LRI Stopped\r\n");
+		}
+	}
+	if (URIStop){
+		if (URITimerStarted == 1){
+			alt_alarm_stop(&URITimer);
+			URITimerStarted = 0;
+			printf("URI Stopped\r\n");
+		}
+	}
+	if (VRPStop){
+		if (VRPTimerStarted == 1){
+			alt_alarm_stop(&VRPTimer);
+			VRPTimerStarted = 0;
+			printf("VRP Stopped\r\n");
+		}
+	}
+	if (PVARPStop){
+		if (PVARPTimerStarted == 1){
+			alt_alarm_stop(&PVARPTimer);
+			PVARPTimerStarted = 0;
+			printf("PVARP Stopped\r\n");
+		}
+	}
+}
+
+//handles the outputs VPace and APace
+void SET_output(){
+	//map VPace and APace outputs to LEDs 0 and 1 respectively
+	//also sends APace and VPace over UART
+	void* context = 0;
+	if (APace){
+		IOWR_ALTERA_AVALON_PIO_DATA(LEDS_GREEN_BASE, 0b01);
+		write(uart,'A',1);
+		if (APLEDTimerStarted == 0){
+			alt_alarm_start(&APLEDTimer, LED_TIMEOUT, APLEDTimerISR, context);
+			APLEDTimerStarted = 1;
+			printf("AP LED timer Started\r\n");
+		}
+	}
+	if (VPace){
+		IOWR_ALTERA_AVALON_PIO_DATA(LEDS_GREEN_BASE, 0b10);
+		write(uart,'V',1);
+		if (VPLEDTimerStarted == 0){
+			alt_alarm_start(&VPLEDTimer, LED_TIMEOUT, VPLEDTimerISR, context);
+			VPLEDTimerStarted = 1;
+			printf("VP LED Timer Started\r\n");
+		}
+	}
+}
+//button interrupt function for ASense and VSense
+void button_interrupt(void* context, alt_u32 id) {
+	unsigned int edgeCapture = IORD_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE);
+
+	//check edge capture registers for which button was pressed
+	if (edgeCapture & (1<<0)){
+		VSense = 1;
+		alt_alarm_start(&VSenseTimerReset,BUFFER,VSenseTimerISRReset,0x0);
+		printf("VSense\r\n");
+	}
+	if (edgeCapture & (1<<1)){
+		ASense = 1;
+		alt_alarm_start(&ASenseTimerReset,BUFFER,ASenseTimerISRReset,0x0);
+		printf("ASense\r\n");
+	}
+	//clear edge capture register for next interrupt
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE, 0);
+}
+
+int main(){
+	void* context = 0;
+	//clear edge capture register
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE, 0);
+	//enable interrupts for all buttons
+	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, 0x7);
+	//register the button interrupt ISR
+	alt_irq_register(BUTTONS_IRQ, context, button_interrupt);
+
+	//open non blocking UART
+	uart = open(UART_NAME,(O_NONBLOCK | O_RDWR));
+
+	//reset signals
+	reset();
+
+	while(1){
+		//tick function
+		tick();
+		//check timers for starting or stopping signals
+		timer_check();
+		//map VPace and APace outputs to LEDs 0 and 1 respectively
+		SET_output();
+	}
+
+	close(uart);
+	return 0;
+}
