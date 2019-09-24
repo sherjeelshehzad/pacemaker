@@ -7,17 +7,27 @@
 
 #include "uart.h"
 
+//function to check the UART for inputs
 void checkuart(){
+	//if a byte has been read
 	if (read(uart,byte,1) > 0){
 		if (*byte == 'A'){
-			ASense = 1;//set ASense high
+			ASenseBuffer = 1;//set ASense high
 			printf("ASense UART\n");
-			alt_alarm_start(&ASenseTimerReset,BUFFER,ASenseTimerISRReset,0x0); //set signal low after time buffer
 		}
 		else if (*byte == 'V'){
-			VSense = 1;//set VSense high
+			VSenseBuffer = 1;//set VSense high
 			printf("VSense UART\n");
-			alt_alarm_start(&VSenseTimerReset,BUFFER,VSenseTimerISRReset,0x0); //set signal low after time buffer
 		}
+		else{
+			//reset buffers if invalid data
+			VSenseBuffer = 0;
+			ASenseBuffer = 0;
+		}
+	}
+	else{
+		//reset buffers if nothing read
+		VSenseBuffer = 0;
+		ASenseBuffer = 0;
 	}
 }

@@ -7,7 +7,7 @@ obj/default/main.o: main.c main.h \
  ../pacemaker_bsp/drivers/inc/altera_avalon_pio_regs.h \
  ../pacemaker_bsp/HAL/inc/io.h ../pacemaker_bsp/HAL/inc/alt_types.h \
  ../pacemaker_bsp/HAL/inc/sys/alt_irq.h ../pacemaker_bsp/HAL/inc/nios2.h \
- pacemaker.c pacemaker.h timers.h uart.h
+ pacemakersc.h timers.h uart.h
 
 main.h:
 
@@ -33,9 +33,7 @@ main.h:
 
 ../pacemaker_bsp/HAL/inc/nios2.h:
 
-pacemaker.c:
-
-pacemaker.h:
+pacemakersc.h:
 
 timers.h:
 

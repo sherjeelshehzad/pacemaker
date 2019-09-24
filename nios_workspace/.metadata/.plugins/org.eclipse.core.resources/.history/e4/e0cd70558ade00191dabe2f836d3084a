@@ -1,0 +1,44 @@
+/*
+ * pacemakersc.h
+ *
+ *  Created on: 22/09/2019
+ *      Author: kevin
+ */
+
+#ifndef PACEMAKERSC_H_
+#define PACEMAKERSC_H_
+
+// Functions
+extern void reset();
+externvoid tick();
+
+// Inputs
+extern char ASense;
+extern char VSense;
+
+extern volatile char AEIExpired;
+extern volatile char AVIExpired;
+extern volatile char PVARPExpired;
+extern volatile char VRPExpired;
+extern volatile char URIExpired;
+extern volatile char LRIExpired;
+
+//Outputs
+char AEIStart;
+char AVIStart;
+char PVARPStart;
+char VRPStart;
+char URIStart;
+char LRIStart;
+
+char AEIStop;
+char AVIStop;
+char PVARPStop;
+char VRPStop;
+char URIStop;
+char LRIStop;
+
+char APace;
+char VPace;
+
+#endif /* PACEMAKERSC_H_ */

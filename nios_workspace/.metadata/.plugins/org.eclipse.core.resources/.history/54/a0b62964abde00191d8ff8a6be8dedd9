@@ -1,0 +1,29 @@
+/*
+ * uart.c
+ *
+ *  Created on: 23/09/2019
+ *      Author: sshe325
+ */
+
+#include "uart.h"
+
+void checkuart(){
+	if (read(uart,byte,1) > 0){
+		if (*byte == 'A'){
+			ASenseBuffer = 1;//set ASense high
+			printf("ASense UART\n");
+		}
+		else if (*byte == 'V'){
+			VSenseBuffer = 1;//set VSense high
+			printf("VSense UART\n");
+		}
+		else{
+			VSenseBuffer = 0;
+			ASenseBuffer = 0;
+		}
+	}
+	else{
+		VSenseBuffer = 0;
+		ASenseBuffer = 0;
+	}
+}

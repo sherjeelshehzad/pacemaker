@@ -2,13 +2,58 @@
  *  Created on: 22/09/2019
  *      Author: kevin
  */
-//The main traffic light controller
+//The main pacemaker controller
 #include "main.h"
 
 //checks timer start and stop signals and treats them accordingly
 void timer_check(){
-	//no context needed
+	//no context needed (using globals)
 	void* context = 0;
+
+	//stop timers if timer stop signals are detected
+	if (AEIStop){
+		if (AEITimerStarted == 1){
+			alt_alarm_stop(&AEITimer);
+			AEITimerStarted = 0;
+			printf("AEi Stopped\r\n");
+		}
+	}
+	if (AVIStop){
+		if (AVITimerStarted == 1){
+			alt_alarm_stop(&AVITimer);
+			AVITimerStarted = 0;
+			printf("AVI Stopped\r\n");
+		}
+	}
+	if (LRIStop){
+		printf("LRI Stopped Debug\r\n");
+		if (LRITimerStarted == 1){
+			alt_alarm_stop(&LRITimer);
+			LRITimerStarted = 0;
+			printf("LRI Stopped\r\n");
+		}
+	}
+	if (URIStop){
+		if (URITimerStarted == 1){
+			alt_alarm_stop(&URITimer);
+			URITimerStarted = 0;
+			printf("URI Stopped\r\n");
+		}
+	}
+	if (VRPStop){
+		if (VRPTimerStarted == 1){
+			alt_alarm_stop(&VRPTimer);
+			VRPTimerStarted = 0;
+			printf("VRP Stopped\r\n");
+		}
+	}
+	if (PVARPStop){
+		if (PVARPTimerStarted == 1){
+			alt_alarm_stop(&PVARPTimer);
+			PVARPTimerStarted = 0;
+			printf("PVARP Stopped\r\n");
+		}
+	}
 
 	//start timers if timer start signals are detected
 	if (AEIStart){
@@ -47,54 +92,11 @@ void timer_check(){
 		}
 	}
 	if (PVARPStart){
+		printf("PVARP Debug\r\n");
 		if (PVARPTimerStarted == 0){
 			alt_alarm_start(&PVARPTimer, PVARP_VALUE, PVARPTimerISR, context);
 			PVARPTimerStarted = 1;
 			printf("PVARP Started\r\n");
-		}
-	}
-
-	//stop timers if timer stop signals are detected
-	if (AEIStop){
-		if (AEITimerStarted == 1){
-			alt_alarm_stop(&AEITimer);
-			AEITimerStarted = 0;
-			printf("AEi Stopped\r\n");
-		}
-	}
-	if (AVIStop){
-		if (AVITimerStarted == 1){
-			alt_alarm_stop(&AVITimer);
-			AVITimerStarted = 0;
-			printf("AVI Stopped\r\n");
-		}
-	}
-	if (LRIStop){
-		if (LRITimerStarted == 1){
-			alt_alarm_stop(&LRITimer);
-			LRITimerStarted = 0;
-			printf("LRI Stopped\r\n");
-		}
-	}
-	if (URIStop){
-		if (URITimerStarted == 1){
-			alt_alarm_stop(&URITimer);
-			URITimerStarted = 0;
-			printf("URI Stopped\r\n");
-		}
-	}
-	if (VRPStop){
-		if (VRPTimerStarted == 1){
-			alt_alarm_stop(&VRPTimer);
-			VRPTimerStarted = 0;
-			printf("VRP Stopped\r\n");
-		}
-	}
-	if (PVARPStop){
-		if (PVARPTimerStarted == 1){
-			alt_alarm_stop(&PVARPTimer);
-			PVARPTimerStarted = 0;
-			printf("PVARP Stopped\r\n");
 		}
 	}
 }
@@ -128,15 +130,15 @@ void SET_output(){
 void button_interrupt(void* context, alt_u32 id) {
 	unsigned int edgeCapture = IORD_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE);
 
-	//check edge capture registers for which button was pressed
+	//check edge capture registers for which button was pressed and set flags accordingly
 	if (edgeCapture & (1<<0)){
-		VSense = 1;
-		alt_alarm_start(&VSenseTimerReset,BUFFER,VSenseTimerISRReset,0x0);
+		VSenseBuffer = 1;
+		alt_alarm_start(&VSenseTimerReset,BUFFER,VSenseTimerISRReset,0x0);//reset buffers after a predefined value to prevent persistence through ticks
 		printf("VSense\r\n");
 	}
 	if (edgeCapture & (1<<1)){
-		ASense = 1;
-		alt_alarm_start(&ASenseTimerReset,BUFFER,ASenseTimerISRReset,0x0);
+		ASenseBuffer = 1;
+		alt_alarm_start(&ASenseTimerReset,BUFFER,ASenseTimerISRReset,0x0);//reset buffers after a predefined value to prevent persistence through ticks
 		printf("ASense\r\n");
 	}
 	//clear edge capture register for next interrupt
@@ -154,21 +156,24 @@ int main(){
 	//register the button interrupt ISR
 	alt_irq_register(BUTTONS_IRQ, context, button_interrupt);
 
-	//open non blocking UART
+	//open non blocking read/write UART
 	uart = open(UART_NAME,(O_NONBLOCK | O_RDWR));
 
-	//reset signals
+	//reset/initialise signals
 	reset();
 	while(1){
 		switch_value = IORD_ALTERA_AVALON_PIO_DATA(SWITCHES_BASE);
 		//if UART switch (switch 0) is on, trigger mode 2 inputs via UART
 		if (switch_value & (1<<0)){
-			checkuart();//check UART for inputs
 			IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, 0x0);//turn button interrupts off
+			checkuart();//check UART for inputs (non-blocking)
 		}
 		else{
 			IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, 0x7);//turn button interrupts on
 		}
+		//buffer the button inputs so no changes happen within a tick
+		VSense = VSenseBuffer;
+		ASense = ASenseBuffer;
 		//tick function
 		tick();
 		//check timers for starting or stopping signals
@@ -176,7 +181,6 @@ int main(){
 		//map VPace and APace outputs to LEDs 0 and 1 respectively
 		SET_output();
 	}
-
 	close(uart);
 	return 0;
 }

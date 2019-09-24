@@ -8,6 +8,7 @@
 #include "timers.h"
 
 //these are all mappings for the timers expiring
+//each timer has an expiry flag, and a buffer timer that makes the expiry flag persist for BUFFER ms
 alt_u32 AEITimerISR(void* context){
 	AEIExpired = 1;
 	AEITimerStarted = 0;
@@ -35,7 +36,7 @@ alt_u32 LRITimerISR(void* context){
 alt_u32 URITimerISR(void* context){
 	URIExpired = 1;
 	URITimerStarted = 0;
-	alt_alarm_start(&URITimerReset, BUFFER, URITimerISRReset, 0x0);
+	//alt_alarm_start(&URITimerReset, BUFFER, URITimerISRReset, 0x0);
 	printf("URIExpired\r\n");
 	return 0;
 }
@@ -88,15 +89,16 @@ alt_u32 PVARPTimerISRReset(void* context){
 }
 
 alt_u32 ASenseTimerISRReset(void* context){
-	ASense = 0;
+	ASenseBuffer = 0;
 	return 0;
 }
 
 alt_u32 VSenseTimerISRReset(void* context){
-	VSense = 0;
+	VSenseBuffer = 0;
 	return 0;
 }
 
+//these are the timers for LED persistence (to make them visible to the human eye)
 alt_u32 APLEDTimerISR(void* context){
 	APLEDTimerStarted = 0;
 	IOWR_ALTERA_AVALON_PIO_DATA(LEDS_GREEN_BASE, 0b00); //turn off LEDs

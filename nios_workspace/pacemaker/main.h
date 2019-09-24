@@ -16,27 +16,25 @@
 #include <string.h>
 #include <alt_types.h> //alt_u32 is a kind of alt_type
 #include <sys/alt_irq.h> //to register interrupts
-#include "pacemaker.c"
+#include "pacemakersc.h"
 #include "timers.h"
 #include "uart.h"
 #include <unistd.h>
 
-//buffer variables
-volatile char ASenseBuffer;
-volatile char VSenseBuffer;
+//const char variables to send over UART
 const char charA[2] = "A";
 const char charV[2] = "V";
 
-// Example timeout values in milliseconds
+//Pacemaker timeout values in milliseconds
 #define AVI_VALUE 300
 #define AEI_VALUE 800
 #define PVARP_VALUE 50
 #define VRP_VALUE 150
 #define LRI_VALUE 950
-#define URI_VALUE 900
+#define URI_VALUE 600
 #define LED_TIMEOUT 200
 
-// Functions
+// Functions used in main.c
 void button_interrupt(void* context, alt_u32 id);
 void SET_output();
 void timer_check();

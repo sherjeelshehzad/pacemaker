@@ -1,4 +1,4 @@
-obj/default/uart.o: uart.c uart.h pacemaker.h timers.h \
+obj/default/uart.o: uart.c uart.h pacemakersc.h timers.h \
  ../pacemaker_bsp/system.h ../pacemaker_bsp/linker.h \
  ../pacemaker_bsp/drivers/inc/altera_avalon_pio_regs.h \
  ../pacemaker_bsp/HAL/inc/io.h ../pacemaker_bsp/HAL/inc/alt_types.h \
@@ -9,7 +9,7 @@ obj/default/uart.o: uart.c uart.h pacemaker.h timers.h \
 
 uart.h:
 
-pacemaker.h:
+pacemakersc.h:
 
 timers.h:
 

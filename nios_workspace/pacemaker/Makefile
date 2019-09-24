@@ -145,6 +145,7 @@ ELF := pacemaker.elf
 C_SRCS += main.c
 C_SRCS += timers.c
 C_SRCS += uart.c
+C_SRCS += pacemakersc.c
 CXX_SRCS :=
 ASM_SRCS :=
 

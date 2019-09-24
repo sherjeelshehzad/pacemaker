@@ -11,14 +11,13 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <string.h>
-#include "pacemaker.h"
+#include "pacemakersc.h"
 #include "timers.h"
 
 //define file pointer for UART stream
 FILE* uart;
 //define UART character buffer
 char* byte;
-int buf;
-//define UART function
+//define UART functions
 void checkuart();
 #endif /* UART_H_ */
