@@ -107,7 +107,7 @@ void SET_output(){
 	//also sends APace and VPace over UART
 	void* context = 0;
 	if (APace){
-		IOWR_ALTERA_AVALON_PIO_DATA(LEDS_GREEN_BASE, 0b10);
+		IOWR_ALTERA_AVALON_PIO_DATA(LEDS_GREEN_BASE, 0b01);
 		write(uart,charA,2);
 		if (APLEDTimerStarted == 0){
 			alt_alarm_start(&APLEDTimer, LED_TIMEOUT, APLEDTimerISR, context);
@@ -116,7 +116,7 @@ void SET_output(){
 		}
 	}
 	if (VPace){
-		IOWR_ALTERA_AVALON_PIO_DATA(LEDS_GREEN_BASE, 0b01);
+		IOWR_ALTERA_AVALON_PIO_DATA(LEDS_GREEN_BASE, 0b10);
 		write(uart,charV,2);
 		if (VPLEDTimerStarted == 0){
 			alt_alarm_start(&VPLEDTimer, LED_TIMEOUT, VPLEDTimerISR, context);
