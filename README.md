@@ -1,11 +1,34 @@
 # COMPSYS 303 Assignment 2 Group 26: DDD Mode Pacemaker
 ## Sherjeel Shehzad and Kevin Tang
 
-### How to view SCCharts diagram
+### Description
+
+This is a synchronous implementation of a dual sensing location, dual pacing location, dual pacing mode pacemaker system using the SCCharts language and the NIOS II OS on an Altera DE2 Prototype board. It contains the full implementation of 6 timers that work in tandem to control the operation of the heart, described below.
+
+##### AVI - Atrioventricular Interval
+The maximum time between an atrial event and its subsequent ventricular event.
+
+##### PVARP – Post-Ventricular Atrial Refractory Period
+The time after a ventricular event where anyatrial events are ignored as Atrial Refractory (AR) signals.
+
+##### VRP – Ventricular Refractory Period
+The time after a ventricular event where any other ventricular events are ignored as Ventricular Refractory (VR) signals.
+
+##### AEI – Atrial Escape Interval
+The maximum time between a ventricular event and its subsequent atrial event.
+
+##### LRI – Lower Rate Interval
+The slowest rate at which the heart is allowed to operate. This is measured as the time between ventricular events.
+
+##### URI – Upper Rate Interval
+The fastest rate at which the pacemaker will ever pace the heart at. This is measured as the time between ventricular events.
+
+
+### How to view the SCCharts diagram
 
 * Open Kieler Version 0.12.0 and set the workspace to the folder `workspace`
 
-* The SCCharts diagram should show up by default
+* The SCCharts diagram should then show up by default.
 
 ### How to view the C code and run the DE2 pacemaker 
 
@@ -34,5 +57,3 @@
 * Do not spam KEY0 and/or KEY1 as this is known to cause issues and may crash Nios
 
 * Nios may crash unexpectedly
-
-#### Total time spent on Assignment 2: ~16 hours (mainly debugging)
